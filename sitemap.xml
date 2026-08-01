@@ -1,23 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Página principal -->
   <url>
     <loc>https://blog-informativo.construyendoconocimiento.workers.dev/</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Artículos del blog (15 plantillas) -->
   <url>
-    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla_articulos1.html</loc>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Actualizaciones%20cr%C3%ADticas%20y%20seguridad%20del%20sistema/plantilla_articulos_blog7.html</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla_articulos2.html</loc>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Atajos%20de%20teclado%20y%20trucos%20de%20productividad/plantilla_articulos_blog15.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Copias%20de%20seguridad%20(Backups)%20simplificadas/plantilla_articulos_blog12.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Cuidado%20preventivo%20frente%20a%20accidentes%20y%20transporte/plantilla_articulos_blog8.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Descargas%20seguras%20en%20internet/plantilla_articulos_blog10.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Ergonom%C3%ADa%20y%20salud%20digital/plantilla_articulos2.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Gu%C3%ADa%20Limpieza%20de%20ventiladores/plantilla_articulos_blog2.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Higiene%20digital%20y%20organizaci%C3%B3n%20de%20archivos/plantilla_articulos_blog9.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Impacto%20real%20de%20ampliar%20la%20memoria%20RAM/plantilla_articulos_blog4.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Limpieza%20f%C3%ADsica%20y%20prevenci%C3%B3n%20del%20thermal%20throttling/plantilla_articulos_blog6.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Optimizaci%C3%B3n%20del%20sistema%20y%20cuidado%20de%20la%20bater%C3%ADa/plantilla_articulos_blog5.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing)/plantilla_articulos_blog14.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Redes%20dom%C3%A9sticas%20y%20Wi-Fi/plantilla_articulos_blog11.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Seguridad%20b%C3%A1sica%20y%20Antivirus/plantilla_articulos1.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Tecnolog%C3%ADa%20verde%20y%20E-waste/plantilla_articulos_blog13.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/articuloMantenimiento%20de%20hardware/plantilla_articulos_blog1.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/conceptos%20basicos/plantilla_articulos_blog3.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla-articulo.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla_articulos10.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla_articulos11.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla_articulos12.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla_articulos13.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla_articulos14.html</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla_articulos15.html</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -65,40 +199,9 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla_articulos10.html</loc>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/index.html</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla_articulos11.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla_articulos12.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla_articulos13.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla_articulos14.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/plantilla_articulos15.html</loc>
-    <lastmod>2026-08-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
 </urlset>
