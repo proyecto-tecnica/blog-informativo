@@ -43,33 +43,33 @@
     --font-display: 'Geist', sans-serif;
     --font-label: 'JetBrains Mono', monospace;
 
-    /* Application semantic tokens (Light Mode) */
-    --bg-app: var(--background);
-    --text-app: var(--on-surface);
-    --bg-nav-drawer: var(--surface);
-    --bg-header: var(--surface-lowest);
-    --bg-footer: var(--surface);
-    --bg-input: var(--surface-container-low);
-    --bg-card: var(--surface-container-low);
-    --bg-card-hover: var(--surface-container-highest);
-    --bg-image-placeholder: var(--surface-container);
-    --border-technical: var(--outline-variant);
-    --scrim-bg: rgba(0, 0, 0, 0.4);
+    /* Application semantic tokens (Light Mode) — solicitado #e6f0ff */
+    --bg-app: #e6f0ff;
+    --text-app: #0a192f;
+    --bg-nav-drawer: #e6f0ff;
+    --bg-header: #d6e4ff;
+    --bg-footer: #d6e4ff;
+    --bg-input: #ffffff;
+    --bg-card: #ffffff;
+    --bg-card-hover: #d6e4ff;
+    --bg-image-placeholder: #c9d9ff;
+    --border-technical: #a8c0e8;
+    --scrim-bg: rgba(10, 25, 47, 0.4);
 }
 
-/* Modo oscuro base del sistema operativo, a menos que el usuario lo fuerce a light */
+/* Modo oscuro base del sistema operativo, a menos que el usuario lo fuerce a light — solicitado #0a192f */
 @media (prefers-color-scheme: dark) {
     :root:not(.light) {
-        --bg-app: #121212; 
-        --text-app: #e3e2e2;
-        --bg-nav-drawer: #1e1e1e;
-        --bg-header: #1e1e1e;
-        --bg-footer: #1e1e1e;
-        --bg-input: #2d2d2d;
-        --bg-card: #1e1e1e;
-        --bg-card-hover: #2a2a2a;
-        --bg-image-placeholder: #2d2d2d;
-        --border-technical: #404040;
+        --bg-app: #0a192f; 
+        --text-app: #e6f0ff;
+        --bg-nav-drawer: #0f2342;
+        --bg-header: #0f2342;
+        --bg-footer: #0f2342;
+        --bg-input: #132a4a;
+        --bg-card: #132a4a;
+        --bg-card-hover: #1a3560;
+        --bg-image-placeholder: #1a3560;
+        --border-technical: #1e3a5f;
         --scrim-bg: rgba(0, 0, 0, 0.7);
 
         --surface: #121212;
@@ -85,18 +85,18 @@
     }
 }
 
-/* Forzar modo oscuro si el usuario lo activó manual */
+/* Forzar modo oscuro si el usuario lo activó manual — #0a192f */
 :root.dark {
-    --bg-app: #121212; 
-    --text-app: #e3e2e2;
-    --bg-nav-drawer: #1e1e1e;
-    --bg-header: #1e1e1e;
-    --bg-footer: #1e1e1e;
-    --bg-input: #2d2d2d;
-    --bg-card: #1e1e1e;
-    --bg-card-hover: #2a2a2a;
-    --bg-image-placeholder: #2d2d2d;
-    --border-technical: #404040;
+    --bg-app: #0a192f; 
+    --text-app: #e6f0ff;
+    --bg-nav-drawer: #0f2342;
+    --bg-header: #0f2342;
+    --bg-footer: #0f2342;
+    --bg-input: #132a4a;
+    --bg-card: #132a4a;
+    --bg-card-hover: #1a3560;
+    --bg-image-placeholder: #1a3560;
+    --border-technical: #1e3a5f;
     --scrim-bg: rgba(0, 0, 0, 0.7);
 
     --surface: #121212;
@@ -111,25 +111,25 @@
     --text-dim: #aaaaaa;
 }
 
-/* Forzar modo claro */
+/* Forzar modo claro — #e6f0ff */
 :root.light {
-    --bg-app: var(--background);
-    --text-app: var(--on-surface);
-    --bg-nav-drawer: var(--surface);
-    --bg-header: var(--surface-lowest);
-    --bg-footer: var(--surface);
-    --bg-input: var(--surface-container-low);
-    --bg-card: var(--surface-container-low);
-    --bg-card-hover: var(--surface-container-highest);
-    --bg-image-placeholder: var(--surface-container);
-    --border-technical: var(--outline-variant);
-    --scrim-bg: rgba(0, 0, 0, 0.4);
+    --bg-app: #e6f0ff;
+    --text-app: #0a192f;
+    --bg-nav-drawer: #e6f0ff;
+    --bg-header: #d6e4ff;
+    --bg-footer: #d6e4ff;
+    --bg-input: #ffffff;
+    --bg-card: #ffffff;
+    --bg-card-hover: #d6e4ff;
+    --bg-image-placeholder: #c9d9ff;
+    --border-technical: #a8c0e8;
+    --scrim-bg: rgba(10, 25, 47, 0.4);
 
-    --primary: #000000;
-    --on-surface-variant: #444748;
-    --on-surface: #1b1c1c;
-    --secondary: #055cb9;
-    --text-dim: #858383;
+    --primary: #0a192f;
+    --on-surface-variant: #334155;
+    --on-surface: #0a192f;
+    --secondary: #0a4a9a;
+    --text-dim: #5a6d8a;
 }
 
 /* Base Styles */

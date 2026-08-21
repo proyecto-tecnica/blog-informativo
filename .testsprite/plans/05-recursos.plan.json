@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TestSprite/testsprite-cli/v0.5.0/schemas/plan.schema.json",
+  "projectId": "d324e8bd-8c02-4b4f-b67c-0d218111656d",
+  "type": "frontend",
+  "name": "Los recursos externos y el sitemap del sitio están disponibles",
+  "description": "Las imágenes destacadas de la portada, la hoja de estilos y el script se cargan sin errores 404, y la página de un artículo referencia un logo que existe.",
+  "priority": "p2",
+  "planSteps": [
+    { "type": "action", "description": "Navigate to the homepage" },
+    { "type": "assertion", "description": "The hero image of 'Mantenimiento de hardware' renders without a broken-image icon" },
+    { "type": "assertion", "description": "The list images under ARTÍCULOS RECIENTES render without broken-image icons" },
+    { "type": "action", "description": "Visit the sitemap at /sitemap.xml" },
+    { "type": "assertion", "description": "The sitemap is a valid XML document containing the URL of the homepage" }
+  ]
+}

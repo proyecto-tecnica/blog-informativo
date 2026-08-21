@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TestSprite/testsprite/v0.5.0/schemas/plan.schema.json",
+  "projectId": "d324e8bd-8c02-4b4f-b67c-0d218111656d",
+  "type": "frontend",
+  "name": "Móvil: la plantilla de artículo declara estructura responsive",
+  "description": "La plantilla de un artículo incluye viewport responsivo, imagen destacada que escala al ancho del contenedor y sin desbordamiento horizontal de la página. Verificación estructural independiente del ancho del viewport.",
+  "priority": "p1",
+  "planSteps": [
+    { "type": "action", "description": "Navigate to the Mantenimiento de hardware article page" },
+    { "type": "assertion", "description": "The article page declares a responsive viewport meta tag (name='viewport' with width=device-width)" },
+    { "type": "assertion", "description": "The article shows its heading 'Mantenimiento de hardware' and the same site header with hamburger and theme toggle present in the DOM" },
+    { "type": "assertion", "description": "The featured figure image is constrained to the container width (CSS max-width: 100% / width: 100%) so it never overflows on narrow screens" },
+    { "type": "assertion", "description": "The page root does not force horizontal overflow (no fixed wide layout making the body scroll sideways)" }
+  ]
+}

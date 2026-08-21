@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TestSprite/testsprite/v0.5.0/schemas/plan.schema.json",
+  "projectId": "d324e8bd-8c02-4b4f-b67c-0d218111656d",
+  "type": "frontend",
+  "name": "El og:image de los artículos apunta a una imagen existente",
+  "description": "Cada artículo declara un og:image. Este test comprueba que la URL indicada en el metadato og:image se resuelve a un recurso que responde HTTP 200 y no a un 404. Nota: se espera que falle mientras los artículos referencien /assets/logo.png (que no existe); el logo real vive en /assets/logo/logo.png.",
+  "priority": "p1",
+  "planSteps": [
+    { "type": "action", "description": "Navigate to the Mantenimiento de hardware article page" },
+    { "type": "action", "description": "Read the value of the og:image meta tag on this article page" },
+    { "type": "assertion", "description": "The og:image URL loads with an HTTP 200 response (not a 404), so social media previews get a real image" },
+    { "type": "action", "description": "Navigate to another article page such as Seguridad básica y Antivirus" },
+    { "type": "action", "description": "Read the value of its og:image meta tag" },
+    { "type": "assertion", "description": "Its og:image URL also loads with an HTTP 200 response and is not a broken path" }
+  ]
+}

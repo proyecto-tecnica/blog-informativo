@@ -2,3 +2,6 @@
 .agents/
 .gitignore
 wrangler.jsonc
+.testsprite/
+.vscode/
+google*.html

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TestSprite/testsprite-cli/v0.5.0/schemas/plan.schema.json",
+  "projectId": "d324e8bd-8c02-4b4f-b67c-0d218111656d",
+  "type": "frontend",
+  "name": "El archivo de publicaciones enlaza a todas las plantillas de artículos",
+  "description": "La sección ARCHIVO DE PUBLICACIONES de la portada contiene enlaces a los artículos de seguridad básica y ergonomía que cargan correctamente.",
+  "priority": "p2",
+  "planSteps": [
+    { "type": "action", "description": "Navigate to the homepage" },
+    { "type": "action", "description": "Scroll down to the 'ARCHIVO DE PUBLICACIONES' section" },
+    { "type": "assertion", "description": "The grid contains a card titled 'Seguridad básica y Antivirus'" },
+    { "type": "action", "description": "Click the 'Seguridad básica y Antivirus' card" },
+    { "type": "assertion", "description": "The article page loads showing 'Seguridad básica y Antivirus' as the heading" },
+    { "type": "action", "description": "Go back to the homepage" },
+    { "type": "action", "description": "Click the 'Ergonomía y salud digital' card in the archive grid" },
+    { "type": "assertion", "description": "The article page loads showing 'Ergonomía y salud digital' as the heading" }
+  ]
+}
