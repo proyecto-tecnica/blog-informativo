@@ -1,4 +1,35 @@
 <!DOCTYPE html>
+<!--
+================================================================================
+BLOG INFORMATIVO — index.html — GUÍA RÁPIDA PARA RETOMAR EL PROYECTO
+(No borres este bloque, es tu chuleta)
+
+ESTRUCTURA GENERAL:
+- <head> : SEO, OpenGraph, canonical, fonts (Geist/Inter/JetBrains), style_global.css
+- <body> : drawer (#navDrawer) + scrim (#navScrim) + .page-wrapper
+  - .top-app-bar : barra superior sticky (logo + búsqueda #siteSearch + #themeToggle)
+  - #inicio : hero destacado (card grande)
+  - #articulos : lista de 2 artículos recientes (flex column → row en desktop)
+  - #conceptos : grid 2 col de conceptos clave (cards con arrow_outward)
+  - #archivo : grid archivo de publicaciones (17 originales + 25 artículos nuevos, todos activos)
+  - footer
+
+JS:
+- script/script_index.js : maneja (1) tema claro/oscuro (clases :root.light/:root.dark + localStorage 'theme'), (2) drawer móvil (#menuToggle/#navScrim), (3) buscador funcional (#siteSearch: filtro en vivo, autocompletado, mayúsculas/minúsculas/acentos).
+
+CSS:
+- styles/style_global.css : variables --bg-app, --text-app, --bg-card, etc.
+  - Claro : --bg-app #e6f0ff (celeste claro) — :root.light
+  - Oscuro : --bg-app #0a192f (azul noche) — :root.dark y @media(prefers-color-scheme:dark)
+  - Cambias colores editando esas 3 zonas arriba en el CSS.
+
+LOS 25 ARTÍCULOS NUEVOS:
+- Están activos en #archivo (cards 18-42).
+- Cada uno apunta a articulos/<Titulo>/plantilla_articulos.html
+- No necesitan article-loader.js; usan HTML estático, no config JSON.
+================================================================================
+-->
+
 <html lang="es">
 <head>
     <meta charset="utf-8">
@@ -47,9 +78,11 @@
 <body>
       
     <!-- ===== Scrim (Fondo oscuro semitransparente móvil) ===== -->
+    <!-- NOTA: se activa con .is-visible via JS al abrir drawer móvil. No tocar. -->
     <div id="navScrim" class="nav-scrim"></div>
 
     <!-- ===== Barra lateral (Navigation Drawer) ===== -->
+    <!-- NOTA: nav-drawer 256px fijo. En desktop (>=1024px) siempre visible via CSS. En móvil usa transform translateX. Links #inicio/#articulos/#archivo/#conceptos hacen scroll ancla. -->
     <aside id="navDrawer" class="nav-drawer">
         <div class="nav-drawer-inner">
             <div class="brand">
@@ -79,6 +112,7 @@
     <div class="page-wrapper">
         
         <!-- ===== Header / TopAppBar ===== -->
+        <!-- NOTA: sticky top:0 con border-bottom. Contiene #menuToggle (hamburguesa solo móvil), .search-wrapper (#siteSearch) y #themeToggle (sol/luna). -->
         <header class="top-app-bar">
             <div class="top-app-bar-inner">
                 <div class="mobile-brand">
@@ -91,10 +125,12 @@
 
                 <div class="search-wrapper">
                     <div class="search-input-wrapper">
-                        <span class="material-symbols-outlined search-icon">search</span>
-                        <label class="sr-only" for="siteSearch">Buscar en el blog</label>
-                        <input id="siteSearch" class="search-input" placeholder="Buscar contenido de ejemplo..." type="search" autocomplete="off">
+                        <span class="material-symbols-outlined search-icon" aria-hidden="true">search</span>
+                        <label class="sr-only" for="siteSearch">Buscar artículos</label>
+                        <input id="siteSearch" class="search-input" placeholder="Buscar artículos..." type="search" autocomplete="off" spellcheck="false" autocapitalize="off" autocorrect="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="searchSuggestions" aria-haspopup="listbox">
+                        <ul id="searchSuggestions" class="search-suggestions" role="listbox" hidden></ul>
                     </div>
+                    <p id="searchStatus" class="sr-only" role="status" aria-live="polite"></p>
                 </div>
 
                 <div class="header-actions">
@@ -109,6 +145,7 @@
         <main id="inicio" class="main-content">
 
             <!-- 1. SECCIÓN: ARTÍCULO DESTACADO (Hero) -->
+            <!-- NOTA: .hero-image-wrapper 350px + .hero-content. Cambia src de img y href del LEER ARTÍCULO para destacar otro post. -->
             <section class="section-container">
                 <article class="hero-article card-hover">
                     <div class="hero-image-wrapper technical-border">
@@ -131,6 +168,7 @@
             </section>
 
             <!-- 2. SECCIÓN: ARTÍCULOS RECIENTES (Lista) -->
+            <!-- NOTA: .article-list con 2 .list-article. Añade más copiando el bloque <article class="list-article">. -->
             <section id="articulos" class="section-container border-top-divider pt-large">
                 <h3 class="section-label">ARTÍCULOS RECIENTES</h3>
                 <div class="article-list">
@@ -172,7 +210,8 @@
                 </div>
             </section>
 
-            <!-- 3. NUEVA SECCIÓN: INTERCONEXIÓN DE ARTÍCULOS/CONCEPTOS (Grilla) -->
+            <!-- 3. SECCIÓN: CONCEPTOS RELACIONADOS (Grilla 2 col) -->
+            <!-- NOTA: .concept-grid con 2 .concept-card. Son los que enlazan a RAM y Optimización. Puedes añadir más aquí si quieres destacar alguno de los 25. -->
             <section id="conceptos" class="section-container">
                 <div class="section-header-flex">
                     <h3 class="section-label mb-0">CONCEPTOS RELACIONADOS</h3>
@@ -212,10 +251,12 @@
                 </div>
             </section>
 
-            <!-- SECCIÓN: LISTA DE ARTÍCULOS (LLAMANDO A LA PLANTILLA 15 VECES) -->
+            <!-- SECCIÓN: ARCHIVO DE PUBLICACIONES (Grilla archivo — 17 originales + 25 artículos nuevos, todos activos) -->
+            <!-- NOTA: .concept-grid dentro de #archivo. Cards 1-17 son el archivo original. Cards 18-42 son los 25 artículos nuevos. -->
             <section id="archivo" class="section-container border-top-divider pt-large">
                 <div class="section-header-flex">
                     <h3 class="section-label mb-0">ARCHIVO DE PUBLICACIONES</h3>
+                    <p id="searchCount" class="search-count" hidden></p>
                 </div>
                 
                 <!-- Grilla CSS para alojar los 15 elementos -->
@@ -313,132 +354,133 @@
                         <div><span class="category-text block-mb">SALUD DIGITAL</span><h5 class="concept-title">Ergonomía y salud digital</h5><p class="concept-description">Hábitos para usar la tecnología de forma cómoda y segura.</p></div>
                         <div class="concept-footer"><span class="date-text">Artículo</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 18 — Jhoiner · Herramientas Educativas -->
+                    <!-- 18 — Herramientas Educativas -->
                     <a href="articulos/Laboratorios%20y%20simuladores%20virtuales/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">JHOINER · HERRAMIENTAS EDUCATIVAS</span><h5 class="concept-title">Laboratorios y simuladores virtuales</h5><p class="concept-description">Experimenta sin riesgo con simuladores que reproducen fenómenos científicos de forma interactiva.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Jhoiner</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">HERRAMIENTAS EDUCATIVAS</span><h5 class="concept-title">Laboratorios y simuladores virtuales</h5><p class="concept-description">Experimenta sin riesgo con simuladores que reproducen fenómenos científicos de forma interactiva.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 19 — Jhoiner · Productividad Digital -->
+                    <!-- 19 — Productividad Digital -->
                     <a href="articulos/Reconocimiento%20%C3%93ptico%20de%20Caracteres%20%28OCR%29/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">JHOINER · PRODUCTIVIDAD DIGITAL</span><h5 class="concept-title">Reconocimiento Óptico de Caracteres (OCR)</h5><p class="concept-description">Convierte imágenes y escaneos en texto editable para digitalizar apuntes y guías.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Jhoiner</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">PRODUCTIVIDAD DIGITAL</span><h5 class="concept-title">Reconocimiento Óptico de Caracteres (OCR)</h5><p class="concept-description">Convierte imágenes y escaneos en texto editable para digitalizar apuntes y guías.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 20 — Jhoiner · Gestión de Archivos -->
+                    <!-- 20 — Gestión de Archivos -->
                     <a href="articulos/Compresi%C3%B3n%20de%20archivos%20y%20carpetas%20%28ZIP-RAR%29/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">JHOINER · GESTIÓN DE ARCHIVOS</span><h5 class="concept-title">Compresión de archivos y carpetas (ZIP/RAR)</h5><p class="concept-description">Ahorra espacio y organiza entregas comprimiendo archivos en ZIP y RAR.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Jhoiner</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">GESTIÓN DE ARCHIVOS</span><h5 class="concept-title">Compresión de archivos y carpetas (ZIP/RAR)</h5><p class="concept-description">Ahorra espacio y organiza entregas comprimiendo archivos en ZIP y RAR.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 21 — Jhoiner · Seguridad y Privacidad -->
+                    <!-- 21 — Seguridad y Privacidad -->
                     <a href="articulos/Gesti%C3%B3n%20de%20privacidad%20en%20salas%20de%20inform%C3%A1tica/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">JHOINER · SEGURIDAD Y PRIVACIDAD</span><h5 class="concept-title">Gestión de privacidad en salas de informática</h5><p class="concept-description">Protocolos para proteger datos y privacidad en equipos compartidos.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Jhoiner</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">SEGURIDAD Y PRIVACIDAD</span><h5 class="concept-title">Gestión de privacidad en salas de informática</h5><p class="concept-description">Protocolos para proteger datos y privacidad en equipos compartidos.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 22 — Jhoiner · Ofimática -->
+                    <!-- 22 — Ofimática -->
                     <a href="articulos/Formatos%20de%20exportaci%C3%B3n%20y%20compatibilidad/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">JHOINER · OFIMÁTICA</span><h5 class="concept-title">Formatos de exportación y compatibilidad</h5><p class="concept-description">Elige PDF, DOCX, ODT o CSV según compatibilidad y propósito.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Jhoiner</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">OFIMÁTICA</span><h5 class="concept-title">Formatos de exportación y compatibilidad</h5><p class="concept-description">Elige PDF, DOCX, ODT o CSV según compatibilidad y propósito.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 23 — Merly · Ciudadanía Digital -->
+                    <!-- 23 — Ciudadanía Digital -->
                     <a href="articulos/Huella%20digital%20escolar/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">MERLY · CIUDADANÍA DIGITAL</span><h5 class="concept-title">Huella digital escolar</h5><p class="concept-description">Construye una reputación digital positiva con cada interacción en línea.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Merly</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">CIUDADANÍA DIGITAL</span><h5 class="concept-title">Huella digital escolar</h5><p class="concept-description">Construye una reputación digital positiva con cada interacción en línea.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 24 — Merly · Seguridad Familiar -->
+                    <!-- 24 — Seguridad Familiar -->
                     <a href="articulos/Controles%20parentales%20efectivos/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">MERLY · SEGURIDAD FAMILIAR</span><h5 class="concept-title">Controles parentales efectivos</h5><p class="concept-description">Filtra contenido y gestiona tiempos con diálogo y equilibrio.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Merly</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">SEGURIDAD FAMILIAR</span><h5 class="concept-title">Controles parentales efectivos</h5><p class="concept-description">Filtra contenido y gestiona tiempos con diálogo y equilibrio.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 25 — Merly · Tecnología Inmersiva -->
+                    <!-- 25 — Tecnología Inmersiva -->
                     <a href="articulos/Realidad%20Aumentada%20%28AR%29%20para%20el%20aprendizaje/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">MERLY · TECNOLOGÍA INMERSIVA</span><h5 class="concept-title">Realidad Aumentada (AR) para el aprendizaje</h5><p class="concept-description">Superpone contenido 3D al mundo real para visualizar y comprender mejor.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Merly</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">TECNOLOGÍA INMERSIVA</span><h5 class="concept-title">Realidad Aumentada (AR) para el aprendizaje</h5><p class="concept-description">Superpone contenido 3D al mundo real para visualizar y comprender mejor.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 26 — Merly · Trabajo Colaborativo -->
+                    <!-- 26 — Trabajo Colaborativo -->
                     <a href="articulos/Entornos%20de%20colaboraci%C3%B3n%20en%20la%20nube/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">MERLY · TRABAJO COLABORATIVO</span><h5 class="concept-title">Entornos de colaboración en la nube</h5><p class="concept-description">Edición simultánea, historial y normas para trabajar en equipo en la nube.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Merly</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">TRABAJO COLABORATIVO</span><h5 class="concept-title">Entornos de colaboración en la nube</h5><p class="concept-description">Edición simultánea, historial y normas para trabajar en equipo en la nube.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 27 — Merly · Convivencia Digital -->
+                    <!-- 27 — Convivencia Digital -->
                     <a href="articulos/Prevenci%C3%B3n%20del%20ciberacoso%20%28Cyberbullying%29/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">MERLY · CONVIVENCIA DIGITAL</span><h5 class="concept-title">Prevención del ciberacoso (Cyberbullying)</h5><p class="concept-description">Señales, protocolos y estrategias de empatía frente al ciberacoso.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Merly</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">CONVIVENCIA DIGITAL</span><h5 class="concept-title">Prevención del ciberacoso (Cyberbullying)</h5><p class="concept-description">Señales, protocolos y estrategias de empatía frente al ciberacoso.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 28 — Merly · Inteligencia Artificial -->
+                    <!-- 28 — Inteligencia Artificial -->
                     <a href="articulos/Inteligencia%20Artificial%20como%20tutor%20personal/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">MERLY · INTELIGENCIA ARTIFICIAL</span><h5 class="concept-title">Inteligencia Artificial como tutor personal</h5><p class="concept-description">Personaliza el aprendizaje con IA como tutor 24/7 con pensamiento crítico.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Merly</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">INTELIGENCIA ARTIFICIAL</span><h5 class="concept-title">Inteligencia Artificial como tutor personal</h5><p class="concept-description">Personaliza el aprendizaje con IA como tutor 24/7 con pensamiento crítico.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 29 — Merly · Presentaciones -->
+                    <!-- 29 — Presentaciones -->
                     <a href="articulos/Alternativas%20para%20presentaciones%20din%C3%A1micas/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">MERLY · PRESENTACIONES</span><h5 class="concept-title">Alternativas para presentaciones dinámicas</h5><p class="concept-description">Canva, Prezi y Genially para presentaciones interactivas y memorables.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Merly</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">PRESENTACIONES</span><h5 class="concept-title">Alternativas para presentaciones dinámicas</h5><p class="concept-description">Canva, Prezi y Genially para presentaciones interactivas y memorables.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 30 — Merly · Bienestar Digital -->
+                    <!-- 30 — Bienestar Digital -->
                     <a href="articulos/Gesti%C3%B3n%20de%20distracciones%20digitales/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">MERLY · BIENESTAR DIGITAL</span><h5 class="concept-title">Gestión de distracciones digitales</h5><p class="concept-description">Recupera el enfoque con técnicas contra notificaciones y scroll infinito.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Merly</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">BIENESTAR DIGITAL</span><h5 class="concept-title">Gestión de distracciones digitales</h5><p class="concept-description">Recupera el enfoque con técnicas contra notificaciones y scroll infinito.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 31 — Merly · Pensamiento Computacional -->
+                    <!-- 31 — Pensamiento Computacional -->
                     <a href="articulos/Introducci%C3%B3n%20a%20la%20l%C3%B3gica%20de%20programaci%C3%B3n/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">MERLY · PENSAMIENTO COMPUTACIONAL</span><h5 class="concept-title">Introducción a la lógica de programación</h5><p class="concept-description">Algoritmos, condicionales y bucles explicados sin código complejo.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Merly</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">PENSAMIENTO COMPUTACIONAL</span><h5 class="concept-title">Introducción a la lógica de programación</h5><p class="concept-description">Algoritmos, condicionales y bucles explicados sin código complejo.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 32 — Merly · Privacidad -->
+                    <!-- 32 — Privacidad -->
                     <a href="articulos/Privacidad%20en%20redes%20sociales%20para%20adolescentes/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">MERLY · PRIVACIDAD</span><h5 class="concept-title">Privacidad en redes sociales para adolescentes</h5><p class="concept-description">Configura tu privacidad y evita la sobreexposición en redes sociales.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Merly</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">PRIVACIDAD</span><h5 class="concept-title">Privacidad en redes sociales para adolescentes</h5><p class="concept-description">Configura tu privacidad y evita la sobreexposición en redes sociales.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 33 — Laura · Aula Digital -->
+                    <!-- 33 — Aula Digital -->
                     <a href="articulos/Pizarras%20virtuales%20y%20pantallas%20interactivas/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">LAURA · AULA DIGITAL</span><h5 class="concept-title">Pizarras virtuales y pantallas interactivas</h5><p class="concept-description">Clases participativas con lienzos colaborativos en tiempo real.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Laura</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">AULA DIGITAL</span><h5 class="concept-title">Pizarras virtuales y pantallas interactivas</h5><p class="concept-description">Clases participativas con lienzos colaborativos en tiempo real.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 34 — Laura · Metodologías Activas -->
+                    <!-- 34 — Metodologías Activas -->
                     <a href="articulos/Gamificaci%C3%B3n%20del%20aprendizaje/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">LAURA · METODOLOGÍAS ACTIVAS</span><h5 class="concept-title">Gamificación del aprendizaje</h5><p class="concept-description">Puntos, misiones y rankings para motivar con mecánicas de juego.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Laura</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">METODOLOGÍAS ACTIVAS</span><h5 class="concept-title">Gamificación del aprendizaje</h5><p class="concept-description">Puntos, misiones y rankings para motivar con mecánicas de juego.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 35 — Laura · Evaluación -->
+                    <!-- 35 — Evaluación -->
                     <a href="articulos/Portafolios%20digitales%20estudiantiles/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">LAURA · EVALUACIÓN</span><h5 class="concept-title">Portafolios digitales estudiantiles</h5><p class="concept-description">Evidencia tu proceso y crecimiento más allá del examen.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Laura</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">EVALUACIÓN</span><h5 class="concept-title">Portafolios digitales estudiantiles</h5><p class="concept-description">Evidencia tu proceso y crecimiento más allá del examen.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 36 — Laura · Ciudadanía Digital -->
+                    <!-- 36 — Ciudadanía Digital -->
                     <a href="articulos/Netiqueta%20en%20ecosistemas%20virtuales/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">LAURA · CIUDADANÍA DIGITAL</span><h5 class="concept-title">Netiqueta en ecosistemas virtuales</h5><p class="concept-description">Normas de respeto y claridad para foros, chats y clases virtuales.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Laura</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">CIUDADANÍA DIGITAL</span><h5 class="concept-title">Netiqueta en ecosistemas virtuales</h5><p class="concept-description">Normas de respeto y claridad para foros, chats y clases virtuales.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 37 — Laura · Inclusión -->
+                    <!-- 37 — Inclusión -->
                     <a href="articulos/Accesibilidad%20tecnol%C3%B3gica%20e%20inclusi%C3%B3n/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">LAURA · INCLUSIÓN</span><h5 class="concept-title">Accesibilidad tecnológica e inclusión</h5><p class="concept-description">Diseño universal para que todos participen sin barreras.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Laura</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">INCLUSIÓN</span><h5 class="concept-title">Accesibilidad tecnológica e inclusión</h5><p class="concept-description">Diseño universal para que todos participen sin barreras.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 38 — Laura · Organización del Conocimiento -->
+                    <!-- 38 — Organización del Conocimiento -->
                     <a href="articulos/Mapas%20mentales%20y%20conceptuales%20digitales/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">LAURA · ORGANIZACIÓN DEL CONOCIMIENTO</span><h5 class="concept-title">Mapas mentales y conceptuales digitales</h5><p class="concept-description">Organiza ideas y facilita el estudio con mapas colaborativos.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Laura</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">ORGANIZACIÓN DEL CONOCIMIENTO</span><h5 class="concept-title">Mapas mentales y conceptuales digitales</h5><p class="concept-description">Organiza ideas y facilita el estudio con mapas colaborativos.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 39 — Laura · Medios Digitales -->
+                    <!-- 39 — Medios Digitales -->
                     <a href="articulos/Creaci%C3%B3n%20de%20podcasts%20educativos/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">LAURA · MEDIOS DIGITALES</span><h5 class="concept-title">Creación de podcasts educativos</h5><p class="concept-description">Planifica, graba y publica podcasts con recursos accesibles.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Laura</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">MEDIOS DIGITALES</span><h5 class="concept-title">Creación de podcasts educativos</h5><p class="concept-description">Planifica, graba y publica podcasts con recursos accesibles.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 40 — Laura · Ética Digital -->
+                    <!-- 40 — Ética Digital -->
                     <a href="articulos/Derechos%20de%20autor%20y%20uso%20leg%C3%ADtimo%20de%20medios%20tradicionales/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">LAURA · ÉTICA DIGITAL</span><h5 class="concept-title">Derechos de autor y uso legítimo de medios tradicionales</h5><p class="concept-description">Respeta la autoría y usa contenido ajeno con atribución y criterio.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Laura</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">ÉTICA DIGITAL</span><h5 class="concept-title">Derechos de autor y uso legítimo de medios tradicionales</h5><p class="concept-description">Respeta la autoría y usa contenido ajeno con atribución y criterio.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 41 — Laura · Productividad -->
+                    <!-- 41 — Productividad -->
                     <a href="articulos/Calendarios%20digitales%20y%20gesti%C3%B3n%20del%20tiempo/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">LAURA · PRODUCTIVIDAD</span><h5 class="concept-title">Calendarios digitales y gestión del tiempo</h5><p class="concept-description">Time-blocking y calendarios sincronizados para organizar tu semestre.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Laura</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">PRODUCTIVIDAD</span><h5 class="concept-title">Calendarios digitales y gestión del tiempo</h5><p class="concept-description">Time-blocking y calendarios sincronizados para organizar tu semestre.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 42 — Laura · Ciudadanía Digital -->
+                    <!-- 42 — Ciudadanía Digital -->
                     <a href="articulos/Ciudadan%C3%ADa%20digital%20activa/plantilla_articulos.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">LAURA · CIUDADANÍA DIGITAL</span><h5 class="concept-title">Ciudadanía digital activa</h5><p class="concept-description">Participa con responsabilidad y pensamiento crítico en la sociedad conectada.</p></div>
-                        <div class="concept-footer"><span class="date-text">21 Ago 2026 · Laura</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
+                        <div><span class="category-text block-mb">CIUDADANÍA DIGITAL</span><h5 class="concept-title">Ciudadanía digital activa</h5><p class="concept-description">Participa con responsabilidad y pensamiento crítico en la sociedad conectada.</p></div>
+                        <div class="concept-footer"><span class="date-text">21 Ago 2026</span><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
                 </div>
+                <p id="searchEmpty" class="search-empty" hidden>No hay artículos que coincidan con tu búsqueda.</p>
             </section>
 
         </main>
