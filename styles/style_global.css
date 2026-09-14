@@ -312,14 +312,59 @@ h1, h2, h3 { margin: 0; }
 .read-more-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-label); font-size: 12px; font-weight: 700; color: var(--secondary); margin-top: 8px; transition: gap 0.2s; }
 .card-hover:hover .read-more-link { gap: 16px; }
 
+/* --- ARTÍCULO DESTACADO (Hero y rotación) --- */
+/* Tarjeta principal destacada con soporte de transición suave para la rotación */
+.hero-article {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Estado activo durante la rotación: desvanece suavemente el artículo antes de cambiar su contenido */
+.hero-article.is-rotating {
+    opacity: 0;
+    transform: translateY(4px);
+}
+
+/* --- ARTÍCULOS RECIENTES (Lista y rotación) --- */
+/* Contenedor flexible en columna para los artículos de la sección */
 .article-list { display: flex; flex-direction: column; gap: var(--stack-md); }
-.list-article { display: flex; flex-direction: column; gap: var(--gutter); padding-bottom: var(--stack-md); border-bottom: 1px solid var(--border-technical); }
+
+/* Tarjeta individual de artículo reciente: incluye transición suave para la rotación */
+.list-article { 
+    display: flex; 
+    flex-direction: column; 
+    gap: var(--gutter); 
+    padding-bottom: var(--stack-md); 
+    border-bottom: 1px solid var(--border-technical); 
+    /* Transición suave de opacidad y desplazamiento para el efecto de rotación */
+    transition: opacity 0.35s ease, transform 0.35s ease; 
+}
+
+/* Estado activo durante la rotación: desvanece suavemente la tarjeta antes de cambiar el contenido */
+.list-article.is-rotating { 
+    opacity: 0; 
+    transform: translateY(4px); 
+}
+
+/* El último elemento no lleva borde inferior */
 .list-article:last-child { border-bottom: none; padding-bottom: 0; }
+
+/* Contenedor con tamaño fijo y overflow oculto para la imagen del artículo */
 .list-image-wrapper { width: 100%; height: 200px; background-color: var(--bg-image-placeholder); overflow: hidden; flex-shrink: 0; }
+
+/* Contenedor del texto (categoría, título, descripción) */
 .list-content { display: flex; flex-direction: column; justify-content: center; }
+
+/* Etiqueta de categoría en artículos */
 .category-text { font-family: var(--font-label); font-size: 12px; font-weight: 700; color: var(--secondary); }
+
+/* Si la categoría está vacía, no ocupa espacio ni deja hueco en el layout */
+.category-text:empty { display: none; }
+
+/* Título del artículo con cambio de color al pasar el cursor */
 .list-title { font-family: var(--font-headline-md); font-size: 24px; color: var(--primary); margin: 8px 0; transition: color 0.2s; }
 .card-hover:hover .list-title { color: var(--secondary); }
+
+/* Párrafo descriptivo del artículo */
 .list-description { font-size: 16px; color: var(--on-surface-variant); margin: 0; }
 
 .view-all-link { font-family: var(--font-label); font-size: 12px; color: var(--primary); border-bottom: 1px solid var(--primary); transition: color 0.2s, border-color 0.2s; }

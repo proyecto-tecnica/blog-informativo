@@ -1,8 +1,10 @@
 /* =====================================================================
     SYSTEM_DOCS — Script principal
-    - Buscador: filtro en vivo, autocompletado, mayúsculas/minúsculas/acentos
-    - Toggle de la barra lateral (drawer) en móvil/tablet
-    - Toggle de Modo Oscuro
+    - 1. Modo Oscuro: toggle claro/oscuro y persistencia
+    - 2. Buscador: filtro en vivo, autocompletado, mayúsculas/minúsculas/acentos
+    - 3. Barra lateral (drawer): navegación en móvil/tablet
+    - 4. Artículos recientes: rotación periódica automática (Vanilla JS)
+    - 5. Artículo destacado (Hero): rotación periódica automática sin fecha (Vanilla JS)
     ===================================================================== */
 
 (function () {
@@ -205,8 +207,26 @@
             escapeHtml(text.slice(origEnd));
     }
 
+    let entries = [];
+
+    function updateSearchEntry(el, title, category, description, href) {
+        if (!entries || !entries.length) return;
+        for (let i = 0; i < entries.length; i++) {
+            if (entries[i].el === el) {
+                entries[i].title = title;
+                entries[i].category = category || '';
+                entries[i].description = description || '';
+                entries[i].href = href || '';
+                const haystack = title + ' ' + (category || '') + ' ' + (description || '');
+                entries[i].folded = fold(haystack);
+                entries[i].compact = compact(haystack);
+                break;
+            }
+        }
+    }
+
     if (searchInput && searchWrapper && suggestionsList) {
-        const entries = collectEntries();
+        entries = collectEntries();
         const catalog = uniqueCatalog(entries);
         let activeIndex = -1;
         let currentMatches = [];
@@ -533,6 +553,485 @@
                     closeDrawer();
                 }
             }, 150);
+        });
+    }
+
+    /* ----------------------------------------------------------------
+        4. ROTACIÓN PERIÓDICA DE ARTÍCULOS RECIENTES (JS PURO VANILLA)
+        ----------------------------------------------------------------
+        Este módulo gestiona la rotación automática y suave de los artículos
+        en la sección "ARTÍCULOS RECIENTES" (#articulos):
+        
+        - Rota cada intervalo de tiempo (6000 ms = 6 segundos).
+        - Aplica una transición suave de opacidad (fade out/in vía CSS .is-rotating).
+        - Elimina cualquier elemento de fecha (.date-text).
+        - Muestra la categoría sólo si existe; si no hay (o es placeholder),
+          el contenedor de categoría (.category-text) queda completamente en blanco.
+        - Pausa la rotación cuando el usuario pasa el mouse (mouseenter) o
+          hace foco con el teclado (focusin) para facilitar la lectura.
+        - Reanuda la rotación automáticamente al salir del elemento.
+        - Pausa la rotación si el buscador está activo para no alterar la búsqueda.
+        - Sincroniza el catálogo del buscador para que las coincidencias sean precisas.
+        ---------------------------------------------------------------- */
+    const recentArticlesSection = document.getElementById('articulos');
+
+    if (recentArticlesSection) {
+        // Obtenemos los dos elementos <article class="list-article"> existentes en el DOM
+        const articleElements = recentArticlesSection.querySelectorAll('.list-article');
+
+        // Colección de artículos con imágenes y datos reales del blog para la rotación
+        const recentArticlesPool = [
+            {
+                title: 'Limpieza de ventiladores',
+                href: 'articulos/Gu%C3%ADa%20Limpieza%20de%20ventiladores/plantilla_articulos_blog2.html',
+                image: 'articulos/Guía Limpieza de ventiladores/src/03-internal-cleaning.jpg',
+                alt: 'Imagen artículo Limpieza de ventiladores',
+                category: '', // En blanco (sin categoría)
+                description: 'Breve descripción de este artículo secundario. Ocupa un par de líneas para dar contexto sobre el tema a tratar.'
+            },
+            {
+                title: 'Conceptos básicos',
+                href: 'articulos/conceptos%20basicos/plantilla_articulos_blog3.html',
+                image: 'articulos/conceptos basicos/src/01-hero-computer.jpg',
+                alt: 'Imagen artículo Conceptos Básicos',
+                category: '', // En blanco (sin categoría)
+                description: 'Breve descripción de este artículo secundario. Ocupa un par de líneas para dar contexto sobre el tema a tratar.'
+            },
+            {
+                title: 'Laboratorios y simuladores virtuales',
+                href: 'articulos/Laboratorios%20y%20simuladores%20virtuales/plantilla_articulos.html',
+                image: 'articulos/Laboratorios y simuladores virtuales/src/laboratorio-virtual-simulacion-de-reaccion-quimica.webp',
+                alt: 'Imagen artículo Laboratorios y simuladores virtuales',
+                category: 'HERRAMIENTAS EDUCATIVAS', // Con categoría
+                description: 'Experimenta sin riesgo con simuladores que reproducen fenómenos científicos de forma interactiva.'
+            },
+            {
+                title: 'Reconocimiento Óptico de Caracteres (OCR)',
+                href: 'articulos/Reconocimiento%20%C3%93ptico%20de%20Caracteres%20%28OCR%29/plantilla_articulos.html',
+                image: 'articulos/Reconocimiento Óptico de Caracteres (OCR)/src/ocr-conversion-de-apuntes-a-texto-digital.webp',
+                alt: 'Imagen artículo Reconocimiento Óptico de Caracteres (OCR)',
+                category: 'PRODUCTIVIDAD DIGITAL', // Con categoría
+                description: 'Convierte imágenes y escaneos en texto editable para digitalizar apuntes y guías.'
+            },
+            {
+                title: 'Seguridad básica y Antivirus',
+                href: 'articulos/Seguridad%20b%C3%A1sica%20y%20Antivirus/plantilla_articulos1.html',
+                image: 'articulos/Seguridad básica y Antivirus/src/01-hero-antivirus.png',
+                alt: 'Imagen artículo Seguridad básica y Antivirus',
+                category: 'SEGURIDAD', // Con categoría
+                description: 'Recomendaciones para proteger el equipo y la información.'
+            },
+            {
+                title: 'Ergonomía y salud digital',
+                href: 'articulos/Ergonom%C3%ADa%20y%20salud%20digital/plantilla_articulos2.html',
+                image: 'articulos/Ergonomía y salud digital/src/01-hero-ergonomics.png',
+                alt: 'Imagen artículo Ergonomía y salud digital',
+                category: 'SALUD DIGITAL', // Con categoría
+                description: 'Hábitos para usar la tecnología de forma cómoda y segura.'
+            },
+            {
+                title: 'Compresión de archivos y carpetas (ZIP/RAR)',
+                href: 'articulos/Compresi%C3%B3n%20de%20archivos%20y%20carpetas%20%28ZIP-RAR%29/plantilla_articulos.html',
+                image: 'articulos/Compresión de archivos y carpetas (ZIP-RAR)/src/compresion-de-archivos-y-carpetas-zip-rar-pasos.webp',
+                alt: 'Imagen artículo Compresión de archivos y carpetas',
+                category: 'GESTIÓN DE ARCHIVOS', // Con categoría
+                description: 'Ahorra espacio y organiza entregas comprimiendo archivos en ZIP y RAR.'
+            },
+            {
+                title: 'Limpieza física y prevención del thermal throttling',
+                href: 'articulos/Limpieza%20f%C3%ADsica%20y%20prevenci%C3%B3n%20del%20thermal%20throttling/plantilla_articulos_blog6.html',
+                image: 'articulos/Limpieza física y prevención del thermal throttling/src/01-hero-thermal.jpg',
+                alt: 'Imagen artículo Limpieza física y thermal throttling',
+                category: '', // En blanco (sin categoría)
+                description: 'Sin contenido, solo estructura.'
+            },
+            {
+                title: 'Realidad Aumentada (AR) para el aprendizaje',
+                href: 'articulos/Realidad%20Aumentada%20%28AR%29%20para%20el%20aprendizaje/plantilla_articulos.html',
+                image: 'articulos/Realidad Aumentada (AR) para el aprendizaje/src/realidad-aumentada-aprendizaje-3d-con-modelos-de-ciencia.webp',
+                alt: 'Imagen artículo Realidad Aumentada (AR)',
+                category: 'TECNOLOGÍA INMERSIVA', // Con categoría
+                description: 'Superpone contenido 3D al mundo real para visualizar y comprender mejor.'
+            },
+            {
+                title: 'Huella digital escolar',
+                href: 'articulos/Huella%20digital%20escolar/plantilla_articulos.html',
+                image: 'articulos/Huella digital escolar/src/huella-digital-escolar-internet-con-respeto-y-seguridad.webp',
+                alt: 'Imagen artículo Huella digital escolar',
+                category: 'CIUDADANÍA DIGITAL', // Con categoría
+                description: 'Construye una reputación digital positiva con cada interacción en línea.'
+            },
+            {
+                title: 'Redes domésticas y Wi-Fi',
+                href: 'articulos/Redes%20dom%C3%A9sticas%20y%20Wi-Fi/plantilla_articulos_blog11.html',
+                image: 'articulos/Redes domésticas y Wi-Fi/src/01-hero-wifi.png',
+                alt: 'Imagen artículo Redes domésticas y Wi-Fi',
+                category: '', // En blanco (sin categoría)
+                description: 'Sin contenido, solo estructura.'
+            },
+            {
+                title: 'Protección contra estafas en línea (Phishing)',
+                href: 'articulos/Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing)/plantilla_articulos_blog14.html',
+                image: 'articulos/Protección contra estafas en línea (Phishing)/src/01-hero-phishing.png',
+                alt: 'Imagen artículo Phishing',
+                category: '', // En blanco (sin categoría)
+                description: 'Sin contenido, solo estructura.'
+            }
+        ];
+
+        // Solo inicializar si hay al menos 2 elementos en la página
+        if (articleElements.length >= 2) {
+            const ROTATION_INTERVAL = 6000; // Intervalo de 6 segundos entre cada rotación
+            let currentPairIndex = 0;        // Índice del par actual (0, 1, 2, 3...)
+            let timerId = null;              // Referencia al temporizador setInterval
+            let isUserInteracting = false;   // Estado para pausar si el usuario interactúa
+
+            const totalPairs = Math.floor(recentArticlesPool.length / 2);
+
+            /**
+             * Actualiza el contenido visual de un elemento de artículo con los nuevos datos.
+             * @param {HTMLElement} cardEl - Elemento <article class="list-article">.
+             * @param {Object} data - Objeto con los datos del artículo (título, imagen, etc.).
+             */
+            function updateCardContent(cardEl, data) {
+                if (!cardEl || !data) return;
+
+                // 1. Actualizar imagen y texto alternativo
+                const img = cardEl.querySelector('.list-image');
+                if (img) {
+                    img.src = data.image;
+                    img.alt = data.alt || ('Imagen artículo ' + data.title);
+                }
+
+                // 2. Gestionar la categoría:
+                // Si existe y no es placeholder, la muestra; de lo contrario queda en blanco.
+                const catEl = cardEl.querySelector('.category-text');
+                if (catEl) {
+                    const cat = (data.category || '').trim();
+                    const isPlaceholder = cat.toUpperCase().includes('PLACEHOLDER');
+                    catEl.textContent = (!cat || isPlaceholder) ? '' : cat;
+                }
+
+                // 3. Eliminar cualquier elemento de fecha para asegurar que no se muestre
+                const dateEl = cardEl.querySelector('.date-text');
+                if (dateEl) {
+                    dateEl.remove();
+                }
+
+                // 4. Actualizar el enlace y el título del artículo
+                const linkEl = cardEl.querySelector('.list-title a');
+                if (linkEl) {
+                    linkEl.href = data.href;
+                    linkEl.textContent = data.title;
+                }
+
+                // 5. Actualizar la descripción del artículo
+                const descEl = cardEl.querySelector('.list-description');
+                if (descEl) {
+                    descEl.textContent = data.description;
+                }
+
+                // 6. Sincronizar el catálogo en memoria del buscador para coherencia en filtros
+                updateSearchEntry(cardEl, data.title, data.category, data.description, data.href);
+            }
+
+            /**
+             * Muestra un par de artículos dado su índice, opcionalmente con animación de fade.
+             * @param {number} pairIdx - Índice del par a mostrar.
+             * @param {boolean} animate - Si true, ejecuta una transición suave de opacidad.
+             */
+            function showPair(pairIdx, animate) {
+                const idxA = (pairIdx * 2) % recentArticlesPool.length;
+                const idxB = (pairIdx * 2 + 1) % recentArticlesPool.length;
+                const dataA = recentArticlesPool[idxA];
+                const dataB = recentArticlesPool[idxB];
+
+                if (animate) {
+                    // Fase 1: Desvanecer (fade out) mediante clase CSS .is-rotating
+                    for (let i = 0; i < articleElements.length; i++) {
+                        articleElements[i].classList.add('is-rotating');
+                    }
+
+                    // Fase 2: Tras 350ms (fin del fade out), actualizar contenido y hacer fade in
+                    setTimeout(function () {
+                        updateCardContent(articleElements[0], dataA);
+                        updateCardContent(articleElements[1], dataB);
+
+                        for (let i = 0; i < articleElements.length; i++) {
+                            articleElements[i].classList.remove('is-rotating');
+                        }
+                    }, 350);
+                } else {
+                    // Sin animación (por ejemplo, en la carga inicial de la página)
+                    updateCardContent(articleElements[0], dataA);
+                    updateCardContent(articleElements[1], dataB);
+                }
+            }
+
+            /**
+             * Avanza al siguiente par de artículos cíclicamente.
+             */
+            function advanceToNextPair() {
+                // Si el usuario tiene una búsqueda activa en el input, no rotamos
+                if (searchInput && searchInput.value.trim().length > 0) return;
+                // Si el usuario tiene el mouse encima o el foco activo, no rotamos
+                if (isUserInteracting) return;
+
+                currentPairIndex = (currentPairIndex + 1) % totalPairs;
+                showPair(currentPairIndex, true);
+            }
+
+            /**
+             * Inicia o reinicia el temporizador de rotación periódica.
+             */
+            function startRotationTimer() {
+                stopRotationTimer();
+                timerId = setInterval(advanceToNextPair, ROTATION_INTERVAL);
+            }
+
+            /**
+             * Detiene el temporizador de rotación periódica.
+             */
+            function stopRotationTimer() {
+                if (timerId) {
+                    clearInterval(timerId);
+                    timerId = null;
+                }
+            }
+
+            // Aplicar renderizado inicial para limpiar fechas y categorías de inmediato
+            showPair(0, false);
+            startRotationTimer();
+
+            // --- Control de interacción para accesibilidad y usabilidad ---
+            // Al pasar el mouse por la sección de artículos, pausar el carrusel
+            recentArticlesSection.addEventListener('mouseenter', function () {
+                isUserInteracting = true;
+                stopRotationTimer();
+            });
+
+            // Al retirar el mouse de la sección, reanudar el carrusel
+            recentArticlesSection.addEventListener('mouseleave', function () {
+                isUserInteracting = false;
+                startRotationTimer();
+            });
+
+            // Al hacer foco con el teclado (accesibilidad por tabulación), pausar
+            recentArticlesSection.addEventListener('focusin', function () {
+                isUserInteracting = true;
+                stopRotationTimer();
+            });
+
+            // Al perder el foco de los elementos dentro de la sección, reanudar
+            recentArticlesSection.addEventListener('focusout', function (e) {
+                if (!recentArticlesSection.contains(e.relatedTarget)) {
+                    isUserInteracting = false;
+                    startRotationTimer();
+                }
+            });
+
+            // Si el usuario cambia de pestaña en el navegador, detener el timer para ahorrar recursos
+            document.addEventListener('visibilitychange', function () {
+                if (document.hidden) {
+                    stopRotationTimer();
+                } else if (!isUserInteracting) {
+                    startRotationTimer();
+                }
+            });
+        }
+    }
+
+    /* ----------------------------------------------------------------
+        5. ROTACIÓN PERIÓDICA DE ARTÍCULO DESTACADO (HERO - JS PURO VANILLA)
+        ----------------------------------------------------------------
+        Este módulo gestiona la rotación automática y suave del artículo
+        principal destacado (.hero-article) ubicado en la sección #inicio:
+
+        - Rota cada intervalo de tiempo (8000 ms = 8 segundos).
+        - Desvanecimiento suave mediante CSS (clase .hero-article.is-rotating).
+        - No muestra fecha: elimina cualquier elemento .date-text.
+        - Mantiene la etiqueta "DESTACADO" visible.
+        - Pausa cuando el usuario interactúa (hover o focus).
+        - Pausa si hay una búsqueda activa en el buscador.
+        - Sincroniza la entrada del artículo con el buscador.
+        ---------------------------------------------------------------- */
+    const heroArticle = document.querySelector('.hero-article');
+
+    if (heroArticle) {
+        // Colección de artículos destacados con datos reales del blog para la rotación del Hero
+        const heroArticlesPool = [
+            {
+                title: 'Mantenimiento de hardware',
+                href: 'articulos/articuloMantenimiento%20de%20hardware/plantilla_articulos_blog1.html',
+                image: 'articulos/articuloMantenimiento de hardware/src/01-hero-disk-fragmentation.jpg',
+                alt: 'Imagen destacada Mantenimiento de Hardware',
+                description: 'Un párrafo introductorio de ejemplo para el artículo destacado. Aquí se explica brevemente de qué trata el contenido principal para enganchar al lector.'
+            },
+            {
+                title: 'Seguridad básica y Antivirus',
+                href: 'articulos/Seguridad%20b%C3%A1sica%20y%20Antivirus/plantilla_articulos1.html',
+                image: 'articulos/Seguridad básica y Antivirus/src/01-hero-antivirus.png',
+                alt: 'Imagen destacada Seguridad básica y Antivirus',
+                description: 'Recomendaciones fundamentales para proteger tu equipo y tu información frente a amenazas digitales y virus.'
+            },
+            {
+                title: 'Ergonomía y salud digital',
+                href: 'articulos/Ergonom%C3%ADa%20y%20salud%20digital/plantilla_articulos2.html',
+                image: 'articulos/Ergonomía y salud digital/src/01-hero-ergonomics.png',
+                alt: 'Imagen destacada Ergonomía y salud digital',
+                description: 'Hábitos posturales y pausas activas para usar la tecnología de forma cómoda, saludable y segura en el día a día.'
+            },
+            {
+                title: 'Redes domésticas y Wi-Fi',
+                href: 'articulos/Redes%20dom%C3%A9sticas%20y%20Wi-Fi/plantilla_articulos_blog11.html',
+                image: 'articulos/Redes domésticas y Wi-Fi/src/01-hero-wifi.png',
+                alt: 'Imagen destacada Redes domésticas y Wi-Fi',
+                description: 'Ajustes clave y recomendaciones prácticas de configuración para optimizar la velocidad y seguridad de tu red Wi-Fi.'
+            },
+            {
+                title: 'Inteligencia Artificial como tutor personal',
+                href: 'articulos/Inteligencia%20Artificial%20como%20tutor%20personal/plantilla_articulos.html',
+                image: 'articulos/Inteligencia Artificial como tutor personal/src/comparacion-de-asistentes-de-ia-para-computacion.webp',
+                alt: 'Imagen destacada Inteligencia Artificial como tutor personal',
+                description: 'Personaliza tu aprendizaje aprovechando herramientas de inteligencia artificial como guía educativa interactiva.'
+            },
+            {
+                title: 'Impacto real de ampliar la memoria RAM',
+                href: 'articulos/Impacto%20real%20de%20ampliar%20la%20memoria%20RAM/plantilla_articulos_blog4.html',
+                image: 'articulos/Impacto real de ampliar la memoria RAM/src/01-hero-ram-upgrade.jpg',
+                alt: 'Imagen destacada Impacto real de ampliar la memoria RAM',
+                description: 'Descubre cómo influye el aumento de memoria RAM en el rendimiento multitarea y la fluidez del equipo.'
+            }
+        ];
+
+        const HERO_ROTATION_INTERVAL = 8000; // 8 segundos
+        let currentHeroIndex = 0;
+        let heroTimerId = null;
+        let isHeroInteracting = false;
+
+        /**
+         * Actualiza el contenido visual del artículo destacado (Hero).
+         * @param {Object} data - Datos del artículo a mostrar.
+         */
+        function updateHeroContent(data) {
+            if (!data) return;
+
+            // 1. Actualizar imagen del Hero
+            const img = heroArticle.querySelector('.hero-image');
+            if (img) {
+                img.src = data.image;
+                img.alt = data.alt || ('Imagen destacada ' + data.title);
+            }
+
+            // 2. Asegurar que no haya fecha en los metadatos del Hero
+            const dateEl = heroArticle.querySelector('.date-text');
+            if (dateEl) {
+                dateEl.remove();
+            }
+
+            // 3. Actualizar el título
+            const titleEl = heroArticle.querySelector('.hero-title');
+            if (titleEl) {
+                titleEl.textContent = data.title;
+            }
+
+            // 4. Actualizar la descripción
+            const descEl = heroArticle.querySelector('.hero-description');
+            if (descEl) {
+                descEl.textContent = data.description;
+            }
+
+            // 5. Actualizar el enlace "LEER ARTÍCULO"
+            const linkEl = heroArticle.querySelector('.read-more-link');
+            if (linkEl) {
+                linkEl.href = data.href;
+            }
+
+            // 6. Sincronizar en memoria con el buscador
+            updateSearchEntry(heroArticle, data.title, 'DESTACADO', data.description, data.href);
+        }
+
+        /**
+         * Muestra el artículo destacado correspondiente al índice dado con transición opcional.
+         * @param {number} idx - Índice del artículo en el pool.
+         * @param {boolean} animate - Si true, ejecuta fade out / fade in.
+         */
+        function showHeroArticle(idx, animate) {
+            const data = heroArticlesPool[idx % heroArticlesPool.length];
+
+            if (animate) {
+                // Fase 1: Desvanecer suavemente
+                heroArticle.classList.add('is-rotating');
+
+                // Fase 2: Tras 350ms, cambiar contenido y reaparecer suavemente
+                setTimeout(function () {
+                    updateHeroContent(data);
+                    heroArticle.classList.remove('is-rotating');
+                }, 350);
+            } else {
+                updateHeroContent(data);
+            }
+        }
+
+        /**
+         * Avanza al siguiente artículo destacado de forma cíclica.
+         */
+        function advanceHero() {
+            // No rotar si el buscador está activo o si el usuario está interactuando
+            if (searchInput && searchInput.value.trim().length > 0) return;
+            if (isHeroInteracting) return;
+
+            currentHeroIndex = (currentHeroIndex + 1) % heroArticlesPool.length;
+            showHeroArticle(currentHeroIndex, true);
+        }
+
+        function startHeroTimer() {
+            stopHeroTimer();
+            heroTimerId = setInterval(advanceHero, HERO_ROTATION_INTERVAL);
+        }
+
+        function stopHeroTimer() {
+            if (heroTimerId) {
+                clearInterval(heroTimerId);
+                heroTimerId = null;
+            }
+        }
+
+        // Render inicial para garantizar limpieza de fecha
+        showHeroArticle(0, false);
+        startHeroTimer();
+
+        // Control de interacción: pausar al pasar el cursor
+        heroArticle.addEventListener('mouseenter', function () {
+            isHeroInteracting = true;
+            stopHeroTimer();
+        });
+
+        heroArticle.addEventListener('mouseleave', function () {
+            isHeroInteracting = false;
+            startHeroTimer();
+        });
+
+        // Pausar al hacer foco por teclado
+        heroArticle.addEventListener('focusin', function () {
+            isHeroInteracting = true;
+            stopHeroTimer();
+        });
+
+        heroArticle.addEventListener('focusout', function (e) {
+            if (!heroArticle.contains(e.relatedTarget)) {
+                isHeroInteracting = false;
+                startHeroTimer();
+            }
+        });
+
+        // Pausar si la pestaña se oculta
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) {
+                stopHeroTimer();
+            } else if (!isHeroInteracting) {
+                startHeroTimer();
+            }
         });
     }
 })();
