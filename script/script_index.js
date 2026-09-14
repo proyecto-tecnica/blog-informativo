@@ -231,10 +231,19 @@
         let activeIndex = -1;
         let currentMatches = [];
 
+        /**
+         * Actualiza el estado accesible del buscador en el elemento ARIA live region (searchStatus),
+         * permitiendo que los lectores de pantalla anuncien el número de coincidencias al usuario.
+         * @param {string} message - Mensaje a comunicar en el lector de pantalla.
+         */
         function setStatus(message) {
             if (searchStatus) searchStatus.textContent = message;
         }
 
+        /**
+         * Cierra y limpia el menú flotante de sugerencias predictivas.
+         * Oculta el contenedor, resetea el índice activo y sincroniza los atributos ARIA del input.
+         */
         function closeSuggestions() {
             suggestionsList.hidden = true;
             suggestionsList.innerHTML = '';
@@ -243,6 +252,12 @@
             activeIndex = -1;
         }
 
+        /**
+         * Marca visualmente y mediante atributos de accesibilidad la sugerencia activa en la lista.
+         * Soporta navegación cíclica con teclado (flechas arriba y abajo) y realiza scroll automático
+         * para mantener el elemento visible en caso de desbordamiento.
+         * @param {number} index - Índice numérico de la opción a activar.
+         */
         function setActive(index) {
             const options = suggestionsList.querySelectorAll('[role="option"]');
             if (!options.length) {
@@ -250,9 +265,12 @@
                 searchInput.setAttribute('aria-activedescendant', '');
                 return;
             }
+            // Navegación cíclica si se llega al extremo superior o inferior
             if (index < 0) index = options.length - 1;
             if (index >= options.length) index = 0;
             activeIndex = index;
+
+            // Actualizar clases y atributos aria-selected en cada opción
             for (let i = 0; i < options.length; i++) {
                 const on = i === activeIndex;
                 options[i].classList.toggle('is-active', on);
@@ -265,17 +283,31 @@
             }
         }
 
+        /**
+         * Redirige al usuario hacia el enlace del artículo seleccionado.
+         * @param {Object} item - Objeto del artículo que contiene la propiedad href.
+         */
         function goTo(item) {
             if (item && item.href) {
                 window.location.href = item.href;
             }
         }
 
+        /**
+         * Aplica el filtrado reactivo en tiempo real sobre las publicaciones del DOM.
+         * - Evalúa coincidencias de texto ignorando acentos y mayúsculas.
+         * - Añade o retira la clase .is-search-hidden en cada tarjeta de artículo.
+         * - Oculta secciones completas si ninguna de sus tarjetas coincide con la consulta.
+         * - Controla la visibilidad del mensaje de archivo vacío (#searchEmpty) y el contador (#searchCount).
+         * @param {string} query - Cadena de texto ingresada por el usuario en el buscador.
+         * @returns {number} Cantidad total de artículos únicos visibles encontrados.
+         */
         function applyFilter(query) {
             const q = query.trim();
             let visible = 0;
             const seenHref = Object.create(null);
 
+            // 1. Filtrar cada tarjeta individual registrada en el catálogo
             for (let i = 0; i < entries.length; i++) {
                 const item = entries[i];
                 const match = matchesQuery(item, q);
@@ -288,10 +320,11 @@
                 }
             }
 
+            // 2. Ocultar secciones completas (Hero, Artículos Recientes, Conceptos) si no tienen coincidencias
             const sections = document.querySelectorAll('.section-container');
             for (let s = 0; s < sections.length; s++) {
                 const section = sections[s];
-                if (section.id === 'archivo') continue;
+                if (section.id === 'archivo') continue; // El archivo se gestiona con su propia grilla
                 const items = section.querySelectorAll('.hero-article, .list-article, .concept-card');
                 if (!items.length) continue;
                 let any = false;
@@ -304,6 +337,7 @@
                 section.classList.toggle('is-search-hidden', Boolean(q) && !any);
             }
 
+            // 3. Gestionar la cuadrícula del archivo de publicaciones
             const archivo = document.getElementById('archivo');
             const archivoGrid = archivo ? archivo.querySelector('.concept-grid') : null;
             let archivoVisible = 0;
@@ -314,9 +348,13 @@
                 }
                 archivoGrid.classList.toggle('is-search-hidden', Boolean(q) && archivoVisible === 0);
             }
+
+            // 4. Mostrar u ocultar mensaje de "No hay artículos que coincidan"
             if (searchEmpty) {
                 searchEmpty.hidden = !(q && archivoVisible === 0);
             }
+
+            // 5. Actualizar el indicador visual de cantidad de coincidencias
             if (searchCount) {
                 if (q) {
                     searchCount.hidden = false;
@@ -329,6 +367,7 @@
                 }
             }
 
+            // 6. Actualizar el lector de pantalla para personas con discapacidad visual
             if (!q) {
                 setStatus('');
             } else if (visible === 0) {

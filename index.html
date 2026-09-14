@@ -91,18 +91,27 @@ LOS 25 ARTÍCULOS NUEVOS:
             </div>
 
             <nav class="nav-list">
+                <!-- Etiqueta de sección en el menú lateral -->
                 <p class="nav-label">CATEGORÍAS</p>
+                <!-- Enlace a la sección Inicio / Hero -->
                 <a href="#inicio" class="nav-link nav-link-active">
                     <span class="material-symbols-outlined">home</span>
                     Inicio
                 </a>
+                <!-- Enlace a la sección de Artículos recientes -->
                 <a href="#articulos" class="nav-link">
                     <span class="material-symbols-outlined">article</span>
                     Artículos
                 </a>
+                <!-- Enlace a la sección de Conceptos clave -->
                 <a href="#conceptos" class="nav-link">
                     <span class="material-symbols-outlined">category</span>
                     Conceptos
+                </a>
+                <!-- Enlace al Archivo completo de publicaciones con todos los artículos -->
+                <a href="#archivo" class="nav-link">
+                    <span class="material-symbols-outlined">archive</span>
+                    Archivo
                 </a>
             </nav>
         </div>
@@ -226,7 +235,6 @@ LOS 25 ARTÍCULOS NUEVOS:
                             </p>
                         </div>
                         <div class="concept-footer">
-                            <span class="date-text">Lectura: 5 min</span>
                             <span class="material-symbols-outlined link-icon">arrow_outward</span>
                         </div>
                     </a>
@@ -241,7 +249,6 @@ LOS 25 ARTÍCULOS NUEVOS:
                             </p>
                         </div>
                         <div class="concept-footer">
-                            <span class="date-text">Lectura: 8 min</span>
                             <span class="material-symbols-outlined link-icon">arrow_outward</span>
                         </div>
                     </a>
@@ -256,87 +263,133 @@ LOS 25 ARTÍCULOS NUEVOS:
                     <p id="searchCount" class="search-count" hidden></p>
                 </div>
                 
-                <!-- Grilla CSS para alojar los 15 elementos -->
+                <!-- Grilla CSS para alojar todas las tarjetas de artículos del blog -->
                 <div class="concept-grid">
                     
-                    <!-- ELEMENTO 1 AL 15 (SIN CONTENIDO, SOLO WIREFRAME) -->
-                    <!-- 1 -->
+                    <!-- ===================================================================
+                         COLECCIÓN COMPLETA DE ARTÍCULOS EN EL ARCHIVO (42 PUBLICACIONES ACTIVAS)
+                         Cada tarjeta representa un enlace interactivo hacia el artículo completo.
+                         Incluye título semántico (h5), clases para efectos hover, bordes técnicos
+                         e icono de navegación con flecha hacia el exterior.
+                         =================================================================== -->
+
+                    <!-- Publicación 1: Mantenimiento de hardware -->
                     <a href="articulos/articuloMantenimiento%20de%20hardware/plantilla_articulos_blog1.html" class="concept-card technical-border card-hover">
                         <div>
-                            <span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span>
                             <h5 class="concept-title">Mantenimiento de hardware</h5>
-                            <p class="concept-description">Haz clic aquí para ver la maquetación pura en CSS de la plantilla del artículo individual.</p>
                         </div>
                         <div class="concept-footer"><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 2 -->
+
+                    <!-- Publicación 2: Guía Limpieza de ventiladores -->
                     <a href="articulos/Gu%C3%ADa%20Limpieza%20de%20ventiladores/plantilla_articulos_blog2.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Limpieza de ventiladores</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div>
+                            <h5 class="concept-title">Limpieza de ventiladores</h5>
+                        </div>
                         <div class="concept-footer"><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 3 -->
+
+                    <!-- Publicación 3: Conceptos básicos de computación -->
                     <a href="articulos/conceptos%20basicos/plantilla_articulos_blog3.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Conceptos básicos</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div>
+                            <h5 class="concept-title">Conceptos básicos</h5>
+                        </div>
                         <div class="concept-footer"><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 4 -->
+
+                    <!-- Publicación 4: Impacto real de ampliar la memoria RAM -->
                     <a href="articulos/Impacto%20real%20de%20ampliar%20la%20memoria%20RAM/plantilla_articulos_blog4.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Impacto real de ampliar la memoria RAM</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div>
+                            <h5 class="concept-title">Impacto real de ampliar la memoria RAM</h5>
+                        </div>
                         <div class="concept-footer"><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 5 -->
+
+                    <!-- Publicación 5: Optimización del sistema y cuidado de la batería -->
                     <a href="articulos/Optimizaci%C3%B3n%20del%20sistema%20y%20cuidado%20de%20la%20bater%C3%ADa/plantilla_articulos_blog5.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Optimización del sistema y cuidado de la batería</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div>
+                            <h5 class="concept-title">Optimización del sistema y cuidado de la batería</h5>
+                        </div>
                         <div class="concept-footer"><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 6 -->
+
+                    <!-- Publicación 6: Limpieza física y prevención del thermal throttling -->
                     <a href="articulos/Limpieza%20f%C3%ADsica%20y%20prevenci%C3%B3n%20del%20thermal%20throttling/plantilla_articulos_blog6.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Limpieza física y prevención del thermal throttling</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div>
+                            <h5 class="concept-title">Limpieza física y prevención del thermal throttling</h5>
+                        </div>
                         <div class="concept-footer"><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 7 -->
+
+                    <!-- Publicación 7: Actualizaciones críticas y seguridad del sistema -->
                     <a href="articulos/Actualizaciones%20cr%C3%ADticas%20y%20seguridad%20del%20sistema/plantilla_articulos_blog7.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Actualizaciones críticas y seguridad del sistema</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div>
+                            <h5 class="concept-title">Actualizaciones críticas y seguridad del sistema</h5>
+                        </div>
                         <div class="concept-footer"><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 8 -->
+
+                    <!-- Publicación 8: Cuidado preventivo frente a accidentes y transporte -->
                     <a href="articulos/Cuidado%20preventivo%20frente%20a%20accidentes%20y%20transporte/plantilla_articulos_blog8.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Cuidado preventivo frente a accidentes y transporte</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div>
+                            <h5 class="concept-title">Cuidado preventivo frente a accidentes y transporte</h5>
+                        </div>
                         <div class="concept-footer"><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 9 -->
+
+                    <!-- Publicación 9: Higiene digital y organización de archivos -->
                     <a href="articulos/Higiene%20digital%20y%20organizaci%C3%B3n%20de%20archivos/plantilla_articulos_blog9.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Higiene digital y organización de archivos</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div>
+                            <h5 class="concept-title">Higiene digital y organización de archivos</h5>
+                        </div>
                         <div class="concept-footer"><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 10 -->
+
+                    <!-- Publicación 10: Descargas seguras en internet -->
                     <a href="articulos/Descargas%20seguras%20en%20internet/plantilla_articulos_blog10.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Descargas seguras en internet</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div>
+                            <h5 class="concept-title">Descargas seguras en internet</h5>
+                        </div>
                         <div class="concept-footer"><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 11 -->
+
+                    <!-- Publicación 11: Redes domésticas y Wi-Fi -->
                     <a href="articulos/Redes%20dom%C3%A9sticas%20y%20Wi-Fi/plantilla_articulos_blog11.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Redes domésticas y Wi-Fi</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div>
+                            <h5 class="concept-title">Redes domésticas y Wi-Fi</h5>
+                        </div>
                         <div class="concept-footer"><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 12 -->
+
+                    <!-- Publicación 12: Copias de seguridad (Backups) simplificadas -->
                     <a href="articulos/Copias%20de%20seguridad%20(Backups)%20simplificadas/plantilla_articulos_blog12.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Copias de seguridad (Backups) simplificadas</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div>
+                            <h5 class="concept-title">Copias de seguridad (Backups) simplificadas</h5>
+                        </div>
                         <div class="concept-footer"><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 13 -->
+
+                    <!-- Publicación 13: Tecnología verde y E-waste -->
                     <a href="articulos/Tecnolog%C3%ADa%20verde%20y%20E-waste/plantilla_articulos_blog13.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Tecnología verde y E-waste</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div>
+                            <h5 class="concept-title">Tecnología verde y E-waste</h5>
+                        </div>
                         <div class="concept-footer"><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 14 -->
+
+                    <!-- Publicación 14: Protección contra estafas en línea (Phishing) -->
                     <a href="articulos/Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing)/plantilla_articulos_blog14.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Protección contra estafas en línea (Phishing)</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div>
+                            <h5 class="concept-title">Protección contra estafas en línea (Phishing)</h5>
+                        </div>
                         <div class="concept-footer"><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
-                    <!-- 15 -->
+
+                    <!-- Publicación 15: Atajos de teclado y trucos de productividad -->
                     <a href="articulos/Atajos%20de%20teclado%20y%20trucos%20de%20productividad/plantilla_articulos_blog15.html" class="concept-card technical-border card-hover">
-                        <div><span class="category-text block-mb">CATEGORÍA PLACEHOLDER</span><h5 class="concept-title">Atajos de teclado y trucos de productividad</h5><p class="concept-description">Sin contenido, solo estructura.</p></div>
+                        <div>
+                            <h5 class="concept-title">Atajos de teclado y trucos de productividad</h5>
+                        </div>
                         <div class="concept-footer"><span class="material-symbols-outlined link-icon">arrow_outward</span></div>
                     </a>
 
