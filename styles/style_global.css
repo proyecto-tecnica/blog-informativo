@@ -331,7 +331,7 @@ h1, h2, h3 { margin: 0; }
 .concept-title { font-family: var(--font-headline-md); font-size: 20px; color: var(--primary); margin: 0 0 8px 0; }
 .concept-description { font-size: 16px; color: var(--on-surface-variant); margin: 0 0 16px 0; }
 .concept-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-technical); padding-top: 16px; }
-.link-icon { color: var(--primary); transition: transform 0.2s; }
+.link-icon { color: var(--primary); transition: transform 0.2s; margin-left: auto; }
 .concept-card:hover .link-icon { transform: translate(4px, -4px); color: var(--secondary); }
 
 .footer { background-color: var(--bg-footer); border-top: 1px solid var(--border-technical); padding: var(--stack-md) 0; }

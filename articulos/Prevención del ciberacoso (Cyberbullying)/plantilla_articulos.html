@@ -1,246 +1,311 @@
 <!DOCTYPE html>
-<!--
-================================================================================
-PLANTILLA LISTA — ARTICULO: Prevención del ciberacoso (Cyberbullying)
-Estado: CREADO Y LISTO, PERO DESACTIVADO (index.html tiene su card comentada)
-Fecha: 21 Ago 2026 | Autor generico: Equipo Editorial
-Base: plantilla_articulos1.html (estructura funcional) + plantilla_articulos3.html (wireframe)
-
-QUE TIENES AQUI:
-- head con SEO listo (title, description, canonical, og, twitter, json-ld Article)
-  -> Cambia solo title, meta description, canonical si renombras carpeta.
-- Link CSS: ../../styles/style_global.css usa variables --bg-app (#e6f0ff claro / #0a192f oscuro)
-- Header: logo + nav Inicio/Articulos/Archivo + themeToggle (funciona con script_articulo.js)
-- Main grid: 8fr articulo + 4fr sidebar en desktop (ver style_global.css article-grid-layout)
-  - article-title-block: h1 + metadata fecha/autor/categoria
-  - article-introduction: 2 parrafos intro
-  - figure destacada: placeholder con border dashed (cambia div por img src="src/..." cuando tengas imagen)
-  - Secciones: Que es, Caracteristicas, split, lista, tabla, conclusion, CTAs
-  - Sidebar: ad + busqueda + OTROS ARTICULOS (6 links) + recientes + categorias + newsletter
-- Footer + script ../script/script_articulo.js maneja tema claro/oscuro (localStorage theme)
-
-PARA RETOMAR:
-1. Busca TODO: en este archivo para saber que rellenar.
-2. Reemplaza textos placeholder por tu contenido real (respeta clases).
-3. Anade imagenes en src/ (01-hero.png) y cambia div placeholder por img tag.
-4. Para PUBLICAR, ve a ../../index.html, busca BLOQUE FUTURO 25 ARTICULOS y descomenta la card de este articulo.
-5. Opcional: anade entrada en articulos/config/index.json y en article-loader.js FALLBACK_ARTICLES si usas plantilla-articulo.html dinamico.
-
-COLORES (si olvidaste):
-- Claro :root.light --bg-app #e6f0ff
-- Oscuro :root.dark --bg-app #0a192f
-
-NO BORRES ESTE BLOQUE — es tu guia para volver despues de tiempo.
-================================================================================
--->
-
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prevención del ciberacoso (Cyberbullying) | Blog Informativo</title>
-  <!-- SEO: cambia title/description/canonical si renombras archivo o carpeta -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../styles/style_global.css">
-  <meta name="description" content="Identifica señales de ciberacoso, protocolos de actuación y estrategias de prevención basadas en empatía y apoyo.">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Prevenci%C3%B3n%20del%20ciberacoso%20%28Cyberbullying%29/plantilla_articulos.html">
-  <meta property="og:title" content="Prevención del ciberacoso (Cyberbullying) | Blog Informativo">
-  <meta property="og:description" content="Identifica señales de ciberacoso, protocolos de actuación y estrategias de prevención basadas en empatía y apoyo.">
-  <meta property="og:url" content="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Prevenci%C3%B3n%20del%20ciberacoso%20%28Cyberbullying%29/plantilla_articulos.html">
-  <meta property="og:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
-  <meta property="og:type" content="article">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Prevención del ciberacoso (Cyberbullying) | Blog Informativo">
-  <meta name="twitter:description" content="Identifica señales de ciberacoso, protocolos de actuación y estrategias de prevención basadas en empatía y apoyo.">
-  <meta name="twitter:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
-  <script type="application/ld+json">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prevención del ciberacoso (Cyberbullying) | Blog Informativo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles/style_global.css">
+<meta name="description" content="Protocolo completo para la comunidad educativa: qué es el ciberacoso, cómo identificarlo, documentar evidencia digital, pasos de actuación escolar y estrategias de prevención.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Prevenci%C3%B3n%20del%20ciberacoso%20%28Cyberbullying%29/plantilla_articulos.html">
+<meta property="og:title" content="Prevención del ciberacoso (Cyberbullying) | Blog Informativo">
+<meta property="og:description" content="Protocolo completo para la comunidad educativa: qué es el ciberacoso, cómo identificarlo, documentar evidencia digital, pasos de actuación escolar y estrategias de prevención.">
+<meta property="og:url" content="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Prevenci%C3%B3n%20del%20ciberacoso%20%28Cyberbullying%29/plantilla_articulos.html">
+<meta property="og:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Prevención del ciberacoso (Cyberbullying) | Blog Informativo">
+<meta name="twitter:description" content="Protocolo completo para la comunidad educativa: qué es el ciberacoso, cómo identificarlo, documentar evidencia digital, pasos de actuación escolar y estrategias de prevención.">
+<meta name="twitter:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Prevención del ciberacoso (Cyberbullying) | Blog Informativo",
-  "description": "Identifica señales de ciberacoso, protocolos de actuación y estrategias de prevención basadas en empatía y apoyo.",
-  "author": {"@type": "Person", "name": "Equipo Editorial"},
+  "description": "Protocolo completo para la comunidad educativa: qué es el ciberacoso, cómo identificarlo, documentar evidencia digital, pasos de actuación escolar y estrategias de prevención.",
   "image": "https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png",
   "url": "https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Prevenci%C3%B3n%20del%20ciberacoso%20%28Cyberbullying%29/plantilla_articulos.html"
 }
-  </script>
+</script>
 </head>
 <body>
-  <!-- HEADER: logo + nav + themeToggle. No toques clases, solo textos si quieres. Funciona con script_articulo.js -->
-  <header class="article-header">
-    <div class="header-inner">
-      <a class="site-title font-headline-md" href="../../index.html">Blog Informativo</a>
-      <nav class="desktop-nav font-label" aria-label="Navegación principal">
-        <a href="../../index.html#inicio">Inicio</a><a href="../../index.html#articulos">Artículos</a><a href="../../index.html#archivo">Archivo</a>
-      </nav>
-      <span id="themeToggle" class="icon-button theme-indicator" role="button" tabindex="0" aria-label="Alternar tema oscuro/claro" title="Alternar tema"><svg class="theme-icon" viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8v16z"/></svg></span>
-    </div>
-  </header>
+<header class="article-header">
+<div class="header-inner">
+<a class="site-title font-headline-md" href="../../index.html">Blog Informativo</a>
+<nav class="desktop-nav font-label" aria-label="Navegación principal">
+<a href="../../index.html#inicio">Inicio</a>
+<a href="../../index.html#articulos">Artículos</a>
+<a href="../../index.html#archivo">Archivo</a>
+</nav>
+<span id="themeToggle" class="icon-button theme-indicator" role="button" tabindex="0" aria-label="Alternar tema oscuro/claro" title="Alternar tema">
+<svg class="theme-icon" viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor;">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8v16z"/>
+</svg>
+</span>
+</div>
+</header>
+<main class="article-main-container">
+<div class="article-grid-layout">
+<article class="article-body">
+<header class="article-title-block">
+<h1 class="font-headline-lg">Prevención del Ciberacoso (Cyberbullying): Protocolo para la Comunidad Educativa</h1>
+</header>
 
-  <!-- MAIN GRID: 8fr articulo + 4fr sidebar (desktop). En móvil se apila. -->
-  <main class="article-main-container">
-    <div class="article-grid-layout">
-      <!-- Columna Izquierda: Cuerpo del Artículo (wireframe plantilla_articulos3 + estructura plantilla_articulos1) -->
-      <article class="article-body">
-        <!-- HERO / TITULAR: categoria + h1 + metadata. TODO: cambia h1 y metadata si hace falta. -->
-        <header class="article-title-block">
-          <p class="font-label text-dim">ARTÍCULO TÉCNICO · CONVIVENCIA DIGITAL</p>
-          <h1 class="font-headline-lg">Prevención del ciberacoso (Cyberbullying)</h1>
-          <div class="metadata-bar font-label text-dim" style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
-            <span>📅 21 Ago 2026</span>
-            <span class="separator">|</span>
-            <span>👤 Equipo Editorial</span>
-            <span class="separator">|</span>
-            <span>📁 Convivencia Digital</span>
-          </div>
-        </header>
 
-        <!-- INTRODUCCIÓN: gancho + 2 párrafos. TODO: escribe tu intro real aquí. -->
-        <section class="article-section article-introduction">
-          <h2 class="article-subheading">Introducción</h2>
-          <p>El ciberacoso trasciende el patio escolar y persiste 24/7 en redes y mensajería. Prevenirlo implica reconocer sus formas, fomentar la empatía, saber bloquear y reportar, y contar con rutas de apoyo institucional.</p>
-          <p>Prevención del ciberacoso (Cyberbullying) no es solo una herramienta técnica, sino una competencia que fortalece el aprendizaje autónomo y la participación responsable. En el contexto escolar, su dominio permite a estudiantes y docentes optimizar tiempo, mejorar la calidad de las entregas y colaborar con mayor eficacia.</p>
-        </section>
 
-        <!-- IMAGEN DESTACADA: placeholder con border dashed. TODO: reemplaza div por <img src="src/01-hero.png" ...> -->
-        <figure class="article-figure article-figure-featured">
-          <div style="border:2px dashed var(--border-technical); background: var(--bg-image-placeholder); border-radius: var(--radius-default); aspect-ratio: 16/9; display:flex; align-items:center; justify-content:center; text-align:center; padding:16px;">
-            <span class="font-label text-dim uppercase" style="font-size:11px; letter-spacing:0.08em;">Imagen destacada · Prevención del ciberacoso (Cyberbullying) · Infografía / Ilustración</span>
-          </div>
-          <figcaption class="font-label text-dim" style="text-align:center; margin-top:8px;">Figura 1 — Representación visual de Prevención del ciberacoso (Cyberbullying) en el entorno escolar.</figcaption>
-        </figure>
+<section class="article-section">
+<h2>¿Qué es el ciberacoso y en qué se diferencia del acoso tradicional?</h2>
+<p>El ciberacoso es cuando alguien usa el celular, las redes sociales o internet para hacerle daño a otra persona. Puede ser enviar mensajes de odio, inventar rumores, colgar fotos o videos sin permiso, o crear perfiles falsos para avergonzar a alguien. Lo peligroso es que en internet todo se comparte muy rápido, llega a mucha gente y casi nunca se borra del todo.</p>
+<p>Además, quien acosa se puede esconder detrás de una pantalla y sentirse protegido para ser más cruel.</p>
+<p>Este tipo de acoso deja consecuencias reales: la persona afectada puede sentir mucho miedo, tristeza o vergüenza, y le cuesta relacionarse con otros. No es tan fácil como <em>"apagar el celular"</em> para olvidarlo, porque hoy en día todos necesitamos estar conectados para estudiar, trabajar o hablar con la familia. Por eso el ciberacoso es una forma grave de violencia que usa la tecnología para lastimar, controlar o humillar a alguien.</p>
+</section>
 
-        <section class="article-section">
-          <h2 class="article-subheading">¿Qué es y por qué importa?</h2>
-          <p>Aplicar prevención del ciberacoso (cyberbullying) en proyectos reales ayuda a desarrollar pensamiento crítico: elegir cuándo usarlo, evaluar su impacto y ajustar su uso según el objetivo pedagógico y las normas de convivencia digital.</p>
-        </section>
+<section class="article-section">
+<h2>Cómo identificar el ciberacoso: señales de alerta temprana</h2>
+<p>El ciberacoso no siempre se denuncia directamente. Muchas víctimas guardan silencio por vergüenza, miedo o culpa. Por eso, toda la comunidad educativa —docentes, familias y compañeros— debe estar atenta a estas señales:</p>
 
-        <!-- SPLIT LAYOUT: texto + imagen lado a lado (plantilla3 wireframe). En móvil se apila. -->
-        <section class="article-section" style="display:grid; grid-template-columns: 1fr; gap:24px;">
-          <div>
-            <h2 class="article-subheading">Características principales</h2>
-            <p>Entre los aspectos más valorados de <strong>Prevención del ciberacoso (Cyberbullying)</strong> destacan su accesibilidad, la posibilidad de iterar sin costo adicional y la trazabilidad del proceso de aprendizaje que ofrece al docente.</p>
-            <div style="border:1px solid var(--border-technical); background: var(--bg-card); border-radius: var(--radius-default); padding:16px; margin-top:12px;">
-              <p class="font-label text-dim" style="margin:0; font-size:11px; letter-spacing:0.08em; text-transform:uppercase;">💡 Dato clave</p>
-              <p style="margin:8px 0 0;">Prevención del ciberacoso (Cyberbullying) se integra mejor cuando se planifica con objetivos claros, criterios de evaluación y espacios de reflexión posteriores a la práctica.</p>
-            </div>
-          </div>
-          <div style="border:2px dashed var(--border-technical); background: var(--bg-image-placeholder); border-radius: var(--radius-default); aspect-ratio: 1/1; display:flex; align-items:center; justify-content:center; padding:16px; text-align:center;">
-            <span class="font-label text-dim uppercase" style="font-size:11px;">Imagen / Infografía<br>Prevención del ciberacoso (Cyberbullying)</span>
-          </div>
-        </section>
+<h3>En el comportamiento del estudiante:</h3>
+<ul class="article-list">
+<li>Cambios drásticos en el rendimiento académico o aumento del absentismo.</li>
+<li>Pérdida de objetos personales o material escolar roto frecuentemente.</li>
+<li>Cambios de humor, irritabilidad, tristeza o ansiedad sin causa aparente.</li>
+<li>Síntomas psicosomáticos: dolores de cabeza, barriga o náuseas antes de ir al colegio.</li>
+<li>Aislamiento social repentino: deja de salir con amigos, cierra sus perfiles o, por el contrario, está obsesionado con revisar el celular.</li>
+<li>Dificultad para dormir o pesadillas.</li>
+</ul>
 
-        <!-- LISTA: bullets .article-list. TODO: cambia <li> por tus puntos reales. -->
-        <section class="article-section">
-          <h2 class="article-subheading">Buenas prácticas y recomendaciones</h2>
-          <p>Para aprovechar prevención del ciberacoso (cyberbullying) de forma responsable y efectiva, considera estas recomendaciones:</p>
-          <ul class="article-list">
-                            <li>Concepto clave aplicado a prevención del ciberacoso (cyberbullying)</li>
-                            <li>Aplicación escolar aplicado a prevención del ciberacoso (cyberbullying)</li>
-                            <li>Buena práctica aplicado a prevención del ciberacoso (cyberbullying)</li>
-                            <li>Enfoque pedagógico centrado en el estudiante para prevención del ciberacoso (cyberbullying)</li>
-                            <li>Evaluación y mejora continua del uso de prevención del ciberacoso (cyberbullying) en clase</li>
-          </ul>
-          <p>Estas prácticas, aplicadas de manera constante, convierten a <strong>Prevención del ciberacoso (Cyberbullying)</strong> en un aliado para el aprendizaje y no en una fuente de distracción o riesgo.</p>
-        </section>
+<h3>En el entorno digital:</h3>
+<ul class="article-list">
+<li>Recibe mensajes, comentarios o llamadas constantes que le causan angustia.</li>
+<li>Aparecen fotos, videos o rumores sobre él o ella en redes sociales.</li>
+<li>Alguien ha creado un perfil falso suplantando su identidad.</li>
+<li>Recibe amenazas o chantajes digitales (sextorsión, difusión de imágenes íntimas).</li>
+<li>Ha cambiado repetidamente de número de teléfono o de cuenta en redes sociales.</li>
+</ul>
+</section>
 
-        <!-- TABLA: .article-table con overflow. TODO: edita <th>/<td> para tu comparativa real. Si no la necesitas, borra este <section> entero. -->
-        <section class="article-section">
-          <h3 class="font-label uppercase tracking-widest" style="margin-bottom:12px; color: var(--text-dim);">Tabla comparativa</h3>
-          <div style="overflow-x:auto; border:1px solid var(--border-technical); border-radius: var(--radius-default);">
-            <table class="article-table" style="margin:0;">
-              <thead>
-                <tr><th>Criterio</th><th>Opción A</th><th>Opción B</th></tr>
-              </thead>
-              <tbody>
+<section class="article-section">
+<h2>Tipos de ciberacoso que debe conocer la comunidad educativa</h2>
+<div style="overflow-x:auto;">
+<table class="article-table">
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hostigamiento</td>
+<td>Mensajes insultantes, amenazas o burlas repetidas por chat, redes o correo.</td>
+</tr>
+<tr>
+<td>Difusión de rumores</td>
+<td>Propagar información falsa para dañar la reputación de la víctima.</td>
+</tr>
+<tr>
+<td>Suplantación de identidad</td>
+<td>Crear perfiles falsos usando el nombre, fotos o datos de otra persona.</td>
+</tr>
+<tr>
+<td>Exclusión digital</td>
+<td>Dejar fuera intencionalmente a alguien de grupos, chats o actividades en línea.</td>
+</tr>
+<tr>
+<td>Ciberstalking</td>
+<td>Acecho persistente y obsesivo a través de plataformas digitales.</td>
+</tr>
+<tr>
+<td>Sexting forzado / Sextorsión</td>
+<td>Exigir, compartir o chantajear con imágenes o videos de contenido sexual.</td>
+</tr>
+<tr>
+<td>Deepfakes e IA generativa</td>
+<td>Usar inteligencia artificial para crear videos o audios falsos de la víctima.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 
-                            <tr><td>Criterio</td><td>Prevención del ciberacoso (Cyberbullying) — Opción A</td><td>Prevención del ciberacoso (Cyberbullying) — Opción B</td></tr>
-                            <tr><td>Facilidad de uso</td><td>Alta — ideal para principiantes</td><td>Media — requiere práctica</td></tr>
-                            <tr><td>Compatibilidad</td><td>Amplia con dispositivos escolares</td><td>Limitada a plataformas específicas</td></tr>
-                            <tr><td>Costo</td><td>Gratuito / institucional</td><td>Requiere licencia</td></tr>
 
-              </tbody>
-            </table>
-          </div>
-          <p class="font-label text-dim" style="font-size:11px; margin-top:8px;">Tabla 1 — Comparativa orientativa para elegir herramientas relacionadas con Prevención del ciberacoso (Cyberbullying).</p>
-        </section>
 
-        <!-- CONCLUSIÓN: 2 párrafos cierre + CTA. TODO: resume y deja pregunta para comentarios. -->
-        <section class="article-section">
-          <h2 class="article-subheading">Conclusión y resumen</h2>
-          <p><strong>Prevención del ciberacoso (Cyberbullying)</strong> ejemplifica cómo la tecnología, usada con criterio pedagógico, amplía oportunidades sin reemplazar el rol docente. Su implementación exitosa depende de formación, acuerdos de convivencia digital y evaluación continua del impacto en el aprendizaje.</p>
-          <p>Te invitamos a explorar los artículos relacionados y a compartir en comentarios cómo has aplicado prevención del ciberacoso (cyberbullying) en tu institución. La construcción colectiva de buenas prácticas enriquece a toda la comunidad de Construyendo Conocimiento Tecnológico.</p>
-        </section>
+<section class="article-section">
+<h2>Cómo documentar el ciberacoso: la evidencia digital es clave</h2>
+<p>Sin pruebas, un caso de ciberacoso se convierte en una palabra contra otra. Documentar bien no solo protege a la víctima, también permite actuar con rapidez y legalidad.</p>
+<p><strong>Pasos para recopilar evidencia digital:</strong></p>
 
-        <!-- CTAS: caja comentario + placeholder comentarios futuros. Déjalo así o integra sistema luego. -->
-        <div class="cta-group" style="display:grid; gap:16px; margin-top:32px; padding-top:24px; border-top:1px solid var(--border-technical);">
-          <div style="border:1px solid var(--border-technical); background: var(--bg-card); border-radius: var(--radius-default); text-align:center; padding:18px;" class="font-label font-bold tracking-widest text-xs">
-            💬 ¿Te resultó útil? Deja un comentario o comparte tu experiencia con Prevención del ciberacoso (Cyberbullying)
-          </div>
-          <div style="border:1px dashed var(--border-technical); background: var(--bg-image-placeholder); border-radius: var(--radius-default); text-align:center; padding:32px;" class="font-label font-bold tracking-widest text-xs text-dim">
-            SECCIÓN DE COMENTARIOS — Integración futura
-          </div>
-        </div>
-      </article>
+<ol class="article-list">
+<li>
+<strong>Capturas de pantalla (screenshots)</strong>
+<ul class="article-list">
+<li>Captura todo: el mensaje, el nombre del perfil, la fecha, la hora y la plataforma.</li>
+<li>En teléfonos: pulsa simultáneamente los botones de encendido + volumen abajo (varía según el modelo).</li>
+<li>En computadoras: usa la herramienta de recortes o Impr Pant y pega en un documento.</li>
+</ul>
+</li>
+<li>
+<strong>Guarda los enlaces (URLs)</strong>
+<ul class="article-list">
+<li>Copia la dirección exacta de la publicación, perfil o comentario.</li>
+<li>Los enlaces son rastreables incluso si el agresor borra el contenido después.</li>
+</ul>
+</li>
+<li>
+<strong>Registra la secuencia cronológica</strong>
+<ul class="article-list">
+<li>Anota en un documento: fecha, hora, plataforma, tipo de contenido y descripción.</li>
+<li>Ordena todo por orden de ocurrencia para ver el patrón de acoso.</li>
+</ul>
+</li>
+<li>
+<strong>Conserva los archivos originales</strong>
+<ul class="article-list">
+<li>No solo captures pantalla: si hay videos, audios o fotos, guárdalos en una carpeta segura.</li>
+<li>Algunas plataformas permiten descargar el historial de chats.</li>
+</ul>
+</li>
+<li>
+<strong>Busca testigos digitales</strong>
+<ul class="article-list">
+<li>Identifica si otras personas vieron, compartieron o recibieron el contenido.</li>
+<li>Sus testimonios fortalecen el caso.</li>
+</ul>
+</li>
+<li>
+<strong>No borres nada</strong>
+<ul class="article-list">
+<li>Ni la víctima ni los padres deben eliminar mensajes o bloquear perfiles antes de documentar.</li>
+<li>Una vez recopilada la evidencia, sí se recomienda bloquear al acosador para detener el contacto.</li>
+</ul>
+</li>
+</ol>
+</section>
 
-      <!-- SIDEBAR: ad + búsqueda + OTROS ARTÍCULOS + recientes + categorías + newsletter. Ya enlaza a 6 artículos existentes. -->
-      <aside class="article-sidebar" aria-label="Navegación de artículos">
-        <div style="border:2px dashed var(--border-technical); background: var(--bg-card); border-radius: var(--radius-default); aspect-ratio: 16/9; display:flex; align-items:center; justify-content:center;">
-          <svg class="text-dim" height="40" viewBox="0 0 40 40" width="40"><path d="M0 0 L40 40 M40 0 L0 40" stroke="currentColor" stroke-width="1"></path></svg>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <div style="height:40px; border:1px solid var(--border-technical); display:flex; align-items:center; padding:0 16px; background: var(--bg-input); border-radius: var(--radius-default);" class="font-label uppercase text-dim font-bold text-xs">
-            🔍 Barra de Búsqueda
-          </div>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <h2 class="font-label">OTROS ARTÍCULOS</h2>
-          <ul class="related-list">
-            <li><a href="../Seguridad%20b%C3%A1sica%20y%20Antivirus/plantilla_articulos1.html">Seguridad básica y Antivirus</a></li>
-            <li><a href="../Ergonom%C3%ADa%20y%20salud%20digital/plantilla_articulos2.html">Ergonomía y salud digital</a></li>
-            <li><a href="../conceptos%20basicos/plantilla_articulos_blog3.html">Conceptos básicos</a></li>
-            <li><a href="../Gu%C3%ADa%20Limpieza%20de%20ventiladores/plantilla_articulos_blog2.html">Limpieza de ventiladores</a></li>
-            <li><a href="../Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing)/plantilla_articulos_blog14.html">Protección contra estafas en línea (Phishing)</a></li>
-            <li><a href="../Redes%20dom%C3%A9sticas%20y%20Wi-Fi/plantilla_articulos_blog11.html">Redes domésticas y Wi-Fi</a></li>
-          </ul>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <h3 class="font-label uppercase tracking-widest mb-sm">Entradas Recientes</h3>
-          <div style="display:grid; gap:12px;">
-            <div style="height:18px; background: var(--bg-image-placeholder); border-radius:4px;"></div>
-            <div style="height:18px; background: var(--bg-image-placeholder); border-radius:4px; width:80%;"></div>
-            <div style="height:18px; background: var(--bg-image-placeholder); border-radius:4px; width:66%;"></div>
-          </div>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <h3 class="font-label uppercase tracking-widest mb-sm">Categorías Populares</h3>
-          <div style="display:flex; flex-wrap:wrap; gap:8px;">
-            <span style="border:1px solid var(--border-technical); padding:6px 10px; border-radius:999px; background: var(--bg-card);" class="font-label text-dim">Convivencia Digital</span>
-            <span style="border:1px solid var(--border-technical); padding:6px 10px; border-radius:999px; background: var(--bg-card);" class="font-label text-dim">Educación</span>
-            <span style="border:1px solid var(--border-technical); padding:6px 10px; border-radius:999px; background: var(--bg-card);" class="font-label text-dim">Tecnología</span>
-          </div>
-        </div>
-        <div class="sidebar-widget bg-lowest text-center">
-          <h3 class="font-label uppercase tracking-widest mb-sm">Suscripción al Boletín</h3>
-          <div style="height:32px; background: var(--primary); border-radius:4px; width:100%; opacity:0.9; display:flex; align-items:center; justify-content:center; color: var(--bg-app);" class="font-label font-bold">Suscribirse</div>
-        </div>
-      </aside>
-    </div>
-  </main>
+<section class="article-section">
+<h2>Protocolo de actuación escolar: paso a paso</h2>
+<p>Este protocolo está basado en las mejores prácticas de los marcos nacionales e internacionales de actuación ante el ciberacoso.</p>
 
-  <footer class="article-footer"><p class="font-label text-dim">© 2026 Blog Informativo · Construyendo Conocimiento Tecnológico</p></footer>
-  <script src="../script/script_articulo.js" defer></script>
-  <!--
-  ================================================================================
-  GUÍA RÁPIDA PARA EDITAR ESTE ARTÍCULO (cuando retomes):
-  - Busca "TODO:" en este archivo para saber qué cambiar.
-  - Imágenes: crea src/ si no existe, pon 01-hero.png y reemplaza div placeholder.
-  - Tabla: si no la necesitas, borra todo el <section> de tabla comparativa.
-  - Para publicar, no toques este HTML; solo descomenta su card en ../../index.html
-  ================================================================================
-  -->
+<h3>Paso 1: Detección y comunicación inmediata</h3>
+<ul class="article-list">
+<li>Cualquier miembro de la comunidad educativa (docente, estudiante, familia, personal de limpieza) que sospeche un caso tiene la obligación de comunicarlo por escrito a la dirección del centro.</li>
+<li>Se debe registrar en un informe de incidencia para dejar constancia documental.</li>
+</ul>
+
+<h3>Paso 2: Valoración inicial y protección de la víctima</h3>
+<ul class="article-list">
+<li>Antes de confirmar el caso, el centro debe valorar la situación y adoptar medidas inmediatas para proteger al alumno afectado.</li>
+<li>Acompañamiento emocional, evitar el contacto no supervisado con posibles agresores y comunicar la situación al equipo directivo y de orientación.</li>
+</ul>
+
+<h3>Paso 3: Notificación en las primeras 24 horas</h3>
+<ul class="article-list">
+<li>Informar a las familias afectadas (tanto de la víctima como del agresor, por separado).</li>
+<li>Activar la coordinación interna del centro.</li>
+<li>Dejar constancia escrita de cada actuación.</li>
+</ul>
+
+<h3>Paso 4: Investigación y recogida de información</h3>
+<ul class="article-list">
+<li>Formar un equipo instructor (coordinador, orientador, tutor).</li>
+<li>Entrevistar a las partes por separado: <strong>nunca hagas un careo entre víctima y agresor en esta fase.</strong></li>
+<li>Recoger evidencias digitales (capturas, enlaces, testimonios).</li>
+<li>Valorar el nivel de riesgo y si el daño continúa.</li>
+</ul>
+
+<h3>Paso 5: Plan de intervención (máximo 10 días)</h3>
+<figure class="article-figure">
+<img src="src/plan-integral-contra-el-ciberacoso-proteccion-y-acompanamiento.webp" loading="lazy" alt="Plan integral contra el ciberacoso: protección y acompañamiento a la víctima">
+</figure>
+
+<h3>Paso 6: Medidas disciplinarias y restaurativas</h3>
+<ul class="article-list">
+<li>El objetivo no es solo castigar, sino reeducar y reparar el daño.</li>
+<li>Prácticas restaurativas: que el agresor comprenda el impacto de sus actos y participe en la reparación.</li>
+<li>Medidas disciplinarias proporcionales, siempre dentro del reglamento de convivencia del centro.</li>
+</ul>
+
+<h3>Paso 7: Seguimiento continuo (mínimo 6 meses)</h3>
+<ul class="article-list">
+<li>Monitorear el bienestar de la víctima: ¿se siente segura? ¿Ha mejorado su rendimiento? ¿Ha recuperado sus amistades?</li>
+<li>Vigilar que el agresor no reincida.</li>
+<li>Revisar el clima del aula y del centro.</li>
+</ul>
+
+<h3>Paso 8: Cierre documentado</h3>
+<ul class="article-list">
+<li>El caso se cierra cuando se verifica que la situación ha cesado y la víctima está recuperada.</li>
+<li>Se archiva toda la documentación de forma confidencial, cumpliendo con la protección de datos del menor.</li>
+</ul>
+</section>
+
+
+
+<section class="article-section">
+<h2>¿Qué hacer si eres estudiante y sufres ciberacoso?</h2>
+</section>
+<figure class="article-figure">
+<img src="src/que-hacer-ante-ciberacoso-estudiante-pasos-y-ayuda.webp" loading="lazy" alt="Pasos y ayuda para estudiantes ante el ciberacoso">
+</figure>
+<section class="article-section">
+<h2>¿Qué hacer si eres padre o madre?</h2>
+</section>
+
+<figure class="article-figure">
+<img src="src/que-hacer-si-existe-ciberacoso-situaciones-y-acciones.webp" loading="lazy" alt="Situaciones y acciones ante el ciberacoso: qué hacer si existe acoso digital">
+</figure>
+
+<section class="article-section">
+<h2>Prevención: construir una cultura de ciberconvivencia</h2>
+<p>Un protocolo guardado en un cajón no protege a nadie. La prevención del ciberacoso requiere acción constante:</p>
+
+<h3>En el aula:</h3>
+<ul class="article-list">
+<li>Talleres anuales sobre ciudadanía digital, empatía online y huella digital.</li>
+<li>Simulaciones de casos: <em>"¿Qué harías si ves un mensaje de acoso en un grupo de clase?"</em></li>
+<li>Formación del profesorado en detección temprana y manejo de evidencias digitales.</li>
+</ul>
+
+<h3>En la familia:</h3>
+<ul class="article-list">
+<li>Conversaciones regulares sobre lo que hacen en línea, sin interrogar.</li>
+<li>Acuerdos claros sobre uso de dispositivos: dónde cargan el celular (mejor fuera del dormitorio), horarios de pantalla, y qué hacer si reciben algo incómodo.</li>
+<li>Conocer las redes sociales que usan sus hijos y las herramientas de privacidad de cada una.</li>
+</ul>
+
+<h3>En el centro:</h3>
+<ul class="article-list">
+<li>Designar un referente de ciberconvivencia (profesor o orientador especializado).</li>
+<li>Crear un buzón anónimo digital para denuncias.</li>
+<li>Celebrar el Día Internacional contra el Acoso Escolar (2 de mayo) con actividades de concienciación.</li>
+</ul>
+</section>
+<figure class="article-figure article-figure-featured">
+<img src="src/prevencion-ciberacoso-identificar-documentar-y-detener.webp" loading="lazy" alt="Infografía de prevención del ciberacoso: identificar, documentar y detener el acoso digital">
+</figure>
+
+</article>
+<aside class="article-sidebar" aria-label="Navegación de artículos">
+<div class="sidebar-widget bg-lowest">
+<h2 class="font-label">OTROS ARTÍCULOS</h2>
+<ul class="related-list">
+<li><a href="../Huella%20digital%20escolar/plantilla_articulos.html">Huella digital escolar</a></li>
+<li><a href="../Netiqueta%20en%20ecosistemas%20virtuales/plantilla_articulos.html">Netiqueta en ecosistemas virtuales</a></li>
+<li><a href="../Ciudadan%C3%ADa%20digital%20activa/plantilla_articulos.html">Ciudadanía digital activa</a></li>
+<li><a href="../Controles%20parentales%20efectivos/plantilla_articulos.html">Controles parentales efectivos</a></li>
+<li><a href="../Ergonom%C3%ADa%20y%20salud%20digital/plantilla_articulos2.html">Ergonomía y salud digital</a></li>
+<li><a href="../Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing)/plantilla_articulos_blog14.html">Protección contra estafas en línea (Phishing)</a></li>
+</ul>
+</div>
+</aside>
+</div>
+</main>
+<footer class="article-footer">
+<p class="font-label text-dim">© 2026 Blog Informativo · Construyendo Conocimiento Tecnológico</p>
+</footer>
+<script src="../script/script_articulo.js" defer></script>
 </body>
 </html>

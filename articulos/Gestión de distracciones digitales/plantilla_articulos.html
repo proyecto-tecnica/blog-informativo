@@ -1,246 +1,211 @@
 <!DOCTYPE html>
-<!--
-================================================================================
-PLANTILLA LISTA — ARTICULO: Gestión de distracciones digitales
-Estado: CREADO Y LISTO, PERO DESACTIVADO (index.html tiene su card comentada)
-Fecha: 21 Ago 2026 | Autor generico: Equipo Editorial
-Base: plantilla_articulos1.html (estructura funcional) + plantilla_articulos3.html (wireframe)
-
-QUE TIENES AQUI:
-- head con SEO listo (title, description, canonical, og, twitter, json-ld Article)
-  -> Cambia solo title, meta description, canonical si renombras carpeta.
-- Link CSS: ../../styles/style_global.css usa variables --bg-app (#e6f0ff claro / #0a192f oscuro)
-- Header: logo + nav Inicio/Articulos/Archivo + themeToggle (funciona con script_articulo.js)
-- Main grid: 8fr articulo + 4fr sidebar en desktop (ver style_global.css article-grid-layout)
-  - article-title-block: h1 + metadata fecha/autor/categoria
-  - article-introduction: 2 parrafos intro
-  - figure destacada: placeholder con border dashed (cambia div por img src="src/..." cuando tengas imagen)
-  - Secciones: Que es, Caracteristicas, split, lista, tabla, conclusion, CTAs
-  - Sidebar: ad + busqueda + OTROS ARTICULOS (6 links) + recientes + categorias + newsletter
-- Footer + script ../script/script_articulo.js maneja tema claro/oscuro (localStorage theme)
-
-PARA RETOMAR:
-1. Busca TODO: en este archivo para saber que rellenar.
-2. Reemplaza textos placeholder por tu contenido real (respeta clases).
-3. Anade imagenes en src/ (01-hero.png) y cambia div placeholder por img tag.
-4. Para PUBLICAR, ve a ../../index.html, busca BLOQUE FUTURO 25 ARTICULOS y descomenta la card de este articulo.
-5. Opcional: anade entrada en articulos/config/index.json y en article-loader.js FALLBACK_ARTICLES si usas plantilla-articulo.html dinamico.
-
-COLORES (si olvidaste):
-- Claro :root.light --bg-app #e6f0ff
-- Oscuro :root.dark --bg-app #0a192f
-
-NO BORRES ESTE BLOQUE — es tu guia para volver despues de tiempo.
-================================================================================
--->
-
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestión de distracciones digitales | Blog Informativo</title>
-  <!-- SEO: cambia title/description/canonical si renombras archivo o carpeta -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../styles/style_global.css">
-  <meta name="description" content="Técnicas para reconocer y gestionar distracciones digitales y recuperar el enfoque en el estudio.">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Gesti%C3%B3n%20de%20distracciones%20digitales/plantilla_articulos.html">
-  <meta property="og:title" content="Gestión de distracciones digitales | Blog Informativo">
-  <meta property="og:description" content="Técnicas para reconocer y gestionar distracciones digitales y recuperar el enfoque en el estudio.">
-  <meta property="og:url" content="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Gesti%C3%B3n%20de%20distracciones%20digitales/plantilla_articulos.html">
-  <meta property="og:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
-  <meta property="og:type" content="article">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Gestión de distracciones digitales | Blog Informativo">
-  <meta name="twitter:description" content="Técnicas para reconocer y gestionar distracciones digitales y recuperar el enfoque en el estudio.">
-  <meta name="twitter:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
-  <script type="application/ld+json">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestión de distracciones digitales | Blog Informativo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles/style_global.css">
+<meta name="description" content="Aplicaciones y métodos de bloqueo temporal de redes sociales para mejorar la concentración durante los tiempos de estudio: Cold Turkey, Freedom, Pi-hole, modos de enfoque del sistema operativo y la técnica Pomodoro.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Gesti%C3%B3n%20de%20distracciones%20digitales/plantilla_articulos.html">
+<meta property="og:title" content="Gestión de distracciones digitales | Blog Informativo">
+<meta property="og:description" content="Aplicaciones y métodos de bloqueo temporal de redes sociales para mejorar la concentración durante los tiempos de estudio: Cold Turkey, Freedom, Pi-hole, modos de enfoque del sistema operativo y la técnica Pomodoro.">
+<meta property="og:url" content="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Gesti%C3%B3n%20de%20distracciones%20digitales/plantilla_articulos.html">
+<meta property="og:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gestión de distracciones digitales | Blog Informativo">
+<meta name="twitter:description" content="Aplicaciones y métodos de bloqueo temporal de redes sociales para mejorar la concentración durante los tiempos de estudio: Cold Turkey, Freedom, Pi-hole, modos de enfoque del sistema operativo y la técnica Pomodoro.">
+<meta name="twitter:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Gestión de distracciones digitales | Blog Informativo",
-  "description": "Técnicas para reconocer y gestionar distracciones digitales y recuperar el enfoque en el estudio.",
-  "author": {"@type": "Person", "name": "Equipo Editorial"},
+  "description": "Aplicaciones y métodos de bloqueo temporal de redes sociales para mejorar la concentración durante los tiempos de estudio: Cold Turkey, Freedom, Pi-hole, modos de enfoque del sistema operativo y la técnica Pomodoro.",
   "image": "https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png",
   "url": "https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Gesti%C3%B3n%20de%20distracciones%20digitales/plantilla_articulos.html"
 }
-  </script>
+</script>
 </head>
 <body>
-  <!-- HEADER: logo + nav + themeToggle. No toques clases, solo textos si quieres. Funciona con script_articulo.js -->
-  <header class="article-header">
-    <div class="header-inner">
-      <a class="site-title font-headline-md" href="../../index.html">Blog Informativo</a>
-      <nav class="desktop-nav font-label" aria-label="Navegación principal">
-        <a href="../../index.html#inicio">Inicio</a><a href="../../index.html#articulos">Artículos</a><a href="../../index.html#archivo">Archivo</a>
-      </nav>
-      <span id="themeToggle" class="icon-button theme-indicator" role="button" tabindex="0" aria-label="Alternar tema oscuro/claro" title="Alternar tema"><svg class="theme-icon" viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8v16z"/></svg></span>
-    </div>
-  </header>
+<header class="article-header">
+<div class="header-inner">
+<a class="site-title font-headline-md" href="../../index.html">Blog Informativo</a>
+<nav class="desktop-nav font-label" aria-label="Navegación principal">
+<a href="../../index.html#inicio">Inicio</a>
+<a href="../../index.html#articulos">Artículos</a>
+<a href="../../index.html#archivo">Archivo</a>
+</nav>
+<span id="themeToggle" class="icon-button theme-indicator" role="button" tabindex="0" aria-label="Alternar tema oscuro/claro" title="Alternar tema">
+<svg class="theme-icon" viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8v16z"/></svg>
+</span>
+</div>
+</header>
 
-  <!-- MAIN GRID: 8fr articulo + 4fr sidebar (desktop). En móvil se apila. -->
-  <main class="article-main-container">
-    <div class="article-grid-layout">
-      <!-- Columna Izquierda: Cuerpo del Artículo (wireframe plantilla_articulos3 + estructura plantilla_articulos1) -->
-      <article class="article-body">
-        <!-- HERO / TITULAR: categoria + h1 + metadata. TODO: cambia h1 y metadata si hace falta. -->
-        <header class="article-title-block">
-          <p class="font-label text-dim">ARTÍCULO TÉCNICO · BIENESTAR DIGITAL</p>
-          <h1 class="font-headline-lg">Gestión de distracciones digitales</h1>
-          <div class="metadata-bar font-label text-dim" style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
-            <span>📅 21 Ago 2026</span>
-            <span class="separator">|</span>
-            <span>👤 Equipo Editorial</span>
-            <span class="separator">|</span>
-            <span>📁 Bienestar Digital</span>
-          </div>
-        </header>
+<main class="article-main-container">
+<div class="article-grid-layout">
+<article class="article-body">
+<header class="article-title-block">
+<h1 class="font-headline-lg">Gestión de distracciones digitales</h1>
+</header>
 
-        <!-- INTRODUCCIÓN: gancho + 2 párrafos. TODO: escribe tu intro real aquí. -->
-        <section class="article-section article-introduction">
-          <h2 class="article-subheading">Introducción</h2>
-          <p>Notificaciones, scroll infinito y multitarea reducen la concentración y la memoria. Gestionar las distracciones digitales implica diseñar entornos sin fricción, usar temporizadores y entrenar la atención plena.</p>
-          <p>Gestión de distracciones digitales no es solo una herramienta técnica, sino una competencia que fortalece el aprendizaje autónomo y la participación responsable. En el contexto escolar, su dominio permite a estudiantes y docentes optimizar tiempo, mejorar la calidad de las entregas y colaborar con mayor eficacia.</p>
-        </section>
 
-        <!-- IMAGEN DESTACADA: placeholder con border dashed. TODO: reemplaza div por <img src="src/01-hero.png" ...> -->
-        <figure class="article-figure article-figure-featured">
-          <div style="border:2px dashed var(--border-technical); background: var(--bg-image-placeholder); border-radius: var(--radius-default); aspect-ratio: 16/9; display:flex; align-items:center; justify-content:center; text-align:center; padding:16px;">
-            <span class="font-label text-dim uppercase" style="font-size:11px; letter-spacing:0.08em;">Imagen destacada · Gestión de distracciones digitales · Infografía / Ilustración</span>
-          </div>
-          <figcaption class="font-label text-dim" style="text-align:center; margin-top:8px;">Figura 1 — Representación visual de Gestión de distracciones digitales en el entorno escolar.</figcaption>
-        </figure>
 
-        <section class="article-section">
-          <h2 class="article-subheading">¿Qué es y por qué importa?</h2>
-          <p>Aplicar gestión de distracciones digitales en proyectos reales ayuda a desarrollar pensamiento crítico: elegir cuándo usarlo, evaluar su impacto y ajustar su uso según el objetivo pedagógico y las normas de convivencia digital.</p>
-        </section>
+<section class="article-section article-introduction">
+<p><em>Aplicaciones y métodos de bloqueo temporal de redes sociales para mejorar la concentración durante los tiempos de estudio.</em></p>
+</section>
 
-        <!-- SPLIT LAYOUT: texto + imagen lado a lado (plantilla3 wireframe). En móvil se apila. -->
-        <section class="article-section" style="display:grid; grid-template-columns: 1fr; gap:24px;">
-          <div>
-            <h2 class="article-subheading">Características principales</h2>
-            <p>Entre los aspectos más valorados de <strong>Gestión de distracciones digitales</strong> destacan su accesibilidad, la posibilidad de iterar sin costo adicional y la trazabilidad del proceso de aprendizaje que ofrece al docente.</p>
-            <div style="border:1px solid var(--border-technical); background: var(--bg-card); border-radius: var(--radius-default); padding:16px; margin-top:12px;">
-              <p class="font-label text-dim" style="margin:0; font-size:11px; letter-spacing:0.08em; text-transform:uppercase;">💡 Dato clave</p>
-              <p style="margin:8px 0 0;">Gestión de distracciones digitales se integra mejor cuando se planifica con objetivos claros, criterios de evaluación y espacios de reflexión posteriores a la práctica.</p>
-            </div>
-          </div>
-          <div style="border:2px dashed var(--border-technical); background: var(--bg-image-placeholder); border-radius: var(--radius-default); aspect-ratio: 1/1; display:flex; align-items:center; justify-content:center; padding:16px; text-align:center;">
-            <span class="font-label text-dim uppercase" style="font-size:11px;">Imagen / Infografía<br>Gestión de distracciones digitales</span>
-          </div>
-        </section>
+<section class="article-section">
+<h2 class="article-subheading">El Problema: La Economía de la Atención</h2>
+<p>Las redes sociales, aplicaciones de mensajería y plataformas de streaming están diseñadas para capturar y retener la atención del usuario. Esto no es casualidad: funcionan bajo un modelo de negocio llamado <strong>economía de la atención</strong>, donde el producto vendido no es la aplicación, sino el tiempo que el usuario pasa en ella. Cada notificación, cada scroll infinito, cada <em>“solo un minuto más”</em> es el resultado de ingeniería psicológica deliberada.</p>
+<p>Para un estudiante de computación que necesita concentrarse en tareas técnicas —como diagnosticar un sistema térmico, configurar una red o escribir código— estas distracciones representan un costo real: tiempo perdido, calidad reducida y frustración acumulada.</p>
+</section>
 
-        <!-- LISTA: bullets .article-list. TODO: cambia <li> por tus puntos reales. -->
-        <section class="article-section">
-          <h2 class="article-subheading">Buenas prácticas y recomendaciones</h2>
-          <p>Para aprovechar gestión de distracciones digitales de forma responsable y efectiva, considera estas recomendaciones:</p>
-          <ul class="article-list">
-                            <li>Concepto clave aplicado a gestión de distracciones digitales</li>
-                            <li>Aplicación escolar aplicado a gestión de distracciones digitales</li>
-                            <li>Buena práctica aplicado a gestión de distracciones digitales</li>
-                            <li>Enfoque pedagógico centrado en el estudiante para gestión de distracciones digitales</li>
-                            <li>Evaluación y mejora continua del uso de gestión de distracciones digitales en clase</li>
-          </ul>
-          <p>Estas prácticas, aplicadas de manera constante, convierten a <strong>Gestión de distracciones digitales</strong> en un aliado para el aprendizaje y no en una fuente de distracción o riesgo.</p>
-        </section>
+<section class="article-section">
+<h2 class="article-subheading">¿Por qué es difícil concentrarse con las computadoras modernas?</h2>
+<figure class="article-figure article-figure-featured">
+<img src="src/mecanismos-de-distraccion-digital-y-su-impacto-en-el-estudio.webp" loading="lazy" alt="Mecanismos de distracción digital y su impacto en el estudio">
+</figure>
+<h3 class="article-subheading">El Contexto de la Computadora como Herramienta de Trabajo y Distracción</h3>
+<p>La misma máquina que se usa para estudiar (laptop, PC) es la que contiene las distracciones. A diferencia de un libro de texto, la computadora es multifuncional: en una misma pantalla coexisten el procesador de textos, el navegador con 20 pestañas, WhatsApp Web, notificaciones de correo y la tentación de abrir YouTube <em>“solo un rato”</em>.</p>
+<p>Esto crea un conflicto de uso: la herramienta de productividad es simultáneamente la fuente de distracción.</p>
+</section>
 
-        <!-- TABLA: .article-table con overflow. TODO: edita <th>/<td> para tu comparativa real. Si no la necesitas, borra este <section> entero. -->
-        <section class="article-section">
-          <h3 class="font-label uppercase tracking-widest" style="margin-bottom:12px; color: var(--text-dim);">Tabla comparativa</h3>
-          <div style="overflow-x:auto; border:1px solid var(--border-technical); border-radius: var(--radius-default);">
-            <table class="article-table" style="margin:0;">
-              <thead>
-                <tr><th>Criterio</th><th>Opción A</th><th>Opción B</th></tr>
-              </thead>
-              <tbody>
+<section class="article-section">
+<h2 class="article-subheading">Métodos de Bloqueo Temporal: Estrategias Técnicas</h2>
 
-                            <tr><td>Criterio</td><td>Gestión de distracciones digitales — Opción A</td><td>Gestión de distracciones digitales — Opción B</td></tr>
-                            <tr><td>Facilidad de uso</td><td>Alta — ideal para principiantes</td><td>Media — requiere práctica</td></tr>
-                            <tr><td>Compatibilidad</td><td>Amplia con dispositivos escolares</td><td>Limitada a plataformas específicas</td></tr>
-                            <tr><td>Costo</td><td>Gratuito / institucional</td><td>Requiere licencia</td></tr>
+<h3 class="article-subheading">Bloqueo a Nivel de Aplicación</h3>
+<p>Estas herramientas funcionan dentro del sistema operativo, bloqueando aplicaciones específicas durante períodos definidos.</p>
 
-              </tbody>
-            </table>
-          </div>
-          <p class="font-label text-dim" style="font-size:11px; margin-top:8px;">Tabla 1 — Comparativa orientativa para elegir herramientas relacionadas con Gestión de distracciones digitales.</p>
-        </section>
+<h4 class="article-subheading">Cold Turkey (Windows, macOS)</h4>
+<p>Una de las aplicaciones más rigurosas del mercado. Permite bloquear aplicaciones, sitios web e incluso el acceso a Internet completo.</p>
+<p>Características técnicas:</p>
+<ul class="article-list">
+<li><strong>Bloqueos programados:</strong> configura horarios fijos de estudio donde ciertas apps están inaccesibles.</li>
+<li><strong>Bloqueo nuclear:</strong> una vez activado, no se puede desactivar hasta que termine el tiempo programado (incluso reiniciando la computadora).</li>
+<li><strong>Listas personalizables:</strong> crea listas de “sitios permitidos” vs “sitios bloqueados”.</li>
+<li><strong>Estadísticas de uso:</strong> muestra cuánto tiempo se pasa en cada aplicación.</li>
+</ul>
 
-        <!-- CONCLUSIÓN: 2 párrafos cierre + CTA. TODO: resume y deja pregunta para comentarios. -->
-        <section class="article-section">
-          <h2 class="article-subheading">Conclusión y resumen</h2>
-          <p><strong>Gestión de distracciones digitales</strong> ejemplifica cómo la tecnología, usada con criterio pedagógico, amplía oportunidades sin reemplazar el rol docente. Su implementación exitosa depende de formación, acuerdos de convivencia digital y evaluación continua del impacto en el aprendizaje.</p>
-          <p>Te invitamos a explorar los artículos relacionados y a compartir en comentarios cómo has aplicado gestión de distracciones digitales en tu institución. La construcción colectiva de buenas prácticas enriquece a toda la comunidad de Construyendo Conocimiento Tecnológico.</p>
-        </section>
+<h4 class="article-subheading">Freedom (Windows, macOS, iOS, Android)</h4>
+<p>Funciona en todos los dispositivos simultáneamente. Si bloqueas redes sociales en la laptop, también se bloquean en el celular.</p>
+<p>Características técnicas:</p>
+<ul class="article-list">
+<li><strong>Sincronización multiplataforma:</strong> un solo bloqueo afecta todos los dispositivos vinculados.</li>
+<li><strong>Sesiones programadas:</strong> bloqueos recurrentes (por ejemplo, todos los días de 8:00 a 12:00).</li>
+<li><strong>Modo bloqueo:</strong> impide el acceso a sitios y apps durante la sesión activa.</li>
+<li><strong>Historial de sesiones:</strong> registra cuántas sesiones de enfoque se completaron.</li>
+</ul>
 
-        <!-- CTAS: caja comentario + placeholder comentarios futuros. Déjalo así o integra sistema luego. -->
-        <div class="cta-group" style="display:grid; gap:16px; margin-top:32px; padding-top:24px; border-top:1px solid var(--border-technical);">
-          <div style="border:1px solid var(--border-technical); background: var(--bg-card); border-radius: var(--radius-default); text-align:center; padding:18px;" class="font-label font-bold tracking-widest text-xs">
-            💬 ¿Te resultó útil? Deja un comentario o comparte tu experiencia con Gestión de distracciones digitales
-          </div>
-          <div style="border:1px dashed var(--border-technical); background: var(--bg-image-placeholder); border-radius: var(--radius-default); text-align:center; padding:32px;" class="font-label font-bold tracking-widest text-xs text-dim">
-            SECCIÓN DE COMENTARIOS — Integración futura
-          </div>
-        </div>
-      </article>
+<h3 class="article-subheading">Bloqueo a Nivel de Navegador</h3>
+<figure class="article-figure">
+<img src="src/extensiones-de-navegador-para-bloquear-distracciones.webp" loading="lazy" alt="Extensiones de navegador para bloquear distracciones">
+</figure>
 
-      <!-- SIDEBAR: ad + búsqueda + OTROS ARTÍCULOS + recientes + categorías + newsletter. Ya enlaza a 6 artículos existentes. -->
-      <aside class="article-sidebar" aria-label="Navegación de artículos">
-        <div style="border:2px dashed var(--border-technical); background: var(--bg-card); border-radius: var(--radius-default); aspect-ratio: 16/9; display:flex; align-items:center; justify-content:center;">
-          <svg class="text-dim" height="40" viewBox="0 0 40 40" width="40"><path d="M0 0 L40 40 M40 0 L0 40" stroke="currentColor" stroke-width="1"></path></svg>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <div style="height:40px; border:1px solid var(--border-technical); display:flex; align-items:center; padding:0 16px; background: var(--bg-input); border-radius: var(--radius-default);" class="font-label uppercase text-dim font-bold text-xs">
-            🔍 Barra de Búsqueda
-          </div>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <h2 class="font-label">OTROS ARTÍCULOS</h2>
-          <ul class="related-list">
-            <li><a href="../Seguridad%20b%C3%A1sica%20y%20Antivirus/plantilla_articulos1.html">Seguridad básica y Antivirus</a></li>
-            <li><a href="../Ergonom%C3%ADa%20y%20salud%20digital/plantilla_articulos2.html">Ergonomía y salud digital</a></li>
-            <li><a href="../conceptos%20basicos/plantilla_articulos_blog3.html">Conceptos básicos</a></li>
-            <li><a href="../Gu%C3%ADa%20Limpieza%20de%20ventiladores/plantilla_articulos_blog2.html">Limpieza de ventiladores</a></li>
-            <li><a href="../Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing)/plantilla_articulos_blog14.html">Protección contra estafas en línea (Phishing)</a></li>
-            <li><a href="../Redes%20dom%C3%A9sticas%20y%20Wi-Fi/plantilla_articulos_blog11.html">Redes domésticas y Wi-Fi</a></li>
-          </ul>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <h3 class="font-label uppercase tracking-widest mb-sm">Entradas Recientes</h3>
-          <div style="display:grid; gap:12px;">
-            <div style="height:18px; background: var(--bg-image-placeholder); border-radius:4px;"></div>
-            <div style="height:18px; background: var(--bg-image-placeholder); border-radius:4px; width:80%;"></div>
-            <div style="height:18px; background: var(--bg-image-placeholder); border-radius:4px; width:66%;"></div>
-          </div>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <h3 class="font-label uppercase tracking-widest mb-sm">Categorías Populares</h3>
-          <div style="display:flex; flex-wrap:wrap; gap:8px;">
-            <span style="border:1px solid var(--border-technical); padding:6px 10px; border-radius:999px; background: var(--bg-card);" class="font-label text-dim">Bienestar Digital</span>
-            <span style="border:1px solid var(--border-technical); padding:6px 10px; border-radius:999px; background: var(--bg-card);" class="font-label text-dim">Educación</span>
-            <span style="border:1px solid var(--border-technical); padding:6px 10px; border-radius:999px; background: var(--bg-card);" class="font-label text-dim">Tecnología</span>
-          </div>
-        </div>
-        <div class="sidebar-widget bg-lowest text-center">
-          <h3 class="font-label uppercase tracking-widest mb-sm">Suscripción al Boletín</h3>
-          <div style="height:32px; background: var(--primary); border-radius:4px; width:100%; opacity:0.9; display:flex; align-items:center; justify-content:center; color: var(--bg-app);" class="font-label font-bold">Suscribirse</div>
-        </div>
-      </aside>
-    </div>
-  </main>
+<h3 class="article-subheading">Bloqueo a Nivel de Red (Router)</h3>
+<p>Esta estrategia bloquea el acceso a sitios de distracción para todos los dispositivos conectados a la red, no solo para la computadora.</p>
 
-  <footer class="article-footer"><p class="font-label text-dim">© 2026 Blog Informativo · Construyendo Conocimiento Tecnológico</p></footer>
-  <script src="../script/script_articulo.js" defer></script>
-  <!--
-  ================================================================================
-  GUÍA RÁPIDA PARA EDITAR ESTE ARTÍCULO (cuando retomes):
-  - Busca "TODO:" en este archivo para saber qué cambiar.
-  - Imágenes: crea src/ si no existe, pon 01-hero.png y reemplaza div placeholder.
-  - Tabla: si no la necesitas, borra todo el <section> de tabla comparativa.
-  - Para publicar, no toques este HTML; solo descomenta su card en ../../index.html
-  ================================================================================
-  -->
+<h4 class="article-subheading">Configuración en Router Doméstico</h4>
+<p>La mayoría de routers modernos permiten configurar filtros de contenido.</p>
+<p>Pasos técnicos generales:</p>
+<ol class="article-list">
+<li>Acceder al panel de administración del router (generalmente <strong>192.168.1.1</strong> o <strong>192.168.0.1</strong>).</li>
+<li>Navegar a la sección de <strong>“Control Parental”</strong>, <strong>“Filtros de Contenido”</strong> o <strong>“Firewall”</strong>.</li>
+<li>Agregar dominios a la lista de bloqueo:</li>
+</ol>
+<ul class="article-list">
+<li>facebook.com</li>
+<li>instagram.com</li>
+<li>twitter.com</li>
+<li>tiktok.com</li>
+<li>youtube.com</li>
+</ul>
+
+<h4 class="article-subheading">Pi-hole (Raspberry Pi)</h4>
+<p>Solución técnica avanzada: un servidor DNS privado que bloquea dominios a nivel de red antes de que lleguen al dispositivo.</p>
+<p>Características técnicas:</p>
+<ul class="article-list">
+<li>Se instala en una Raspberry Pi o en un servidor local.</li>
+<li>Bloquea dominios de publicidad, rastreadores y sitios de distracción.</li>
+<li>Panel de administración web para gestionar listas de bloqueo.</li>
+<li>Estadísticas detalladas de consultas DNS y bloqueos.</li>
+</ul>
+
+<h3 class="article-subheading">Modo de Enfoque Integrado en el Sistema Operativo</h3>
+
+<h4 class="article-subheading">Windows: Modo de Concentración</h4>
+<p>Windows 11 incluye una función nativa llamada <strong>Modo de Concentración</strong> (anteriormente “Enfoque”).</p>
+<p>Configuración:</p>
+<ul class="article-list">
+<li>Configuración → Sistema → Concentración: activar <strong>“Ocultar insignias en aplicaciones de la barra de tareas”</strong>.</li>
+<li>Activar <strong>“Ocultar parpadeo de aplicaciones en la barra de tareas”</strong>.</li>
+<li>Configurar <strong>“No molestar”</strong> automático durante horarios de estudio.</li>
+<li>Integración con el Calendario de Outlook para sesiones automáticas.</li>
+</ul>
+
+<h4 class="article-subheading">macOS: Enfoque</h4>
+<p>macOS tiene perfiles de Enfoque configurables.</p>
+<p>Configuración:</p>
+<ol class="article-list">
+<li>Preferencias del Sistema → Notificaciones y Enfoque → Enfoque.</li>
+<li>Crear un perfil <strong>“Estudio”</strong> que:</li>
+</ol>
+<ul class="article-list">
+<li>Permite notificaciones solo de apps educativas.</li>
+<li>Bloquea notificaciones de redes sociales.</li>
+<li>Se activa automáticamente según horario o ubicación.</li>
+</ul>
+
+<h4 class="article-subheading">Linux: GNOME Pomodoro / SelfControl</h4>
+<ul class="article-list">
+<li><strong>GNOME Pomodoro:</strong> temporizador Pomodoro con bloqueo de notificaciones.</li>
+<li><strong>SelfControl:</strong> aplicación de código abierto que bloquea sitios web de forma irreversible durante el tiempo configurado.</li>
+</ul>
+</section>
+
+<section class="article-section">
+<h2 class="article-subheading">Métodos Complementarios (No Tecnológicos)</h2>
+<p>Las herramientas de bloqueo son efectivas, pero funcionan mejor combinadas con estrategias de gestión de la atención.</p>
+
+<h3 class="article-subheading">Técnica Pomodoro</h3>
+<p>Método de gestión del tiempo que divide el trabajo en intervalos de enfoque intenso seguidos de descansos cortos.</p>
+<figure class="article-figure">
+<img src="src/tecnica-pomodoro-ciclos-de-enfoque-y-descanso.webp" loading="lazy" alt="Técnica Pomodoro con ciclos de enfoque y descanso">
+</figure>
+</section>
+
+<section class="article-section">
+<h2 class="article-subheading">Métricas de Productividad: Cómo Saber si Funciona</h2>
+<figure class="article-figure">
+<img src="src/metricas-para-medir-enfoque-distracciones-y-productividad.webp" loading="lazy" alt="Métricas para medir el enfoque, las distracciones y la productividad">
+</figure>
+</section>
+
+</article>
+
+<aside class="article-sidebar" aria-label="Navegación de artículos">
+<div class="sidebar-widget bg-lowest">
+<h2 class="font-label">OTROS ARTÍCULOS</h2>
+<ul class="related-list">
+<li><a href="../Creaci%C3%B3n%20de%20podcasts%20educativos/plantilla_articulos.html">Creación de podcasts educativos</a></li>
+<li><a href="../Redes%20dom%C3%A9sticas%20y%20Wi-Fi/plantilla_articulos_blog11.html">Redes domésticas y Wi-Fi</a></li>
+<li><a href="../Prevenci%C3%B3n%20del%20ciberacoso%20%28Cyberbullying%29/plantilla_articulos.html">Prevención del ciberacoso (Cyberbullying)</a></li>
+<li><a href="../Mapas%20mentales%20y%20conceptuales%20digitales/plantilla_articulos.html">Mapas mentales y conceptuales digitales</a></li>
+<li><a href="../Ergonom%C3%ADa%20y%20salud%20digital/plantilla_articulos2.html">Ergonomía y salud digital</a></li>
+<li><a href="../Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing)/plantilla_articulos_blog14.html">Protección contra estafas en línea (Phishing)</a></li>
+</ul>
+</div>
+</aside>
+</div>
+</main>
+
+<footer class="article-footer">
+<p class="font-label text-dim">© 2026 Blog Informativo · Construyendo Conocimiento Tecnológico</p>
+</footer>
+<script src="../script/script_articulo.js" defer></script>
 </body>
 </html>

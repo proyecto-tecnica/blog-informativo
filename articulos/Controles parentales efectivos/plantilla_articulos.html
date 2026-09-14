@@ -1,246 +1,236 @@
 <!DOCTYPE html>
-<!--
-================================================================================
-PLANTILLA LISTA — ARTICULO: Controles parentales efectivos
-Estado: CREADO Y LISTO, PERO DESACTIVADO (index.html tiene su card comentada)
-Fecha: 21 Ago 2026 | Autor generico: Equipo Editorial
-Base: plantilla_articulos1.html (estructura funcional) + plantilla_articulos3.html (wireframe)
-
-QUE TIENES AQUI:
-- head con SEO listo (title, description, canonical, og, twitter, json-ld Article)
-  -> Cambia solo title, meta description, canonical si renombras carpeta.
-- Link CSS: ../../styles/style_global.css usa variables --bg-app (#e6f0ff claro / #0a192f oscuro)
-- Header: logo + nav Inicio/Articulos/Archivo + themeToggle (funciona con script_articulo.js)
-- Main grid: 8fr articulo + 4fr sidebar en desktop (ver style_global.css article-grid-layout)
-  - article-title-block: h1 + metadata fecha/autor/categoria
-  - article-introduction: 2 parrafos intro
-  - figure destacada: placeholder con border dashed (cambia div por img src="src/..." cuando tengas imagen)
-  - Secciones: Que es, Caracteristicas, split, lista, tabla, conclusion, CTAs
-  - Sidebar: ad + busqueda + OTROS ARTICULOS (6 links) + recientes + categorias + newsletter
-- Footer + script ../script/script_articulo.js maneja tema claro/oscuro (localStorage theme)
-
-PARA RETOMAR:
-1. Busca TODO: en este archivo para saber que rellenar.
-2. Reemplaza textos placeholder por tu contenido real (respeta clases).
-3. Anade imagenes en src/ (01-hero.png) y cambia div placeholder por img tag.
-4. Para PUBLICAR, ve a ../../index.html, busca BLOQUE FUTURO 25 ARTICULOS y descomenta la card de este articulo.
-5. Opcional: anade entrada en articulos/config/index.json y en article-loader.js FALLBACK_ARTICLES si usas plantilla-articulo.html dinamico.
-
-COLORES (si olvidaste):
-- Claro :root.light --bg-app #e6f0ff
-- Oscuro :root.dark --bg-app #0a192f
-
-NO BORRES ESTE BLOQUE — es tu guia para volver despues de tiempo.
-================================================================================
--->
-
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Controles parentales efectivos | Blog Informativo</title>
-  <!-- SEO: cambia title/description/canonical si renombras archivo o carpeta -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../styles/style_global.css">
-  <meta name="description" content="Guía práctica para configurar controles parentales equilibrados que protegen sin invadir la autonomía adolescente.">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Controles%20parentales%20efectivos/plantilla_articulos.html">
-  <meta property="og:title" content="Controles parentales efectivos | Blog Informativo">
-  <meta property="og:description" content="Guía práctica para configurar controles parentales equilibrados que protegen sin invadir la autonomía adolescente.">
-  <meta property="og:url" content="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Controles%20parentales%20efectivos/plantilla_articulos.html">
-  <meta property="og:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
-  <meta property="og:type" content="article">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Controles parentales efectivos | Blog Informativo">
-  <meta name="twitter:description" content="Guía práctica para configurar controles parentales equilibrados que protegen sin invadir la autonomía adolescente.">
-  <meta name="twitter:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
-  <script type="application/ld+json">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Controles parentales efectivos | Blog Informativo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles/style_global.css">
+<meta name="description" content="Guía práctica para padres sobre controles parentales: herramientas por plataforma, estrategias de comunicación y recomendaciones por edad para supervisar sin invadir la privacidad.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Controles%20parentales%20efectivos/plantilla_articulos.html">
+<meta property="og:title" content="Controles parentales efectivos | Blog Informativo">
+<meta property="og:description" content="Guía práctica para padres sobre controles parentales: herramientas por plataforma, estrategias de comunicación y recomendaciones por edad para supervisar sin invadir la privacidad.">
+<meta property="og:url" content="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Controles%20parentales%20efectivos/plantilla_articulos.html">
+<meta property="og:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Controles parentales efectivos | Blog Informativo">
+<meta name="twitter:description" content="Guía práctica para padres sobre controles parentales: herramientas por plataforma, estrategias de comunicación y recomendaciones por edad para supervisar sin invadir la privacidad.">
+<meta name="twitter:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Controles parentales efectivos | Blog Informativo",
-  "description": "Guía práctica para configurar controles parentales equilibrados que protegen sin invadir la autonomía adolescente.",
-  "author": {"@type": "Person", "name": "Equipo Editorial"},
+  "description": "Guía práctica para padres sobre controles parentales: herramientas por plataforma, estrategias de comunicación y recomendaciones por edad para supervisar sin invadir la privacidad.",
   "image": "https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png",
   "url": "https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Controles%20parentales%20efectivos/plantilla_articulos.html"
 }
-  </script>
+</script>
 </head>
 <body>
-  <!-- HEADER: logo + nav + themeToggle. No toques clases, solo textos si quieres. Funciona con script_articulo.js -->
-  <header class="article-header">
-    <div class="header-inner">
-      <a class="site-title font-headline-md" href="../../index.html">Blog Informativo</a>
-      <nav class="desktop-nav font-label" aria-label="Navegación principal">
-        <a href="../../index.html#inicio">Inicio</a><a href="../../index.html#articulos">Artículos</a><a href="../../index.html#archivo">Archivo</a>
-      </nav>
-      <span id="themeToggle" class="icon-button theme-indicator" role="button" tabindex="0" aria-label="Alternar tema oscuro/claro" title="Alternar tema"><svg class="theme-icon" viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8v16z"/></svg></span>
-    </div>
-  </header>
+<header class="article-header">
+<div class="header-inner">
+<a class="site-title font-headline-md" href="../../index.html">Blog Informativo</a>
+<nav class="desktop-nav font-label" aria-label="Navegación principal">
+<a href="../../index.html#inicio">Inicio</a>
+<a href="../../index.html#articulos">Artículos</a>
+<a href="../../index.html#archivo">Archivo</a>
+</nav>
+<span id="themeToggle" class="icon-button theme-indicator" role="button" tabindex="0" aria-label="Alternar tema oscuro/claro" title="Alternar tema"><svg class="theme-icon" viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8v16z"/></svg></span>
+</div>
+</header>
+<main class="article-main-container">
+<div class="article-grid-layout">
+<article class="article-body">
+<header class="article-title-block">
+<h1 class="font-headline-lg">Controles Parentales Efectivos: Guía Práctica para Padres</h1>
+</header>
 
-  <!-- MAIN GRID: 8fr articulo + 4fr sidebar (desktop). En móvil se apila. -->
-  <main class="article-main-container">
-    <div class="article-grid-layout">
-      <!-- Columna Izquierda: Cuerpo del Artículo (wireframe plantilla_articulos3 + estructura plantilla_articulos1) -->
-      <article class="article-body">
-        <!-- HERO / TITULAR: categoria + h1 + metadata. TODO: cambia h1 y metadata si hace falta. -->
-        <header class="article-title-block">
-          <p class="font-label text-dim">ARTÍCULO TÉCNICO · SEGURIDAD FAMILIAR</p>
-          <h1 class="font-headline-lg">Controles parentales efectivos</h1>
-          <div class="metadata-bar font-label text-dim" style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
-            <span>📅 21 Ago 2026</span>
-            <span class="separator">|</span>
-            <span>👤 Equipo Editorial</span>
-            <span class="separator">|</span>
-            <span>📁 Seguridad Familiar</span>
-          </div>
-        </header>
+<section class="article-section">
+<h2>¿Qué son los controles parentales?</h2>
+<p>Los controles parentales son herramientas y estrategias que permiten a los padres supervisar, limitar y orientar el uso que sus hijos hacen de dispositivos electrónicos (celulares, tablets, computadoras, consolas) y de internet. No se trata de espiar, sino de acompañar, proteger y enseñar a usar la tecnología de forma responsable.</p>
+</section>
 
-        <!-- INTRODUCCIÓN: gancho + 2 párrafos. TODO: escribe tu intro real aquí. -->
-        <section class="article-section article-introduction">
-          <h2 class="article-subheading">Introducción</h2>
-          <p>Los controles parentales no deben ser un mecanismo de vigilancia invasiva, sino un acompañamiento gradual que filtra contenido inapropiado, limita tiempos y fomenta el diálogo sobre riesgos en línea.</p>
-          <p>Controles parentales efectivos no es solo una herramienta técnica, sino una competencia que fortalece el aprendizaje autónomo y la participación responsable. En el contexto escolar, su dominio permite a estudiantes y docentes optimizar tiempo, mejorar la calidad de las entregas y colaborar con mayor eficacia.</p>
-        </section>
+<section class="article-section">
+<h2>El desafío: ¿Cómo supervisar sin invadir la privacidad?</h2>
+<p>Muchos padres se sienten entre dos extremos: dejar que sus hijos naveguen sin límites o convertirse en "policías digitales" que revisan cada mensaje. La clave está en el equilibrio: <strong>Supervisar no es espiar. Es estar presente, establecer reglas claras y construir confianza.</strong></p>
+<div style="overflow-x:auto;">
+<table class="article-table">
+<thead>
+<tr><th>❌ Evita</th><th>✅ Haz</th></tr>
+</thead>
+<tbody>
+<tr><td>Revisar mensajes y chats en secreto</td><td>Hablar abiertamente sobre lo que ven en línea</td></tr>
+<tr><td>Prohibir todo sin explicar por qué</td><td>Establecer reglas con acuerdos mutuos</td></tr>
+<tr><td>Usar el celular como castigo o recompensa</td><td>Enseñar autorregulación desde temprano</td></tr>
+<tr><td>Ignorar lo que hacen en línea</td><td>Mostrar interés genuino en sus actividades digitales</td></tr>
+</tbody>
+</table>
+</div>
+</section>
 
-        <!-- IMAGEN DESTACADA: placeholder con border dashed. TODO: reemplaza div por <img src="src/01-hero.png" ...> -->
-        <figure class="article-figure article-figure-featured">
-          <div style="border:2px dashed var(--border-technical); background: var(--bg-image-placeholder); border-radius: var(--radius-default); aspect-ratio: 16/9; display:flex; align-items:center; justify-content:center; text-align:center; padding:16px;">
-            <span class="font-label text-dim uppercase" style="font-size:11px; letter-spacing:0.08em;">Imagen destacada · Controles parentales efectivos · Infografía / Ilustración</span>
-          </div>
-          <figcaption class="font-label text-dim" style="text-align:center; margin-top:8px;">Figura 1 — Representación visual de Controles parentales efectivos en el entorno escolar.</figcaption>
-        </figure>
+<section class="article-section">
+<h2>Herramientas prácticas por plataforma</h2>
 
-        <section class="article-section">
-          <h2 class="article-subheading">¿Qué es y por qué importa?</h2>
-          <p>Aplicar controles parentales efectivos en proyectos reales ayuda a desarrollar pensamiento crítico: elegir cuándo usarlo, evaluar su impacto y ajustar su uso según el objetivo pedagógico y las normas de convivencia digital.</p>
-        </section>
+<h3>iPhone / iPad — Tiempo de Uso (Screen Time)</h3>
+<p>Apple incluye esta herramienta gratis en todos sus dispositivos:</p>
+<ul class="article-list">
+<li><strong>Límites de tiempo de app:</strong> Puedes establecer cuánto tiempo al día puede usar ciertas apps (redes sociales, juegos, etc.).</li>
+<li><strong>Tiempo de inactividad:</strong> Programa horarios donde el dispositivo solo permite llamadas o apps esenciales (ideal para dormir o estudiar).</li>
+<li><strong>Restricciones de contenido:</strong> Bloquea contenido para adultos, compras dentro de apps, o sitios web inapropiados.</li>
+<li><strong>Solicitudes:</strong> Tu hijo puede pedirte más tiempo o acceso a una app, y tú decides desde tu dispositivo.</li>
+</ul>
+<p><em>Cómo activarlo:</em> Ajustes → Tiempo de Uso → Activar.</p>
 
-        <!-- SPLIT LAYOUT: texto + imagen lado a lado (plantilla3 wireframe). En móvil se apila. -->
-        <section class="article-section" style="display:grid; grid-template-columns: 1fr; gap:24px;">
-          <div>
-            <h2 class="article-subheading">Características principales</h2>
-            <p>Entre los aspectos más valorados de <strong>Controles parentales efectivos</strong> destacan su accesibilidad, la posibilidad de iterar sin costo adicional y la trazabilidad del proceso de aprendizaje que ofrece al docente.</p>
-            <div style="border:1px solid var(--border-technical); background: var(--bg-card); border-radius: var(--radius-default); padding:16px; margin-top:12px;">
-              <p class="font-label text-dim" style="margin:0; font-size:11px; letter-spacing:0.08em; text-transform:uppercase;">💡 Dato clave</p>
-              <p style="margin:8px 0 0;">Controles parentales efectivos se integra mejor cuando se planifica con objetivos claros, criterios de evaluación y espacios de reflexión posteriores a la práctica.</p>
-            </div>
-          </div>
-          <div style="border:2px dashed var(--border-technical); background: var(--bg-image-placeholder); border-radius: var(--radius-default); aspect-ratio: 1/1; display:flex; align-items:center; justify-content:center; padding:16px; text-align:center;">
-            <span class="font-label text-dim uppercase" style="font-size:11px;">Imagen / Infografía<br>Controles parentales efectivos</span>
-          </div>
-        </section>
+<h3>Android — Family Link (de Google)</h3>
+<p>Google Family Link es gratuita y permite:</p>
+<ul class="article-list">
+<li>Ver cuánto tiempo pasa en cada app.</li>
+<li>Establecer límites diarios de uso de pantalla.</li>
+<li>Bloquear el dispositivo a ciertas horas (hora de dormir, tareas).</li>
+<li>Aprobar o rechazar descargas de apps desde Google Play.</li>
+<li>Ver la ubicación del dispositivo (útil para seguridad física).</li>
+</ul>
+<p><em>Cómo activarlo:</em> Descarga "Family Link para padres" en tu celular y "Family Link" en el del niño.</p>
 
-        <!-- LISTA: bullets .article-list. TODO: cambia <li> por tus puntos reales. -->
-        <section class="article-section">
-          <h2 class="article-subheading">Buenas prácticas y recomendaciones</h2>
-          <p>Para aprovechar controles parentales efectivos de forma responsable y efectiva, considera estas recomendaciones:</p>
-          <ul class="article-list">
-                            <li>Concepto clave aplicado a controles parentales efectivos</li>
-                            <li>Aplicación escolar aplicado a controles parentales efectivos</li>
-                            <li>Buena práctica aplicado a controles parentales efectivos</li>
-                            <li>Enfoque pedagógico centrado en el estudiante para controles parentales efectivos</li>
-                            <li>Evaluación y mejora continua del uso de controles parentales efectivos en clase</li>
-          </ul>
-          <p>Estas prácticas, aplicadas de manera constante, convierten a <strong>Controles parentales efectivos</strong> en un aliado para el aprendizaje y no en una fuente de distracción o riesgo.</p>
-        </section>
+<h3>Windows — Controles parentales de Microsoft</h3>
+<p>Si tu hijo usa una computadora con Windows:</p>
+<ul class="article-list">
+<li>Crea una cuenta de Microsoft para menores vinculada a la tuya.</li>
+<li>Desde tu cuenta puedes:
+  <ul class="article-list">
+    <li>Limitar el tiempo de uso de la PC.</li>
+    <li>Filtrar sitios web inapropiados.</li>
+    <li>Ver un resumen de actividad semanal.</li>
+    <li>Aprobar compras en la Microsoft Store.</li>
+  </ul>
+</li>
+</ul>
+<p><em>Cómo activarlo:</em> Configuración → Cuentas → Familia y otros usuarios.</p>
 
-        <!-- TABLA: .article-table con overflow. TODO: edita <th>/<td> para tu comparativa real. Si no la necesitas, borra este <section> entero. -->
-        <section class="article-section">
-          <h3 class="font-label uppercase tracking-widest" style="margin-bottom:12px; color: var(--text-dim);">Tabla comparativa</h3>
-          <div style="overflow-x:auto; border:1px solid var(--border-technical); border-radius: var(--radius-default);">
-            <table class="article-table" style="margin:0;">
-              <thead>
-                <tr><th>Criterio</th><th>Opción A</th><th>Opción B</th></tr>
-              </thead>
-              <tbody>
+<h3>Nivel de red: el router de tu casa</h3>
+<p>Algunos routers modernos permiten controlar el acceso a internet desde el propio router:</p>
+<ul class="article-list">
+<li>Bloquear sitios web para todos los dispositivos conectados.</li>
+<li>Programar horarios de conexión (por ejemplo, apagar WiFi a las 10 p.m.).</li>
+<li>Ver qué dispositivos están conectados y cuánto ancho de banda usan.</li>
+</ul>
+<p>Marcas como TP-Link, ASUS, Netgear y Google Nest tienen apps para gestionar esto fácilmente.</p>
 
-                            <tr><td>Criterio</td><td>Controles parentales efectivos — Opción A</td><td>Controles parentales efectivos — Opción B</td></tr>
-                            <tr><td>Facilidad de uso</td><td>Alta — ideal para principiantes</td><td>Media — requiere práctica</td></tr>
-                            <tr><td>Compatibilidad</td><td>Amplia con dispositivos escolares</td><td>Limitada a plataformas específicas</td></tr>
-                            <tr><td>Costo</td><td>Gratuito / institucional</td><td>Requiere licencia</td></tr>
+<h3>Consolas de videojuegos</h3>
+<ul class="article-list">
+<li><strong>PlayStation:</strong> Controles parentales en Ajustes → Gestión familiar.</li>
+<li><strong>Xbox:</strong> Family Settings app para limitar tiempo de juego, compras y contenido.</li>
+<li><strong>Nintendo Switch:</strong> Controles parentales desde la app oficial en tu celular.</li>
+</ul>
+</section>
 
-              </tbody>
-            </table>
-          </div>
-          <p class="font-label text-dim" style="font-size:11px; margin-top:8px;">Tabla 1 — Comparativa orientativa para elegir herramientas relacionadas con Controles parentales efectivos.</p>
-        </section>
 
-        <!-- CONCLUSIÓN: 2 párrafos cierre + CTA. TODO: resume y deja pregunta para comentarios. -->
-        <section class="article-section">
-          <h2 class="article-subheading">Conclusión y resumen</h2>
-          <p><strong>Controles parentales efectivos</strong> ejemplifica cómo la tecnología, usada con criterio pedagógico, amplía oportunidades sin reemplazar el rol docente. Su implementación exitosa depende de formación, acuerdos de convivencia digital y evaluación continua del impacto en el aprendizaje.</p>
-          <p>Te invitamos a explorar los artículos relacionados y a compartir en comentarios cómo has aplicado controles parentales efectivos en tu institución. La construcción colectiva de buenas prácticas enriquece a toda la comunidad de Construyendo Conocimiento Tecnológico.</p>
-        </section>
 
-        <!-- CTAS: caja comentario + placeholder comentarios futuros. Déjalo así o integra sistema luego. -->
-        <div class="cta-group" style="display:grid; gap:16px; margin-top:32px; padding-top:24px; border-top:1px solid var(--border-technical);">
-          <div style="border:1px solid var(--border-technical); background: var(--bg-card); border-radius: var(--radius-default); text-align:center; padding:18px;" class="font-label font-bold tracking-widest text-xs">
-            💬 ¿Te resultó útil? Deja un comentario o comparte tu experiencia con Controles parentales efectivos
-          </div>
-          <div style="border:1px dashed var(--border-technical); background: var(--bg-image-placeholder); border-radius: var(--radius-default); text-align:center; padding:32px;" class="font-label font-bold tracking-widest text-xs text-dim">
-            SECCIÓN DE COMENTARIOS — Integración futura
-          </div>
-        </div>
-      </article>
+<section class="article-section">
+<h2>Estrategias de comunicación: la herramienta más poderosa</h2>
+<p>Las herramientas tecnológicas ayudan, pero la conversación es lo que realmente protege a tu hijo. Aquí algunas estrategias:</p>
 
-      <!-- SIDEBAR: ad + búsqueda + OTROS ARTÍCULOS + recientes + categorías + newsletter. Ya enlaza a 6 artículos existentes. -->
-      <aside class="article-sidebar" aria-label="Navegación de artículos">
-        <div style="border:2px dashed var(--border-technical); background: var(--bg-card); border-radius: var(--radius-default); aspect-ratio: 16/9; display:flex; align-items:center; justify-content:center;">
-          <svg class="text-dim" height="40" viewBox="0 0 40 40" width="40"><path d="M0 0 L40 40 M40 0 L0 40" stroke="currentColor" stroke-width="1"></path></svg>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <div style="height:40px; border:1px solid var(--border-technical); display:flex; align-items:center; padding:0 16px; background: var(--bg-input); border-radius: var(--radius-default);" class="font-label uppercase text-dim font-bold text-xs">
-            🔍 Barra de Búsqueda
-          </div>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <h2 class="font-label">OTROS ARTÍCULOS</h2>
-          <ul class="related-list">
-            <li><a href="../Seguridad%20b%C3%A1sica%20y%20Antivirus/plantilla_articulos1.html">Seguridad básica y Antivirus</a></li>
-            <li><a href="../Ergonom%C3%ADa%20y%20salud%20digital/plantilla_articulos2.html">Ergonomía y salud digital</a></li>
-            <li><a href="../conceptos%20basicos/plantilla_articulos_blog3.html">Conceptos básicos</a></li>
-            <li><a href="../Gu%C3%ADa%20Limpieza%20de%20ventiladores/plantilla_articulos_blog2.html">Limpieza de ventiladores</a></li>
-            <li><a href="../Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing)/plantilla_articulos_blog14.html">Protección contra estafas en línea (Phishing)</a></li>
-            <li><a href="../Redes%20dom%C3%A9sticas%20y%20Wi-Fi/plantilla_articulos_blog11.html">Redes domésticas y Wi-Fi</a></li>
-          </ul>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <h3 class="font-label uppercase tracking-widest mb-sm">Entradas Recientes</h3>
-          <div style="display:grid; gap:12px;">
-            <div style="height:18px; background: var(--bg-image-placeholder); border-radius:4px;"></div>
-            <div style="height:18px; background: var(--bg-image-placeholder); border-radius:4px; width:80%;"></div>
-            <div style="height:18px; background: var(--bg-image-placeholder); border-radius:4px; width:66%;"></div>
-          </div>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <h3 class="font-label uppercase tracking-widest mb-sm">Categorías Populares</h3>
-          <div style="display:flex; flex-wrap:wrap; gap:8px;">
-            <span style="border:1px solid var(--border-technical); padding:6px 10px; border-radius:999px; background: var(--bg-card);" class="font-label text-dim">Seguridad Familiar</span>
-            <span style="border:1px solid var(--border-technical); padding:6px 10px; border-radius:999px; background: var(--bg-card);" class="font-label text-dim">Educación</span>
-            <span style="border:1px solid var(--border-technical); padding:6px 10px; border-radius:999px; background: var(--bg-card);" class="font-label text-dim">Tecnología</span>
-          </div>
-        </div>
-        <div class="sidebar-widget bg-lowest text-center">
-          <h3 class="font-label uppercase tracking-widest mb-sm">Suscripción al Boletín</h3>
-          <div style="height:32px; background: var(--primary); border-radius:4px; width:100%; opacity:0.9; display:flex; align-items:center; justify-content:center; color: var(--bg-app);" class="font-label font-bold">Suscribirse</div>
-        </div>
-      </aside>
-    </div>
-  </main>
+<h3>1. Establece reglas juntos</h3>
+<p>No impongas límites de arriba hacia abajo. Invita a tu hijo a participar en la creación de las reglas. Cuando ellos ayudan a diseñarlas, las respetan más.</p>
+<p><em>Ejemplo de acuerdo familiar:</em></p>
+<ul class="article-list">
+<li>No celular durante las comidas.</li>
+<li>Pantalla apagada 1 hora antes de dormir.</li>
+<li>Tareas y deberes primero, pantalla después.</li>
+<li>Compartir contraseñas solo en caso de emergencia (no revisar chats sin avisar).</li>
+</ul>
 
-  <footer class="article-footer"><p class="font-label text-dim">© 2026 Blog Informativo · Construyendo Conocimiento Tecnológico</p></footer>
-  <script src="../script/script_articulo.js" defer></script>
-  <!--
-  ================================================================================
-  GUÍA RÁPIDA PARA EDITAR ESTE ARTÍCULO (cuando retomes):
-  - Busca "TODO:" en este archivo para saber qué cambiar.
-  - Imágenes: crea src/ si no existe, pon 01-hero.png y reemplaza div placeholder.
-  - Tabla: si no la necesitas, borra todo el <section> de tabla comparativa.
-  - Para publicar, no toques este HTML; solo descomenta su card en ../../index.html
-  ================================================================================
-  -->
+<h3>2. Crea espacios y momentos sin pantalla</h3>
+<ul class="article-list">
+<li>Comidas en familia sin dispositivos.</li>
+<li>Actividades al aire libre los fines de semana.</li>
+<li>Habitaciones libres de pantallas (especialmente el dormitorio).</li>
+</ul>
+
+<h3>3. Sé el ejemplo</h3>
+<p>Si tú estás todo el tiempo en el celular, tu hijo aprenderá ese comportamiento. Practica lo que predicas.</p>
+
+<h3>4. Habla sobre lo que ven en línea</h3>
+<p>Pregunta regularmente:</p>
+<ul class="article-list">
+<li>"¿Qué apps usaste hoy?"</li>
+<li>"¿Viste algo que te hizo sentir incómodo?"</li>
+<li>"¿Alguien te escribió algo raro?"</li>
+</ul>
+<p>Crea un ambiente donde tu hijo no tenga miedo de contarte si algo sale mal.</p>
+
+<h3>5. Enseña, no solo protege</h3>
+<p>Explica por qué ciertos sitios o comportamientos son peligrosos:</p>
+<ul class="article-list">
+<li>Los datos personales no se comparten con desconocidos.</li>
+<li>Las fotos que suben pueden quedar para siempre.</li>
+<li>Los "amigos" en línea pueden no ser quienes dicen ser.</li>
+</ul>
+</section>
+
+<figure class="article-figure">
+<img src="src/controles-parentales-panel-de-tiempo-de-pantalla-y-familia.webp" loading="lazy" alt="Panel de controles parentales con gestión de tiempo de pantalla y configuración familiar">
+</figure>
+
+<section class="article-section">
+<div style="overflow-x:auto;">
+<table class="article-table">
+<thead>
+<tr><th>Edad</th><th>Recomendación general</th><th>Enfoque de los padres</th></tr>
+</thead>
+<tbody>
+<tr><td>2-5 años</td><td>Máximo 1 hora al día de contenido educativo de alta calidad.</td><td>Acompañar siempre. Evitar pantallas durante comidas y antes de dormir.</td></tr>
+<tr><td>6-12 años</td><td>1-2 horas diarias con supervisión.</td><td>Establecer límites claros. Usar Family Link o Screen Time. Conversar sobre lo que ven.</td></tr>
+<tr><td>13-17 años</td><td>Negociar límites con el adolescente.</td><td>Menos control técnico, más confianza y diálogo. Enseñar autocontrol.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="article-section">
+<h2>Señales de alerta: ¿cuándo preocuparse?</h2>
+<p>Presta atención si tu hijo:</p>
+<ul class="article-list">
+<li>Se enoja o ansía excesivamente cuando le quitas el dispositivo.</li>
+<li>Prefiere la pantalla sobre actividades que antes disfrutaba.</li>
+<li>Duerme mal o tiene dificultades para concentrarse.</li>
+<li>Se aísla de amigos y familia.</li>
+<li>Miente sobre el tiempo que pasa en línea.</li>
+</ul>
+</section>
+
+<figure class="article-figure">
+<img src="src/aventura-digital-segura-en-familia-misiones-de-proteccion.webp" loading="lazy" alt="Aventura digital segura en familia con misiones de protección y acompañamiento parental">
+</figure>
+
+<section class="article-section">
+<p>Los controles parentales no son una barrera de seguridad perfecta, ni un sustituto de la confianza. Son una herramienta más en la crianza digital. Lo más importante es que tu hijo se sienta acompañado, no vigilado. Cuando los límites se construyen con amor, respeto y diálogo, los niños aprenden a navegar el mundo digital con seguridad y criterio propio.</p>
+</section>
+
+
+
+</article>
+<aside class="article-sidebar" aria-label="Navegación de artículos">
+<div class="sidebar-widget bg-lowest">
+<h2 class="font-label">OTROS ARTÍCULOS</h2>
+<ul class="related-list">
+<li><a href="../Huella%20digital%20escolar/plantilla_articulos.html">Huella digital escolar</a></li>
+<li><a href="../Prevenci%C3%B3n%20del%20ciberacoso%20%28Cyberbullying%29/plantilla_articulos.html">Prevención del ciberacoso (Cyberbullying)</a></li>
+<li><a href="../Ergonom%C3%ADa%20y%20salud%20digital/plantilla_articulos2.html">Ergonomía y salud digital</a></li>
+<li><a href="../Tecnolog%C3%ADa%20verde%20y%20E-waste/plantilla_articulos_blog13.html">Tecnología verde y E-waste</a></li>
+<li><a href="../Gamificaci%C3%B3n%20del%20aprendizaje/plantilla_articulos.html">Gamificación del aprendizaje</a></li>
+<li><a href="../Descargas%20seguras%20en%20internet/plantilla_articulos_blog10.html">Descargas seguras en internet</a></li>
+</ul>
+</div>
+</aside>
+</div>
+</main>
+<footer class="article-footer"><p class="font-label text-dim">© 2026 Blog Informativo · Construyendo Conocimiento Tecnológico</p></footer>
+<script src="../script/script_articulo.js" defer></script>
 </body>
 </html>

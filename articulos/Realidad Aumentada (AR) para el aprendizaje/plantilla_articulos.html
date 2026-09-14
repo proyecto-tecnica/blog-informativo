@@ -1,246 +1,201 @@
 <!DOCTYPE html>
-<!--
-================================================================================
-PLANTILLA LISTA — ARTICULO: Realidad Aumentada (AR) para el aprendizaje
-Estado: CREADO Y LISTO, PERO DESACTIVADO (index.html tiene su card comentada)
-Fecha: 21 Ago 2026 | Autor generico: Equipo Editorial
-Base: plantilla_articulos1.html (estructura funcional) + plantilla_articulos3.html (wireframe)
-
-QUE TIENES AQUI:
-- head con SEO listo (title, description, canonical, og, twitter, json-ld Article)
-  -> Cambia solo title, meta description, canonical si renombras carpeta.
-- Link CSS: ../../styles/style_global.css usa variables --bg-app (#e6f0ff claro / #0a192f oscuro)
-- Header: logo + nav Inicio/Articulos/Archivo + themeToggle (funciona con script_articulo.js)
-- Main grid: 8fr articulo + 4fr sidebar en desktop (ver style_global.css article-grid-layout)
-  - article-title-block: h1 + metadata fecha/autor/categoria
-  - article-introduction: 2 parrafos intro
-  - figure destacada: placeholder con border dashed (cambia div por img src="src/..." cuando tengas imagen)
-  - Secciones: Que es, Caracteristicas, split, lista, tabla, conclusion, CTAs
-  - Sidebar: ad + busqueda + OTROS ARTICULOS (6 links) + recientes + categorias + newsletter
-- Footer + script ../script/script_articulo.js maneja tema claro/oscuro (localStorage theme)
-
-PARA RETOMAR:
-1. Busca TODO: en este archivo para saber que rellenar.
-2. Reemplaza textos placeholder por tu contenido real (respeta clases).
-3. Anade imagenes en src/ (01-hero.png) y cambia div placeholder por img tag.
-4. Para PUBLICAR, ve a ../../index.html, busca BLOQUE FUTURO 25 ARTICULOS y descomenta la card de este articulo.
-5. Opcional: anade entrada en articulos/config/index.json y en article-loader.js FALLBACK_ARTICLES si usas plantilla-articulo.html dinamico.
-
-COLORES (si olvidaste):
-- Claro :root.light --bg-app #e6f0ff
-- Oscuro :root.dark --bg-app #0a192f
-
-NO BORRES ESTE BLOQUE — es tu guia para volver despues de tiempo.
-================================================================================
--->
-
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Realidad Aumentada (AR) para el aprendizaje | Blog Informativo</title>
-  <!-- SEO: cambia title/description/canonical si renombras archivo o carpeta -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../styles/style_global.css">
-  <meta name="description" content="Cómo la Realidad Aumentada superpone contenido digital al mundo real para hacer el aprendizaje más visual e interactivo.">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Realidad%20Aumentada%20%28AR%29%20para%20el%20aprendizaje/plantilla_articulos.html">
-  <meta property="og:title" content="Realidad Aumentada (AR) para el aprendizaje | Blog Informativo">
-  <meta property="og:description" content="Cómo la Realidad Aumentada superpone contenido digital al mundo real para hacer el aprendizaje más visual e interactivo.">
-  <meta property="og:url" content="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Realidad%20Aumentada%20%28AR%29%20para%20el%20aprendizaje/plantilla_articulos.html">
-  <meta property="og:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
-  <meta property="og:type" content="article">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Realidad Aumentada (AR) para el aprendizaje | Blog Informativo">
-  <meta name="twitter:description" content="Cómo la Realidad Aumentada superpone contenido digital al mundo real para hacer el aprendizaje más visual e interactivo.">
-  <meta name="twitter:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
-  <script type="application/ld+json">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Realidad Aumentada (AR) para el aprendizaje | Blog Informativo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles/style_global.css">
+<meta name="description" content="Realidad Aumentada para el aprendizaje: apps gratuitas para estudiar con modelos 3D en ciencias, geografía, anatomía y más. Guías paso a paso para empezar hoy mismo.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Realidad%20Aumentada%20(AR)%20para%20el%20aprendizaje/plantilla_articulos.html">
+<meta property="og:title" content="Realidad Aumentada (AR) para el aprendizaje | Blog Informativo">
+<meta property="og:description" content="Realidad Aumentada para el aprendizaje: apps gratuitas para estudiar con modelos 3D en ciencias, geografía, anatomía y más. Guías paso a paso para empezar hoy mismo.">
+<meta property="og:url" content="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Realidad%20Aumentada%20(AR)%20para%20el%20aprendizaje/plantilla_articulos.html">
+<meta property="og:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Realidad Aumentada (AR) para el aprendizaje | Blog Informativo">
+<meta name="twitter:description" content="Realidad Aumentada para el aprendizaje: apps gratuitas para estudiar con modelos 3D en ciencias, geografía, anatomía y más. Guías paso a paso para empezar hoy mismo.">
+<meta name="twitter:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
+<script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Realidad Aumentada (AR) para el aprendizaje | Blog Informativo",
-  "description": "Cómo la Realidad Aumentada superpone contenido digital al mundo real para hacer el aprendizaje más visual e interactivo.",
-  "author": {"@type": "Person", "name": "Equipo Editorial"},
-  "image": "https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png",
-  "url": "https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Realidad%20Aumentada%20%28AR%29%20para%20el%20aprendizaje/plantilla_articulos.html"
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Realidad Aumentada (AR) para el aprendizaje | Blog Informativo",
+ "description": "Realidad Aumentada para el aprendizaje: apps gratuitas para estudiar con modelos 3D en ciencias, geografía, anatomía y más. Guías paso a paso para empezar hoy mismo.",
+ "image": "https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png",
+ "url": "https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Realidad%20Aumentada%20(AR)%20para%20el%20aprendizaje/plantilla_articulos.html"
 }
-  </script>
+</script>
 </head>
 <body>
-  <!-- HEADER: logo + nav + themeToggle. No toques clases, solo textos si quieres. Funciona con script_articulo.js -->
-  <header class="article-header">
-    <div class="header-inner">
-      <a class="site-title font-headline-md" href="../../index.html">Blog Informativo</a>
-      <nav class="desktop-nav font-label" aria-label="Navegación principal">
-        <a href="../../index.html#inicio">Inicio</a><a href="../../index.html#articulos">Artículos</a><a href="../../index.html#archivo">Archivo</a>
-      </nav>
-      <span id="themeToggle" class="icon-button theme-indicator" role="button" tabindex="0" aria-label="Alternar tema oscuro/claro" title="Alternar tema"><svg class="theme-icon" viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8v16z"/></svg></span>
-    </div>
-  </header>
+<header class="article-header">
+<div class="header-inner">
+<a class="site-title font-headline-md" href="../../index.html">Blog Informativo</a>
+<nav class="desktop-nav font-label" aria-label="Navegación principal">
+<a href="../../index.html#inicio">Inicio</a> <a href="../../index.html#articulos">Artículos</a> <a href="../../index.html#archivo">Archivo</a>
+</nav>
+<span id="themeToggle" class="icon-button theme-indicator" role="button" tabindex="0" aria-label="Alternar tema oscuro/claro" title="Alternar tema"> <svg class="theme-icon" viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor;"> <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8v16z"/> </svg> </span>
+</div>
+</header>
+<main class="article-main-container">
+<div class="article-grid-layout">
+<article class="article-body">
+<header class="article-title-block">
+<h1 class="font-headline-lg">Realidad Aumentada (AR) para el Aprendizaje: Apps Gratuitas para Estudiar con Modelos 3D</h1>
+</header>
 
-  <!-- MAIN GRID: 8fr articulo + 4fr sidebar (desktop). En móvil se apila. -->
-  <main class="article-main-container">
-    <div class="article-grid-layout">
-      <!-- Columna Izquierda: Cuerpo del Artículo (wireframe plantilla_articulos3 + estructura plantilla_articulos1) -->
-      <article class="article-body">
-        <!-- HERO / TITULAR: categoria + h1 + metadata. TODO: cambia h1 y metadata si hace falta. -->
-        <header class="article-title-block">
-          <p class="font-label text-dim">ARTÍCULO TÉCNICO · TECNOLOGÍA INMERSIVA</p>
-          <h1 class="font-headline-lg">Realidad Aumentada (AR) para el aprendizaje</h1>
-          <div class="metadata-bar font-label text-dim" style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
-            <span>📅 21 Ago 2026</span>
-            <span class="separator">|</span>
-            <span>👤 Equipo Editorial</span>
-            <span class="separator">|</span>
-            <span>📁 Tecnología Inmersiva</span>
-          </div>
-        </header>
+<section class="article-section">
+<h2 class="article-subheading">¿Qué es la Realidad Aumentada en educación?</h2>
+<p>Imagina que apuntas la cámara de tu celular hacia una hoja de papel y, de repente, un corazón humano en 3D aparece flotando sobre tu escritorio. Puedes girarlo, acercarlo, ver cómo late y leer información sobre cada válvula. Eso es la Realidad Aumentada (AR): una tecnología que superpone imágenes, modelos 3D, videos y sonidos sobre el mundo real que ves a través de tu pantalla.</p>
+<p>A diferencia de la Realidad Virtual (RV), que te sumerge en un mundo completamente digital, la AR añade capas digitales a tu entorno real. No necesitas gafas especiales ni equipos caros: con tu celular o tablet es suficiente.</p>
+</section>
 
-        <!-- INTRODUCCIÓN: gancho + 2 párrafos. TODO: escribe tu intro real aquí. -->
-        <section class="article-section article-introduction">
-          <h2 class="article-subheading">Introducción</h2>
-          <p>La Realidad Aumentada (AR) permite ver modelos 3D del sistema solar sobre el pupitre o anatomía humana en la palma de la mano. Al superponer información digital al entorno real, mejora la comprensión espacial y la motivación.</p>
-          <p>Realidad Aumentada (AR) para el aprendizaje no es solo una herramienta técnica, sino una competencia que fortalece el aprendizaje autónomo y la participación responsable. En el contexto escolar, su dominio permite a estudiantes y docentes optimizar tiempo, mejorar la calidad de las entregas y colaborar con mayor eficacia.</p>
-        </section>
 
-        <!-- IMAGEN DESTACADA: placeholder con border dashed. TODO: reemplaza div por <img src="src/01-hero.png" ...> -->
-        <figure class="article-figure article-figure-featured">
-          <div style="border:2px dashed var(--border-technical); background: var(--bg-image-placeholder); border-radius: var(--radius-default); aspect-ratio: 16/9; display:flex; align-items:center; justify-content:center; text-align:center; padding:16px;">
-            <span class="font-label text-dim uppercase" style="font-size:11px; letter-spacing:0.08em;">Imagen destacada · Realidad Aumentada (AR) para el aprendizaje · Infografía / Ilustración</span>
-          </div>
-          <figcaption class="font-label text-dim" style="text-align:center; margin-top:8px;">Figura 1 — Representación visual de Realidad Aumentada (AR) para el aprendizaje en el entorno escolar.</figcaption>
-        </figure>
 
-        <section class="article-section">
-          <h2 class="article-subheading">¿Qué es y por qué importa?</h2>
-          <p>Aplicar realidad aumentada (ar) para el aprendizaje en proyectos reales ayuda a desarrollar pensamiento crítico: elegir cuándo usarlo, evaluar su impacto y ajustar su uso según el objetivo pedagógico y las normas de convivencia digital.</p>
-        </section>
+<section class="article-section">
+<h2 class="article-subheading">¿Cómo funciona? Tres formas sencillas</h2>
+<ol class="article-list">
+<li><strong>Con marcadores (imágenes impresas)</strong> Descargas una imagen especial (un marcador), la imprimes o la muestras en pantalla, y la app reconoce esa imagen para proyectar el modelo 3D encima. Es la forma más común en apps educativas.</li>
+<li><strong>Sin marcadores (superficies planas)</strong> La app detecta una mesa o el suelo y coloca el modelo 3D directamente sobre esa superficie. Solo necesitas mover el celular para que "escanee" el espacio.</li>
+<li><strong>Basada en ubicación</strong> Apuntas el celular hacia el cielo, una calle o un monumento, y la app muestra información o modelos 3D relacionados con ese lugar.</li>
+</ol>
+</section>
 
-        <!-- SPLIT LAYOUT: texto + imagen lado a lado (plantilla3 wireframe). En móvil se apila. -->
-        <section class="article-section" style="display:grid; grid-template-columns: 1fr; gap:24px;">
-          <div>
-            <h2 class="article-subheading">Características principales</h2>
-            <p>Entre los aspectos más valorados de <strong>Realidad Aumentada (AR) para el aprendizaje</strong> destacan su accesibilidad, la posibilidad de iterar sin costo adicional y la trazabilidad del proceso de aprendizaje que ofrece al docente.</p>
-            <div style="border:1px solid var(--border-technical); background: var(--bg-card); border-radius: var(--radius-default); padding:16px; margin-top:12px;">
-              <p class="font-label text-dim" style="margin:0; font-size:11px; letter-spacing:0.08em; text-transform:uppercase;">💡 Dato clave</p>
-              <p style="margin:8px 0 0;">Realidad Aumentada (AR) para el aprendizaje se integra mejor cuando se planifica con objetivos claros, criterios de evaluación y espacios de reflexión posteriores a la práctica.</p>
-            </div>
-          </div>
-          <div style="border:2px dashed var(--border-technical); background: var(--bg-image-placeholder); border-radius: var(--radius-default); aspect-ratio: 1/1; display:flex; align-items:center; justify-content:center; padding:16px; text-align:center;">
-            <span class="font-label text-dim uppercase" style="font-size:11px;">Imagen / Infografía<br>Realidad Aumentada (AR) para el aprendizaje</span>
-          </div>
-        </section>
+<section class="article-section">
+<h2 class="article-subheading">Apps gratuitas por área de estudio</h2>
+<h3>CIENCIAS</h3>
+<ul class="article-list">
+<li><strong>AR-3D Science</strong><br>Una app gratuita para Android que incluye modelos 3D de Física, Química y Biología. Los estudiantes pueden descargar marcadores específicos para cada materia, enfocarlos con la cámara y ver modelos interactivos con información textual y sonido. Los modelos se pueden tocar, rotar y ampliar.</li>
+<li><strong>RApp Chemistry(A): AR</strong><br>Especializada en Química, permite visualizar los elementos de la tabla periódica en 3D. Solo necesitas descargar los marcadores, abrir la app y enfocarlos con la cámara. Es ideal para entender la estructura atómica de forma visual.</li>
+<li><strong>Merge Cube</strong><br>Un kit de apps diseñado para aprender conceptos científicos y STEM. Al descargar las apps gratuitas y seleccionar la opción de prueba, los estudiantes acceden a un visor con más de mil ayudas didácticas digitales y simulaciones científicas interactivas. Es compatible con Android e iOS.</li>
+<li><strong>Chromeville Science</strong><br>Combina fichas para colorear con realidad aumentada. Los estudiantes descargan las fichas, las colorean y luego, con la app, ven cómo sus dibujos cobran vida en 3D. Es especialmente útil para ciencias naturales y biología básica.</li>
+</ul>
+</section>
 
-        <!-- LISTA: bullets .article-list. TODO: cambia <li> por tus puntos reales. -->
-        <section class="article-section">
-          <h2 class="article-subheading">Buenas prácticas y recomendaciones</h2>
-          <p>Para aprovechar realidad aumentada (ar) para el aprendizaje de forma responsable y efectiva, considera estas recomendaciones:</p>
-          <ul class="article-list">
-                            <li>Concepto clave aplicado a realidad aumentada (ar) para el aprendizaje</li>
-                            <li>Aplicación escolar aplicado a realidad aumentada (ar) para el aprendizaje</li>
-                            <li>Buena práctica aplicado a realidad aumentada (ar) para el aprendizaje</li>
-                            <li>Enfoque pedagógico centrado en el estudiante para realidad aumentada (ar) para el aprendizaje</li>
-                            <li>Evaluación y mejora continua del uso de realidad aumentada (ar) para el aprendizaje en clase</li>
-          </ul>
-          <p>Estas prácticas, aplicadas de manera constante, convierten a <strong>Realidad Aumentada (AR) para el aprendizaje</strong> en un aliado para el aprendizaje y no en una fuente de distracción o riesgo.</p>
-        </section>
 
-        <!-- TABLA: .article-table con overflow. TODO: edita <th>/<td> para tu comparativa real. Si no la necesitas, borra este <section> entero. -->
-        <section class="article-section">
-          <h3 class="font-label uppercase tracking-widest" style="margin-bottom:12px; color: var(--text-dim);">Tabla comparativa</h3>
-          <div style="overflow-x:auto; border:1px solid var(--border-technical); border-radius: var(--radius-default);">
-            <table class="article-table" style="margin:0;">
-              <thead>
-                <tr><th>Criterio</th><th>Opción A</th><th>Opción B</th></tr>
-              </thead>
-              <tbody>
 
-                            <tr><td>Criterio</td><td>Realidad Aumentada (AR) para el aprendizaje — Opción A</td><td>Realidad Aumentada (AR) para el aprendizaje — Opción B</td></tr>
-                            <tr><td>Facilidad de uso</td><td>Alta — ideal para principiantes</td><td>Media — requiere práctica</td></tr>
-                            <tr><td>Compatibilidad</td><td>Amplia con dispositivos escolares</td><td>Limitada a plataformas específicas</td></tr>
-                            <tr><td>Costo</td><td>Gratuito / institucional</td><td>Requiere licencia</td></tr>
+<section class="article-section">
+<h3>GEOGRAFÍA</h3>
+<ul class="article-list">
+<li><strong>Argeo Realidad Aumentada</strong><br>App gratuita para Android enfocada en Geografía. A través de códigos QR descargables, los estudiantes pueden visualizar en 3D y 2D: el globo terráqueo, volcanes, relieve submarino, terremotos, tornados y mapas de Argentina. Es de fácil manejo y no requiere conocimientos técnicos.</li>
+<li><strong>WWF Free Rivers</strong><br>App gratuita para iOS y Android que utiliza modelos de realidad aumentada para enseñar ciencias ambientales y geografía física. Incluye 5 hábitats: el Himalaya, selvas tropicales, sabana africana, praderas de América del Sur y deltas del Sudeste Asiático. Los estudiantes pueden interactuar con los mapas de ríos del mundo y escuchar narraciones educativas.</li>
+<li><strong>Star Walk</strong><br>Aunque no es puramente AR en todos sus modos, permite apuntar la cámara del celular hacia el cielo para visualizar en 3D planetas, constelaciones, agujeros negros y nebulosas. Muestra información sobre nombres, distancias a la Tierra y curiosidades. Es ideal para astronomía y geografía espacial.</li>
+<li><strong>Explora el Mundo</strong><br>Permite conocer animales y monumentos de todo el mundo proyectados sobre un globo terráqueo físico (que se compra por separado) o mediante la app. Combina geografía con cultura general.</li>
+</ul>
+</section>
 
-              </tbody>
-            </table>
-          </div>
-          <p class="font-label text-dim" style="font-size:11px; margin-top:8px;">Tabla 1 — Comparativa orientativa para elegir herramientas relacionadas con Realidad Aumentada (AR) para el aprendizaje.</p>
-        </section>
+<section class="article-section">
+<h3>ANATOMÍA</h3>
+<ul class="article-list">
+<li><strong>AR Anatomía 4D+</strong><br>Los estudiantes interactúan con las partes que componen el cuerpo humano usando disparadores (tarjetas o marcadores). Pueden explorar órganos, sistemas y estructuras en 3D, con información detallada sobre cada componente.</li>
+<li><strong>Anatomyou</strong><br>Ofrece un viaje inmersivo por el interior del cuerpo humano para aprender sobre sus distintos sistemas: respiratorio, digestivo, circulatorio y más. Aunque algunas funciones pueden ser de pago, la versión básica permite explorar modelos 3D de anatomía de forma gratuita.</li>
+<li><strong>ZooKazam</strong><br>Pensada para clases de Biología y Ciencias Naturales, proyecta animales en 3D sobre cualquier superficie. Incluye información sobre tiempo de vida, peso, tamaño, hábitat y dieta. Es útil para entender anatomía animal comparada y biología general.</li>
+</ul>
+</section>
 
-        <!-- CONCLUSIÓN: 2 párrafos cierre + CTA. TODO: resume y deja pregunta para comentarios. -->
-        <section class="article-section">
-          <h2 class="article-subheading">Conclusión y resumen</h2>
-          <p><strong>Realidad Aumentada (AR) para el aprendizaje</strong> ejemplifica cómo la tecnología, usada con criterio pedagógico, amplía oportunidades sin reemplazar el rol docente. Su implementación exitosa depende de formación, acuerdos de convivencia digital y evaluación continua del impacto en el aprendizaje.</p>
-          <p>Te invitamos a explorar los artículos relacionados y a compartir en comentarios cómo has aplicado realidad aumentada (ar) para el aprendizaje en tu institución. La construcción colectiva de buenas prácticas enriquece a toda la comunidad de Construyendo Conocimiento Tecnológico.</p>
-        </section>
+<section class="article-section">
+<h2 class="article-subheading">Apps para crear tu propio contenido AR (¡también gratis!)</h2>
+<p>Si eres estudiante o docente y quieres crear tus propias experiencias de realidad aumentada, existen plataformas gratuitas:</p>
+<ul class="article-list">
+<li><strong>Assemblr</strong><br>Permite crear experiencias AR de forma intuitiva con plantillas y una biblioteca de objetos 3D listos para usar. Solo arrastras elementos a la escena y añades información emergente. No necesitas saber programar.</li>
+<li><strong>MyWebAR</strong><br>Ideal para crear visitas guiadas virtuales, simulaciones de modelos moleculares o manuales con animaciones. Los resultados se comparten mediante códigos QR o enlaces accesibles desde cualquier navegador.</li>
+<li><strong>CoSpaces Edu</strong><br>Permite crear simulaciones de experimentos en 3D, narraciones interactivas y juegos educativos. Usa un sistema de bloques visuales o JavaScript para programar acciones avanzadas.</li>
+<li><strong>Arloopa</strong><br>Disponible para Android e iOS. Ofrece tres modos: RA basada en marcadores, sin marcadores o basada en ubicación. Las primeras 100 experiencias se pueden visualizar sin necesidad de registro.</li>
+</ul>
+</section>
+<figure class="article-figure">
+<img src="src/realidad-aumentada-aprendizaje-3d-con-modelos-de-ciencia.webp" loading="lazy" alt="Realidad aumentada para aprendizaje mostrando modelos 3D de ciencia">
+</figure>
 
-        <!-- CTAS: caja comentario + placeholder comentarios futuros. Déjalo así o integra sistema luego. -->
-        <div class="cta-group" style="display:grid; gap:16px; margin-top:32px; padding-top:24px; border-top:1px solid var(--border-technical);">
-          <div style="border:1px solid var(--border-technical); background: var(--bg-card); border-radius: var(--radius-default); text-align:center; padding:18px;" class="font-label font-bold tracking-widest text-xs">
-            💬 ¿Te resultó útil? Deja un comentario o comparte tu experiencia con Realidad Aumentada (AR) para el aprendizaje
-          </div>
-          <div style="border:1px dashed var(--border-technical); background: var(--bg-image-placeholder); border-radius: var(--radius-default); text-align:center; padding:32px;" class="font-label font-bold tracking-widest text-xs text-dim">
-            SECCIÓN DE COMENTARIOS — Integración futura
-          </div>
-        </div>
-      </article>
+<section class="article-section">
+<h2 class="article-subheading">¿Por qué usar AR para estudiar?</h2>
+<div style="overflow-x:auto;">
+<table class="article-table">
+<thead>
+<tr>
+<th>Ventaja</th>
+<th>¿Qué significa para el estudiante?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visualización espacial</td>
+<td>Entiende conceptos abstractos (moléculas, órganos, planetas) como si los tuviera frente a sus ojos.</td>
+</tr>
+<tr>
+<td>Mayor retención</td>
+<td>Estudios muestran que los recursos AR aumentan la retención de conceptos hasta un 70% frente a métodos tradicionales.</td>
+</tr>
+<tr>
+<td>Aprendizaje activo</td>
+<td>El estudiante interactúa, rota, amplía y explora, en lugar de solo leer o ver.</td>
+</tr>
+<tr>
+<td>Motivación</td>
+<td>Convierte materias "difíciles" en experiencias divertidas y memorables.</td>
+</tr>
+<tr>
+<td>Accesibilidad</td>
+<td>No necesitas laboratorios físicos, modelos anatómicos costosos ni viajes para ver volcanes o monumentos.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 
-      <!-- SIDEBAR: ad + búsqueda + OTROS ARTÍCULOS + recientes + categorías + newsletter. Ya enlaza a 6 artículos existentes. -->
-      <aside class="article-sidebar" aria-label="Navegación de artículos">
-        <div style="border:2px dashed var(--border-technical); background: var(--bg-card); border-radius: var(--radius-default); aspect-ratio: 16/9; display:flex; align-items:center; justify-content:center;">
-          <svg class="text-dim" height="40" viewBox="0 0 40 40" width="40"><path d="M0 0 L40 40 M40 0 L0 40" stroke="currentColor" stroke-width="1"></path></svg>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <div style="height:40px; border:1px solid var(--border-technical); display:flex; align-items:center; padding:0 16px; background: var(--bg-input); border-radius: var(--radius-default);" class="font-label uppercase text-dim font-bold text-xs">
-            🔍 Barra de Búsqueda
-          </div>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <h2 class="font-label">OTROS ARTÍCULOS</h2>
-          <ul class="related-list">
-            <li><a href="../Seguridad%20b%C3%A1sica%20y%20Antivirus/plantilla_articulos1.html">Seguridad básica y Antivirus</a></li>
-            <li><a href="../Ergonom%C3%ADa%20y%20salud%20digital/plantilla_articulos2.html">Ergonomía y salud digital</a></li>
-            <li><a href="../conceptos%20basicos/plantilla_articulos_blog3.html">Conceptos básicos</a></li>
-            <li><a href="../Gu%C3%ADa%20Limpieza%20de%20ventiladores/plantilla_articulos_blog2.html">Limpieza de ventiladores</a></li>
-            <li><a href="../Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing)/plantilla_articulos_blog14.html">Protección contra estafas en línea (Phishing)</a></li>
-            <li><a href="../Redes%20dom%C3%A9sticas%20y%20Wi-Fi/plantilla_articulos_blog11.html">Redes domésticas y Wi-Fi</a></li>
-          </ul>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <h3 class="font-label uppercase tracking-widest mb-sm">Entradas Recientes</h3>
-          <div style="display:grid; gap:12px;">
-            <div style="height:18px; background: var(--bg-image-placeholder); border-radius:4px;"></div>
-            <div style="height:18px; background: var(--bg-image-placeholder); border-radius:4px; width:80%;"></div>
-            <div style="height:18px; background: var(--bg-image-placeholder); border-radius:4px; width:66%;"></div>
-          </div>
-        </div>
-        <div class="sidebar-widget bg-lowest">
-          <h3 class="font-label uppercase tracking-widest mb-sm">Categorías Populares</h3>
-          <div style="display:flex; flex-wrap:wrap; gap:8px;">
-            <span style="border:1px solid var(--border-technical); padding:6px 10px; border-radius:999px; background: var(--bg-card);" class="font-label text-dim">Tecnología Inmersiva</span>
-            <span style="border:1px solid var(--border-technical); padding:6px 10px; border-radius:999px; background: var(--bg-card);" class="font-label text-dim">Educación</span>
-            <span style="border:1px solid var(--border-technical); padding:6px 10px; border-radius:999px; background: var(--bg-card);" class="font-label text-dim">Tecnología</span>
-          </div>
-        </div>
-        <div class="sidebar-widget bg-lowest text-center">
-          <h3 class="font-label uppercase tracking-widest mb-sm">Suscripción al Boletín</h3>
-          <div style="height:32px; background: var(--primary); border-radius:4px; width:100%; opacity:0.9; display:flex; align-items:center; justify-content:center; color: var(--bg-app);" class="font-label font-bold">Suscribirse</div>
-        </div>
-      </aside>
-    </div>
-  </main>
+<section class="article-section">
+<h2 class="article-subheading">Requisitos técnicos básicos</h2>
+<p>Para usar estas apps solo necesitas:</p>
+<ul class="article-list">
+<li>Un smartphone o tablet con cámara (la mayoría de modelos de gama media o alta de 2020 en adelante funcionan bien).</li>
+<li>Sistema operativo actualizado: iOS 11+ o Android 7.0+.</li>
+<li>Conexión a internet (algunas apps permiten descargar contenido para usarlo offline).</li>
+<li>Espacio libre en la memoria (los modelos 3D pueden pesar entre 10 MB y 100 MB).</li>
+<li>Una superficie plana bien iluminada para apps sin marcadores.</li>
+</ul>
+<p><strong>Consejo:</strong> Si tu celular es de gama baja, busca apps con modelos 3D ligeros (menos de 10 MB) o que usen marcadores en papel, ya que requieren menos potencia de procesamiento.</p>
+</section>
 
-  <footer class="article-footer"><p class="font-label text-dim">© 2026 Blog Informativo · Construyendo Conocimiento Tecnológico</p></footer>
-  <script src="../script/script_articulo.js" defer></script>
-  <!--
-  ================================================================================
-  GUÍA RÁPIDA PARA EDITAR ESTE ARTÍCULO (cuando retomes):
-  - Busca "TODO:" en este archivo para saber qué cambiar.
-  - Imágenes: crea src/ si no existe, pon 01-hero.png y reemplaza div placeholder.
-  - Tabla: si no la necesitas, borra todo el <section> de tabla comparativa.
-  - Para publicar, no toques este HTML; solo descomenta su card en ../../index.html
-  ================================================================================
-  -->
+<section class="article-section">
+<h2 class="article-subheading">Cómo empezar hoy mismo</h2>
+<ol class="article-list">
+<li>Elige el tema que estás estudiando (anatomía, química, geografía, astronomía).</li>
+<li>Descarga la app correspondiente de la lista anterior (todas tienen versión gratuita).</li>
+<li>Descarga los marcadores si la app los requiere (normalmente están en la web oficial de la app).</li>
+<li>Imprime los marcadores o muéstralos en otra pantalla.</li>
+<li>Abre la app, enfoca el marcador y explora el modelo 3D: gíralo, acércalo, lee la información.</li>
+<li>Comparte con tus compañeros: muchas apps permiten capturar fotos o videos de la experiencia.</li>
+</ol>
+</section>
+<figure class="article-figure">
+<img src="src/realidad-aumentada-aprendizaje-3d-con-modelos-de-ciencia.webp" loading="lazy" alt="Realidad aumentada para aprendizaje mostrando modelos 3D de ciencia">
+</figure>
+<section class="article-section">
+<p>La Realidad Aumentada ha dejado de ser tecnología de futuro para convertirse en una herramienta de estudio accesible hoy. Con solo tu celular y apps gratuitas, puedes tener un laboratorio de química, un globo terráqueo interactivo o un modelo anatómico completo en tu bolsillo.</p>
+<p>No se trata de reemplazar los libros de texto, sino de complementarlos con experiencias visuales que hagan que el aprendizaje sea más comprensible, memorable y, sobre todo, emocionante. Ya sea que estés repasando la tabla periódica, explorando el sistema solar o estudiando el corazón humano, la AR te permite ver lo invisible y tocar lo intangible.</p>
+</section>
+
+</article>
+<aside class="article-sidebar" aria-label="Navegación de artículos">
+<div class="sidebar-widget bg-lowest">
+<h2 class="font-label">OTROS ARTÍCULOS</h2>
+<ul class="related-list">
+<li><a href="../Prevenci%C3%B3n%20del%20ciberacoso%20%28Cyberbullying%29/plantilla_articulos.html">Prevención del ciberacoso (Cyberbullying)</a></li>
+<li><a href="../Mapas%20mentales%20y%20conceptuales%20digitales/plantilla_articulos.html">Mapas mentales y conceptuales digitales</a></li>
+<li><a href="../Gesti%C3%B3n%20de%20distracciones%20digitales/plantilla_articulos.html">Gestión de distracciones digitales</a></li>
+<li><a href="../Tecnolog%C3%ADa%20verde%20y%20E-waste/plantilla_articulos_blog13.html">Tecnología verde y E-waste</a></li>
+<li><a href="../Copias%20de%20seguridad%20(Backups)%20simplificadas/plantilla_articulos_blog12.html">Copias de seguridad (Backups) simplificadas</a></li>
+<li><a href="../Netiqueta%20en%20ecosistemas%20virtuales/plantilla_articulos.html">Netiqueta en ecosistemas virtuales</a></li>
+</ul>
+</div>
+</aside>
+</div>
+</main>
+<footer class="article-footer"> <p class="font-label text-dim">© 2026 Blog Informativo · Construyendo Conocimiento Tecnológico</p> </footer>
+<script src="../script/script_articulo.js" defer></script>
 </body>
 </html>
