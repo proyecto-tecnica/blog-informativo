@@ -3,21 +3,21 @@ const CONFIG_BASE = 'config/';
 const PLACEHOLDER = 'placeholder.jpg';
 
 const FALLBACK_ARTICLES = [
-  { slug: 'mantenimiento-hardware', title: 'Mantenimiento de hardware', path: 'articuloMantenimiento de hardware/plantilla_articulos_blog1.html' },
-  { slug: 'conceptos-basicos', title: 'Conceptos básicos', path: 'conceptos basicos/plantilla_articulos_blog3.html' },
-  { slug: 'ergonomia-salud-digital', title: 'Ergonomía y salud digital', path: 'Ergonomía y salud digital/plantilla_articulos2.html' },
-  { slug: 'guia-limpieza-de-ventiladores', title: 'Limpieza de ventiladores', path: 'Guía Limpieza de ventiladores/plantilla_articulos_blog2.html' },
-  { slug: 'copias-de-seguridad-backups-simplificadas', title: 'Copias de seguridad (Backups) simplificadas', path: 'Copias de seguridad (Backups) simplificadas/plantilla_articulos_blog12.html' },
-  { slug: 'descargas-seguras-en-internet', title: 'Descargas seguras en internet', path: 'Descargas seguras en internet/plantilla_articulos_blog10.html' },
-  { slug: 'limpieza-fisica-prevencion-thermal-throttling', title: 'Limpieza física y prevención del thermal throttling', path: 'Limpieza física y prevención del thermal throttling/plantilla_articulos_blog6.html' },
-  { slug: 'optimizacion-sistema-cuidado-bateria', title: 'Optimización del sistema y cuidado de la batería', path: 'Optimización del sistema y cuidado de la batería/plantilla_articulos_blog5.html' },
-  { slug: 'proteccion-estafas-linea-phishing', title: 'Protección contra estafas en línea (Phishing)', path: 'Protección contra estafas en línea (Phishing)/plantilla_articulos_blog14.html' },
-  { slug: 'redes-domesticas-wifi', title: 'Redes domésticas y Wi-Fi', path: 'Redes domésticas y Wi-Fi/plantilla_articulos_blog11.html' },
-  { slug: 'seguridad-basica-antivirus', title: 'Seguridad básica y Antivirus', path: 'Seguridad básica y Antivirus/plantilla_articulos1.html' },
-  { slug: 'tecnologia-verde-e-waste', title: 'Tecnología verde y E-waste', path: 'Tecnología verde y E-waste/plantilla_articulos_blog13.html' },
-  { slug: 'actualizaciones-criticas-seguridad-sistema', title: 'Actualizaciones críticas y seguridad del sistema', path: 'Actualizaciones críticas y seguridad del sistema/plantilla_articulos_blog7.html' },
-  { slug: 'cuidado-preventivo-accidentes-transporte', title: 'Cuidado preventivo frente a accidentes y transporte', path: 'Cuidado preventivo frente a accidentes y transporte/plantilla_articulos_blog8.html' },
-  { slug: 'atajos-teclado-trucos-productividad', title: 'Atajos de teclado y trucos de productividad', path: 'Atajos de teclado y trucos de productividad/plantilla_articulos_blog15.html' }
+  { slug: 'mantenimiento-hardware', title: 'Mantenimiento de hardware', path: 'articuloMantenimiento de hardware/Mantenimiento de hardware.html' },
+  { slug: 'conceptos-basicos', title: 'Conceptos básicos', path: 'conceptos basicos/conceptos basicos.html' },
+  { slug: 'ergonomia-salud-digital', title: 'Ergonomía y salud digital', path: 'Ergonomía y salud digital/Ergonomía y salud digital.html' },
+  { slug: 'guia-limpieza-de-ventiladores', title: 'Limpieza de ventiladores', path: 'Guía Limpieza de ventiladores/Guía Limpieza de ventiladores.html' },
+  { slug: 'copias-de-seguridad-backups-simplificadas', title: 'Copias de seguridad (Backups) simplificadas', path: 'Copias de seguridad (Backups) simplificadas/Copias de seguridad (Backups) simplificadas.html' },
+  { slug: 'descargas-seguras-en-internet', title: 'Descargas seguras en internet', path: 'Descargas seguras en internet/Descargas seguras en internet.html' },
+  { slug: 'limpieza-fisica-prevencion-thermal-throttling', title: 'Limpieza física y prevención del thermal throttling', path: 'Limpieza física y prevención del thermal throttling/Limpieza física y prevención del thermal throttling.html' },
+  { slug: 'optimizacion-sistema-cuidado-bateria', title: 'Optimización del sistema y cuidado de la batería', path: 'Optimización del sistema y cuidado de la batería/Optimización del sistema y cuidado de la batería.html' },
+  { slug: 'proteccion-estafas-linea-phishing', title: 'Protección contra estafas en línea (Phishing)', path: 'Protección contra estafas en línea (Phishing)/Protección contra estafas en línea (Phishing).html' },
+  { slug: 'redes-domesticas-wifi', title: 'Redes domésticas y Wi-Fi', path: 'Redes domésticas y Wi-Fi/Redes domésticas y Wi-Fi.html' },
+  { slug: 'seguridad-basica-antivirus', title: 'Seguridad básica y Antivirus', path: 'Seguridad básica y Antivirus/Seguridad básica y Antivirus.html' },
+  { slug: 'tecnologia-verde-e-waste', title: 'Tecnología verde y E-waste', path: 'Tecnología verde y E-waste/Tecnología verde y E-waste.html' },
+  { slug: 'actualizaciones-criticas-seguridad-sistema', title: 'Actualizaciones críticas y seguridad del sistema', path: 'Actualizaciones críticas y seguridad del sistema/Actualizaciones críticas y seguridad del sistema.html' },
+  { slug: 'cuidado-preventivo-accidentes-transporte', title: 'Cuidado preventivo frente a accidentes y transporte', path: 'Cuidado preventivo frente a accidentes y transporte/Cuidado preventivo frente a accidentes y transporte.html' },
+  { slug: 'atajos-teclado-trucos-productividad', title: 'Atajos de teclado y trucos de productividad', path: 'Atajos de teclado y trucos de productividad/Atajos de teclado y trucos de productividad.html' }
 ];
 
 let loadedConfig = {};

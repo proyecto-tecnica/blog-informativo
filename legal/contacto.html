@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+APARTADO LEGAL Y DE PRIVACIDAD — contacto.html — PÁGINA ESQUELETO (chuleta)
+- Página marcador, lista para recibir enlaces, pero SIN contenido desarrollado.
+- El contenido real (datos de contacto, formulario) se desarrollará próximamente.
+- Hecha con HTML, CSS y JavaScript vanilla, igual que el resto del blog:
+  · Estilo : ../styles/style_global.css (mismas clases que los artículos)
+  · Tema   : ../articulos/script/script_articulo.js (mismo claro/oscuro que artículos)
+- Para desarrollarla: sustituye el mensaje de "En construcción" dentro de <main>
+  y registra la página en sitemap.xml.
+================================================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | Blog Informativo</title>
+  <link rel="stylesheet" href="../styles/style_global.css">
+  <meta name="description" content="Página de contacto del blog. Sección en construcción: pronto estará disponible la información de contacto.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://blog-informativo.construyendoconocimiento.workers.dev/legal/contacto.html">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="apple-touch-icon" href="../assets/logo/logo.png">
+
+  <meta property="og:title" content="Contacto | Blog Informativo">
+  <meta property="og:description" content="Página de contacto del blog. Sección en construcción.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blog-informativo.construyendoconocimiento.workers.dev/legal/contacto.html">
+  <meta property="og:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
+  <meta property="og:image:alt" content="Logo de Blog Informativo">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contacto | Blog Informativo">
+  <meta name="twitter:description" content="Página de contacto del blog. Sección en construcción.">
+  <meta name="twitter:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
+
+  <!-- Google Fonts: las mismas fuentes que usa la página de inicio (Geist/Inter/JetBrains Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabecera igual a la de los artículos: título del blog + navegación + tema -->
+  <header class="article-header">
+    <div class="header-inner">
+      <a class="site-title font-headline-md" href="../index.html">Blog Informativo</a>
+      <nav class="desktop-nav font-label" aria-label="Navegación principal">
+        <a href="../index.html#inicio">Inicio</a><a href="../index.html#articulos">Artículos</a><a href="../index.html#archivo">Archivo</a>
+      </nav>
+      <span id="themeToggle" class="icon-button theme-indicator" role="button" tabindex="0" aria-label="Alternar tema oscuro/claro" title="Alternar tema"><svg class="theme-icon" viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8v16z"/></svg></span>
+    </div>
+  </header>
+
+  <!-- Contenido: solo mensaje de construcción (aquí irá la información de contacto) -->
+  <main class="article-main-container">
+    <article class="article-body">
+      <header class="article-title-block">
+        <p class="font-label text-dim">LEGAL Y PRIVACIDAD</p>
+        <h1 class="font-headline-lg">Contacto</h1>
+      </header>
+      <section class="article-section">
+        <p>Esta sección está en construcción. Pronto publicaremos aquí la información de contacto del blog.</p>
+        <p>Mientras tanto, puedes volver al inicio y seguir leyendo nuestros artículos.</p>
+        <p><a class="read-more-link" href="../index.html">Volver al inicio</a></p>
+      </section>
+    </article>
+  </main>
+
+  <!-- Pie de página con el mismo estilo del inicio -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="../index.html" class="footer-link">Inicio</a>
+        <a href="../index.html#archivo" class="footer-link">Archivo</a>
+        <a href="privacidad.html" class="footer-link">Privacidad</a>
+      </div>
+      <p class="footer-copyright">&copy; 2026 Construyendo Conocimiento Tecnologico.</p>
+    </div>
+  </footer>
+
+  <!-- Tema claro/oscuro: el mismo script que usan los artículos -->
+  <script src="../articulos/script/script_articulo.js" defer></script>
+</body>
+</html>

@@ -622,23 +622,23 @@
         const recentArticlesPool = [
             {
                 title: 'Limpieza de ventiladores',
-                href: 'articulos/Gu%C3%ADa%20Limpieza%20de%20ventiladores/plantilla_articulos_blog2.html',
+                href: 'articulos/Gu%C3%ADa%20Limpieza%20de%20ventiladores/Gu%C3%ADa%20Limpieza%20de%20ventiladores.html',
                 image: 'articulos/Guía Limpieza de ventiladores/src/03-internal-cleaning.jpg',
                 alt: 'Imagen artículo Limpieza de ventiladores',
-                category: '', // En blanco (sin categoría)
-                description: 'Breve descripción de este artículo secundario. Ocupa un par de líneas para dar contexto sobre el tema a tratar.'
+                category: 'MANTENIMIENTO',
+                description: 'Cómo limpiar los ventiladores para evitar sobrecalentamiento y ruido.'
             },
             {
                 title: 'Conceptos básicos',
-                href: 'articulos/conceptos%20basicos/plantilla_articulos_blog3.html',
+                href: 'articulos/conceptos%20basicos/conceptos%20basicos.html',
                 image: 'articulos/conceptos basicos/src/01-hero-computer.jpg',
                 alt: 'Imagen artículo Conceptos Básicos',
-                category: '', // En blanco (sin categoría)
-                description: 'Breve descripción de este artículo secundario. Ocupa un par de líneas para dar contexto sobre el tema a tratar.'
+                category: 'FUNDAMENTOS',
+                description: 'Los términos esenciales para empezar a usar la computadora con confianza.'
             },
             {
                 title: 'Laboratorios y simuladores virtuales',
-                href: 'articulos/Laboratorios%20y%20simuladores%20virtuales/plantilla_articulos.html',
+                href: 'articulos/Laboratorios%20y%20simuladores%20virtuales/Laboratorios%20y%20simuladores%20virtuales.html',
                 image: 'articulos/Laboratorios y simuladores virtuales/src/laboratorio-virtual-simulacion-de-reaccion-quimica.webp',
                 alt: 'Imagen artículo Laboratorios y simuladores virtuales',
                 category: 'HERRAMIENTAS EDUCATIVAS', // Con categoría
@@ -646,7 +646,7 @@
             },
             {
                 title: 'Reconocimiento Óptico de Caracteres (OCR)',
-                href: 'articulos/Reconocimiento%20%C3%93ptico%20de%20Caracteres%20%28OCR%29/plantilla_articulos.html',
+                href: 'articulos/Reconocimiento%20%C3%93ptico%20de%20Caracteres%20%28OCR%29/Reconocimiento%20%C3%93ptico%20de%20Caracteres%20%28OCR%29.html',
                 image: 'articulos/Reconocimiento Óptico de Caracteres (OCR)/src/ocr-conversion-de-apuntes-a-texto-digital.webp',
                 alt: 'Imagen artículo Reconocimiento Óptico de Caracteres (OCR)',
                 category: 'PRODUCTIVIDAD DIGITAL', // Con categoría
@@ -654,7 +654,7 @@
             },
             {
                 title: 'Seguridad básica y Antivirus',
-                href: 'articulos/Seguridad%20b%C3%A1sica%20y%20Antivirus/plantilla_articulos1.html',
+                href: 'articulos/Seguridad%20b%C3%A1sica%20y%20Antivirus/Seguridad%20b%C3%A1sica%20y%20Antivirus.html',
                 image: 'articulos/Seguridad básica y Antivirus/src/01-hero-antivirus.png',
                 alt: 'Imagen artículo Seguridad básica y Antivirus',
                 category: 'SEGURIDAD', // Con categoría
@@ -662,7 +662,7 @@
             },
             {
                 title: 'Ergonomía y salud digital',
-                href: 'articulos/Ergonom%C3%ADa%20y%20salud%20digital/plantilla_articulos2.html',
+                href: 'articulos/Ergonom%C3%ADa%20y%20salud%20digital/Ergonom%C3%ADa%20y%20salud%20digital.html',
                 image: 'articulos/Ergonomía y salud digital/src/01-hero-ergonomics.png',
                 alt: 'Imagen artículo Ergonomía y salud digital',
                 category: 'SALUD DIGITAL', // Con categoría
@@ -670,7 +670,7 @@
             },
             {
                 title: 'Compresión de archivos y carpetas (ZIP/RAR)',
-                href: 'articulos/Compresi%C3%B3n%20de%20archivos%20y%20carpetas%20%28ZIP-RAR%29/plantilla_articulos.html',
+                href: 'articulos/Compresi%C3%B3n%20de%20archivos%20y%20carpetas%20%28ZIP-RAR%29/Compresi%C3%B3n%20de%20archivos%20y%20carpetas%20%28ZIP-RAR%29.html',
                 image: 'articulos/Compresión de archivos y carpetas (ZIP-RAR)/src/compresion-de-archivos-y-carpetas-zip-rar-pasos.webp',
                 alt: 'Imagen artículo Compresión de archivos y carpetas',
                 category: 'GESTIÓN DE ARCHIVOS', // Con categoría
@@ -678,15 +678,15 @@
             },
             {
                 title: 'Limpieza física y prevención del thermal throttling',
-                href: 'articulos/Limpieza%20f%C3%ADsica%20y%20prevenci%C3%B3n%20del%20thermal%20throttling/plantilla_articulos_blog6.html',
+                href: 'articulos/Limpieza%20f%C3%ADsica%20y%20prevenci%C3%B3n%20del%20thermal%20throttling/Limpieza%20f%C3%ADsica%20y%20prevenci%C3%B3n%20del%20thermal%20throttling.html',
                 image: 'articulos/Limpieza física y prevención del thermal throttling/src/01-hero-thermal.jpg',
                 alt: 'Imagen artículo Limpieza física y thermal throttling',
-                category: '', // En blanco (sin categoría)
-                description: 'Sin contenido, solo estructura.'
+                category: 'MANTENIMIENTO',
+                description: 'Cómo la limpieza interna evita el sobrecalentamiento y la pérdida de rendimiento.'
             },
             {
                 title: 'Realidad Aumentada (AR) para el aprendizaje',
-                href: 'articulos/Realidad%20Aumentada%20%28AR%29%20para%20el%20aprendizaje/plantilla_articulos.html',
+                href: 'articulos/Realidad%20Aumentada%20%28AR%29%20para%20el%20aprendizaje/Realidad%20Aumentada%20%28AR%29%20para%20el%20aprendizaje.html',
                 image: 'articulos/Realidad Aumentada (AR) para el aprendizaje/src/realidad-aumentada-aprendizaje-3d-con-modelos-de-ciencia.webp',
                 alt: 'Imagen artículo Realidad Aumentada (AR)',
                 category: 'TECNOLOGÍA INMERSIVA', // Con categoría
@@ -694,7 +694,7 @@
             },
             {
                 title: 'Huella digital escolar',
-                href: 'articulos/Huella%20digital%20escolar/plantilla_articulos.html',
+                href: 'articulos/Huella%20digital%20escolar/Huella%20digital%20escolar.html',
                 image: 'articulos/Huella digital escolar/src/huella-digital-escolar-internet-con-respeto-y-seguridad.webp',
                 alt: 'Imagen artículo Huella digital escolar',
                 category: 'CIUDADANÍA DIGITAL', // Con categoría
@@ -702,19 +702,19 @@
             },
             {
                 title: 'Redes domésticas y Wi-Fi',
-                href: 'articulos/Redes%20dom%C3%A9sticas%20y%20Wi-Fi/plantilla_articulos_blog11.html',
+                href: 'articulos/Redes%20dom%C3%A9sticas%20y%20Wi-Fi/Redes%20dom%C3%A9sticas%20y%20Wi-Fi.html',
                 image: 'articulos/Redes domésticas y Wi-Fi/src/01-hero-wifi.png',
                 alt: 'Imagen artículo Redes domésticas y Wi-Fi',
-                category: '', // En blanco (sin categoría)
-                description: 'Sin contenido, solo estructura.'
+                category: 'REDES',
+                description: 'Configura y protege tu red Wi-Fi para una conexión estable en casa.'
             },
             {
                 title: 'Protección contra estafas en línea (Phishing)',
-                href: 'articulos/Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing)/plantilla_articulos_blog14.html',
+                href: 'articulos/Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing)/Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing).html',
                 image: 'articulos/Protección contra estafas en línea (Phishing)/src/01-hero-phishing.png',
                 alt: 'Imagen artículo Phishing',
-                category: '', // En blanco (sin categoría)
-                description: 'Sin contenido, solo estructura.'
+                category: 'SEGURIDAD',
+                description: 'Aprende a detectar correos y mensajes engañosos antes de caer en la trampa.'
             }
         ];
 
@@ -901,42 +901,42 @@
         const heroArticlesPool = [
             {
                 title: 'Mantenimiento de hardware',
-                href: 'articulos/articuloMantenimiento%20de%20hardware/plantilla_articulos_blog1.html',
+                href: 'articulos/articuloMantenimiento%20de%20hardware/Mantenimiento%20de%20hardware.html',
                 image: 'articulos/articuloMantenimiento de hardware/src/01-hero-disk-fragmentation.jpg',
                 alt: 'Imagen destacada Mantenimiento de Hardware',
                 description: 'Un párrafo introductorio de ejemplo para el artículo destacado. Aquí se explica brevemente de qué trata el contenido principal para enganchar al lector.'
             },
             {
                 title: 'Seguridad básica y Antivirus',
-                href: 'articulos/Seguridad%20b%C3%A1sica%20y%20Antivirus/plantilla_articulos1.html',
+                href: 'articulos/Seguridad%20b%C3%A1sica%20y%20Antivirus/Seguridad%20b%C3%A1sica%20y%20Antivirus.html',
                 image: 'articulos/Seguridad básica y Antivirus/src/01-hero-antivirus.png',
                 alt: 'Imagen destacada Seguridad básica y Antivirus',
                 description: 'Recomendaciones fundamentales para proteger tu equipo y tu información frente a amenazas digitales y virus.'
             },
             {
                 title: 'Ergonomía y salud digital',
-                href: 'articulos/Ergonom%C3%ADa%20y%20salud%20digital/plantilla_articulos2.html',
+                href: 'articulos/Ergonom%C3%ADa%20y%20salud%20digital/Ergonom%C3%ADa%20y%20salud%20digital.html',
                 image: 'articulos/Ergonomía y salud digital/src/01-hero-ergonomics.png',
                 alt: 'Imagen destacada Ergonomía y salud digital',
                 description: 'Hábitos posturales y pausas activas para usar la tecnología de forma cómoda, saludable y segura en el día a día.'
             },
             {
                 title: 'Redes domésticas y Wi-Fi',
-                href: 'articulos/Redes%20dom%C3%A9sticas%20y%20Wi-Fi/plantilla_articulos_blog11.html',
+                href: 'articulos/Redes%20dom%C3%A9sticas%20y%20Wi-Fi/Redes%20dom%C3%A9sticas%20y%20Wi-Fi.html',
                 image: 'articulos/Redes domésticas y Wi-Fi/src/01-hero-wifi.png',
                 alt: 'Imagen destacada Redes domésticas y Wi-Fi',
                 description: 'Ajustes clave y recomendaciones prácticas de configuración para optimizar la velocidad y seguridad de tu red Wi-Fi.'
             },
             {
                 title: 'Inteligencia Artificial como tutor personal',
-                href: 'articulos/Inteligencia%20Artificial%20como%20tutor%20personal/plantilla_articulos.html',
+                href: 'articulos/Inteligencia%20Artificial%20como%20tutor%20personal/Inteligencia%20Artificial%20como%20tutor%20personal.html',
                 image: 'articulos/Inteligencia Artificial como tutor personal/src/comparacion-de-asistentes-de-ia-para-computacion.webp',
                 alt: 'Imagen destacada Inteligencia Artificial como tutor personal',
                 description: 'Personaliza tu aprendizaje aprovechando herramientas de inteligencia artificial como guía educativa interactiva.'
             },
             {
                 title: 'Impacto real de ampliar la memoria RAM',
-                href: 'articulos/Impacto%20real%20de%20ampliar%20la%20memoria%20RAM/plantilla_articulos_blog4.html',
+                href: 'articulos/Impacto%20real%20de%20ampliar%20la%20memoria%20RAM/Impacto%20real%20de%20ampliar%20la%20memoria%20RAM.html',
                 image: 'articulos/Impacto real de ampliar la memoria RAM/src/01-hero-ram-upgrade.jpg',
                 alt: 'Imagen destacada Impacto real de ampliar la memoria RAM',
                 description: 'Descubre cómo influye el aumento de memoria RAM en el rendimiento multitarea y la fluidez del equipo.'

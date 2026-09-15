@@ -198,8 +198,18 @@ h1, h2, h3 { margin: 0; }
 
 .top-app-bar { position: sticky; top: 0; z-index: 40; background-color: var(--bg-header); border-bottom: 1px solid var(--border-technical); }
 .top-app-bar-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--margin-mobile); height: 64px; display: flex; align-items: center; justify-content: space-between; }
-.mobile-brand { display: flex; align-items: center; gap: 8px; }
-.mobile-brand-name { font-family: var(--font-headline-md); font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; }
+.mobile-brand { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.mobile-brand-name { font-family: var(--font-headline-md); font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1.2; }
+/* En pantallas pequeñas el título largo se parte en varias líneas: se compacta para que quepa en la barra de 64px sin desbordarla.
+   El buscador se oculta por debajo de 600px: no cabe junto al título y su borde quedaba solapado con el botón de tema. */
+@media (max-width: 767px) {
+    .mobile-brand-name { font-size: 14px; line-height: 1.35; }
+    .mobile-brand-icon { width: 20px !important; height: 20px !important; flex-shrink: 0; }
+    .menu-toggle { flex-shrink: 0; }
+}
+@media (max-width: 599px) {
+    .search-wrapper { display: none; }
+}
 .menu-toggle { margin-right: 8px; padding: 8px; color: var(--primary); }
 .search-wrapper { flex: 1; max-width: 400px; min-width: 0; margin: 0 16px; position: relative; z-index: 45; transition: transform 0.15s; }
 .search-wrapper.is-focused { transform: scale(1.02); }

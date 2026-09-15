@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--
+================================================================================
+PLANTILLA LISTA — ARTICULO: Formatos de exportación y compatibilidad
+Estado: CREADO Y LISTO, PERO DESACTIVADO (index.html tiene su card comentada)
+Fecha: 21 Ago 2026 | Autor generico: Equipo Editorial
+Base: plantilla_articulos1.html (estructura funcional) + plantilla_articulos3.html (wireframe)
+
+QUE TIENES AQUI:
+- head con SEO listo (title, description, canonical, og, twitter, json-ld Article)
+  -> Cambia solo title, meta description, canonical si renombras carpeta.
+- Link CSS: ../../styles/style_global.css usa variables --bg-app (#e6f0ff claro / #0a192f oscuro)
+- Header: logo + nav Inicio/Articulos/Archivo + themeToggle (funciona con script_articulo.js)
+- Main grid: 8fr articulo + 4fr sidebar en desktop (ver style_global.css article-grid-layout)
+  - article-title-block: h1 + metadata fecha/autor/categoria
+  - article-introduction: 2 parrafos intro
+  - figure destacada: placeholder con border dashed (cambia div por img src="src/..." cuando tengas imagen)
+  - Secciones: Que es, Caracteristicas, split, lista, tabla, conclusion, CTAs
+  - Sidebar: ad + busqueda + OTROS ARTICULOS (6 links) + recientes + categorias + newsletter
+- Footer + script ../script/script_articulo.js maneja tema claro/oscuro (localStorage theme)
+
+PARA RETOMAR:
+1. Busca TODO: en este archivo para saber que rellenar.
+2. Reemplaza textos placeholder por tu contenido real (respeta clases).
+3. Anade imagenes en src/ (01-hero.png) y cambia div placeholder por img tag.
+4. Para PUBLICAR, ve a ../../index.html, busca BLOQUE FUTURO 25 ARTICULOS y descomenta la card de este articulo.
+5. Opcional: anade entrada en articulos/config/index.json y en article-loader.js FALLBACK_ARTICLES si usas plantilla-articulo.html dinamico.
+
+COLORES (si olvidaste):
+- Claro :root.light --bg-app #e6f0ff
+- Oscuro :root.dark --bg-app #0a192f
+
+NO BORRES ESTE BLOQUE — es tu guia para volver despues de tiempo.
+================================================================================
+-->
+
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formatos de exportación y compatibilidad | Blog Informativo</title>
+  <!-- SEO: cambia title/description/canonical si renombras archivo o carpeta -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/style_global.css">
+  <meta name="description" content="Conoce los principales formatos de exportación (PDF, DOCX, ODT, CSV) y cómo elegir el adecuado para garantizar compatibilidad.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Formatos%20de%20exportaci%C3%B3n%20y%20compatibilidad/Formatos%20de%20exportaci%C3%B3n%20y%20compatibilidad.html">
+  <meta property="og:title" content="Formatos de exportación y compatibilidad | Blog Informativo">
+  <meta property="og:description" content="Conoce los principales formatos de exportación (PDF, DOCX, ODT, CSV) y cómo elegir el adecuado para garantizar compatibilidad.">
+  <meta property="og:url" content="https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Formatos%20de%20exportaci%C3%B3n%20y%20compatibilidad/Formatos%20de%20exportaci%C3%B3n%20y%20compatibilidad.html">
+  <meta property="og:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Formatos de exportación y compatibilidad | Blog Informativo">
+  <meta name="twitter:description" content="Conoce los principales formatos de exportación (PDF, DOCX, ODT, CSV) y cómo elegir el adecuado para garantizar compatibilidad.">
+  <meta name="twitter:image" content="https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Formatos de exportación y compatibilidad | Blog Informativo",
+  "description": "Conoce los principales formatos de exportación (PDF, DOCX, ODT, CSV) y cómo elegir el adecuado para garantizar compatibilidad.",
+  "author": {"@type": "Person", "name": "Equipo Editorial"},
+  "image": "https://blog-informativo.construyendoconocimiento.workers.dev/assets/logo/logo.png",
+  "url": "https://blog-informativo.construyendoconocimiento.workers.dev/articulos/Formatos%20de%20exportaci%C3%B3n%20y%20compatibilidad/Formatos%20de%20exportaci%C3%B3n%20y%20compatibilidad.html"
+}
+  </script>
+</head>
+<body>
+  <!-- HEADER: logo + nav + themeToggle. No toques clases, solo textos si quieres. Funciona con script_articulo.js -->
+  <header class="article-header">
+    <div class="header-inner">
+      <a class="site-title font-headline-md" href="../../index.html">Blog Informativo</a>
+      <nav class="desktop-nav font-label" aria-label="Navegación principal">
+        <a href="../../index.html#inicio">Inicio</a><a href="../../index.html#articulos">Artículos</a><a href="../../index.html#archivo">Archivo</a>
+      </nav>
+      <span id="themeToggle" class="icon-button theme-indicator" role="button" tabindex="0" aria-label="Alternar tema oscuro/claro" title="Alternar tema"><svg class="theme-icon" viewBox="0 0 24 24" style="width:24px;height:24px;fill:currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8v16z"/></svg></span>
+    </div>
+  </header>
+
+  <!-- MAIN GRID: 8fr articulo + 4fr sidebar (desktop). En móvil se apila. -->
+  <main class="article-main-container">
+    <div class="article-grid-layout">
+      <!-- Columna Izquierda: Cuerpo del Artículo (wireframe plantilla_articulos3 + estructura plantilla_articulos1) -->
+      <article class="article-body">
+        <!-- HERO / TITULAR: categoria + h1 + metadata. TODO: cambia h1 y metadata si hace falta. -->
+        <header class="article-title-block">
+          <p class="font-label text-dim">ARTÍCULO TÉCNICO · OFIMÁTICA</p>
+          <h1 class="font-headline-lg">Formatos de exportación y compatibilidad</h1>
+          <div class="metadata-bar font-label text-dim" style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+            <span>📅 21 Ago 2026</span>
+            <span class="separator">|</span>
+            <span>👤 Equipo Editorial</span>
+            <span class="separator">|</span>
+            <span>📁 Ofimática</span>
+          </div>
+        </header>
+
+        <!-- INTRODUCCIÓN: gancho + 2 párrafos. TODO: escribe tu intro real aquí. -->
+        <section class="article-section article-introduction">
+          <h2 class="article-subheading">Introducción</h2>
+          <p>Elegir el formato de exportación correcto asegura que un documento se vea igual en cualquier dispositivo y programa. Desde PDF para impresión hasta CSV para datos, cada formato tiene propósitos, ventajas y limitaciones de compatibilidad.</p>
+          <p>Formatos de exportación y compatibilidad no es solo una herramienta técnica, sino una competencia que fortalece el aprendizaje autónomo y la participación responsable. En el contexto escolar, su dominio permite a estudiantes y docentes optimizar tiempo, mejorar la calidad de las entregas y colaborar con mayor eficacia.</p>
+        </section>
+
+        <!-- IMAGEN DESTACADA: placeholder con border dashed. TODO: reemplaza div por <img src="src/01-hero.png" ...> -->
+        <figure class="article-figure article-figure-featured">
+          <div style="border:2px dashed var(--border-technical); background: var(--bg-image-placeholder); border-radius: var(--radius-default); aspect-ratio: 16/9; display:flex; align-items:center; justify-content:center; text-align:center; padding:16px;">
+            <span class="font-label text-dim uppercase" style="font-size:11px; letter-spacing:0.08em;">Imagen destacada · Formatos de exportación y compatibilidad · Infografía / Ilustración</span>
+          </div>
+          <figcaption class="font-label text-dim" style="text-align:center; margin-top:8px;">Figura 1 — Representación visual de Formatos de exportación y compatibilidad en el entorno escolar.</figcaption>
+        </figure>
+
+        <section class="article-section">
+          <h2 class="article-subheading">¿Qué es y por qué importa?</h2>
+          <p>Aplicar formatos de exportación y compatibilidad en proyectos reales ayuda a desarrollar pensamiento crítico: elegir cuándo usarlo, evaluar su impacto y ajustar su uso según el objetivo pedagógico y las normas de convivencia digital.</p>
+        </section>
+
+        <!-- SPLIT LAYOUT: texto + imagen lado a lado (plantilla3 wireframe). En móvil se apila. -->
+        <section class="article-section" style="display:grid; grid-template-columns: 1fr; gap:24px;">
+          <div>
+            <h2 class="article-subheading">Características principales</h2>
+            <p>Entre los aspectos más valorados de <strong>Formatos de exportación y compatibilidad</strong> destacan su accesibilidad, la posibilidad de iterar sin costo adicional y la trazabilidad del proceso de aprendizaje que ofrece al docente.</p>
+            <div style="border:1px solid var(--border-technical); background: var(--bg-card); border-radius: var(--radius-default); padding:16px; margin-top:12px;">
+              <p class="font-label text-dim" style="margin:0; font-size:11px; letter-spacing:0.08em; text-transform:uppercase;">💡 Dato clave</p>
+              <p style="margin:8px 0 0;">Formatos de exportación y compatibilidad se integra mejor cuando se planifica con objetivos claros, criterios de evaluación y espacios de reflexión posteriores a la práctica.</p>
+            </div>
+          </div>
+          <div style="border:2px dashed var(--border-technical); background: var(--bg-image-placeholder); border-radius: var(--radius-default); aspect-ratio: 1/1; display:flex; align-items:center; justify-content:center; padding:16px; text-align:center;">
+            <span class="font-label text-dim uppercase" style="font-size:11px;">Imagen / Infografía<br>Formatos de exportación y compatibilidad</span>
+          </div>
+        </section>
+
+        <!-- LISTA: bullets .article-list. TODO: cambia <li> por tus puntos reales. -->
+        <section class="article-section">
+          <h2 class="article-subheading">Buenas prácticas y recomendaciones</h2>
+          <p>Para aprovechar formatos de exportación y compatibilidad de forma responsable y efectiva, considera estas recomendaciones:</p>
+          <ul class="article-list">
+                            <li>Concepto clave aplicado a formatos de exportación y compatibilidad</li>
+                            <li>Aplicación escolar aplicado a formatos de exportación y compatibilidad</li>
+                            <li>Buena práctica aplicado a formatos de exportación y compatibilidad</li>
+                            <li>Enfoque pedagógico centrado en el estudiante para formatos de exportación y compatibilidad</li>
+                            <li>Evaluación y mejora continua del uso de formatos de exportación y compatibilidad en clase</li>
+          </ul>
+          <p>Estas prácticas, aplicadas de manera constante, convierten a <strong>Formatos de exportación y compatibilidad</strong> en un aliado para el aprendizaje y no en una fuente de distracción o riesgo.</p>
+        </section>
+
+        <!-- TABLA: .article-table con overflow. TODO: edita <th>/<td> para tu comparativa real. Si no la necesitas, borra este <section> entero. -->
+        <section class="article-section">
+          <h3 class="font-label uppercase tracking-widest" style="margin-bottom:12px; color: var(--text-dim);">Tabla comparativa</h3>
+          <div style="overflow-x:auto; border:1px solid var(--border-technical); border-radius: var(--radius-default);">
+            <table class="article-table" style="margin:0;">
+              <thead>
+                <tr><th>Criterio</th><th>Opción A</th><th>Opción B</th></tr>
+              </thead>
+              <tbody>
+
+                            <tr><td>Criterio</td><td>Formatos de exportación y compatibilidad — Opción A</td><td>Formatos de exportación y compatibilidad — Opción B</td></tr>
+                            <tr><td>Facilidad de uso</td><td>Alta — ideal para principiantes</td><td>Media — requiere práctica</td></tr>
+                            <tr><td>Compatibilidad</td><td>Amplia con dispositivos escolares</td><td>Limitada a plataformas específicas</td></tr>
+                            <tr><td>Costo</td><td>Gratuito / institucional</td><td>Requiere licencia</td></tr>
+
+              </tbody>
+            </table>
+          </div>
+          <p class="font-label text-dim" style="font-size:11px; margin-top:8px;">Tabla 1 — Comparativa orientativa para elegir herramientas relacionadas con Formatos de exportación y compatibilidad.</p>
+        </section>
+
+        <!-- CONCLUSIÓN: 2 párrafos cierre + CTA. TODO: resume y deja pregunta para comentarios. -->
+        <section class="article-section">
+          <h2 class="article-subheading">Conclusión y resumen</h2>
+          <p><strong>Formatos de exportación y compatibilidad</strong> ejemplifica cómo la tecnología, usada con criterio pedagógico, amplía oportunidades sin reemplazar el rol docente. Su implementación exitosa depende de formación, acuerdos de convivencia digital y evaluación continua del impacto en el aprendizaje.</p>
+          <p>Te invitamos a explorar los artículos relacionados y a compartir en comentarios cómo has aplicado formatos de exportación y compatibilidad en tu institución. La construcción colectiva de buenas prácticas enriquece a toda la comunidad de Construyendo Conocimiento Tecnológico.</p>
+        </section>
+
+        <!-- CTAS: caja comentario + placeholder comentarios futuros. Déjalo así o integra sistema luego. -->
+        <div class="cta-group" style="display:grid; gap:16px; margin-top:32px; padding-top:24px; border-top:1px solid var(--border-technical);">
+          <div style="border:1px solid var(--border-technical); background: var(--bg-card); border-radius: var(--radius-default); text-align:center; padding:18px;" class="font-label font-bold tracking-widest text-xs">
+            💬 ¿Te resultó útil? Deja un comentario o comparte tu experiencia con Formatos de exportación y compatibilidad
+          </div>
+          <div style="border:1px dashed var(--border-technical); background: var(--bg-image-placeholder); border-radius: var(--radius-default); text-align:center; padding:32px;" class="font-label font-bold tracking-widest text-xs text-dim">
+            SECCIÓN DE COMENTARIOS — Integración futura
+          </div>
+        </div>
+      </article>
+
+      <!-- SIDEBAR: ad + búsqueda + OTROS ARTÍCULOS + recientes + categorías + newsletter. Ya enlaza a 6 artículos existentes. -->
+      <aside class="article-sidebar" aria-label="Navegación de artículos">
+        <div style="border:2px dashed var(--border-technical); background: var(--bg-card); border-radius: var(--radius-default); aspect-ratio: 16/9; display:flex; align-items:center; justify-content:center;">
+          <svg class="text-dim" height="40" viewBox="0 0 40 40" width="40"><path d="M0 0 L40 40 M40 0 L0 40" stroke="currentColor" stroke-width="1"></path></svg>
+        </div>
+        <div class="sidebar-widget bg-lowest">
+          <div style="height:40px; border:1px solid var(--border-technical); display:flex; align-items:center; padding:0 16px; background: var(--bg-input); border-radius: var(--radius-default);" class="font-label uppercase text-dim font-bold text-xs">
+            🔍 Barra de Búsqueda
+          </div>
+        </div>
+        <div class="sidebar-widget bg-lowest">
+          <h2 class="font-label">OTROS ARTÍCULOS</h2>
+          <ul class="related-list">
+            <li><a href="../Seguridad%20b%C3%A1sica%20y%20Antivirus/Seguridad%20b%C3%A1sica%20y%20Antivirus.html">Seguridad básica y Antivirus</a></li>
+            <li><a href="../Ergonom%C3%ADa%20y%20salud%20digital/Ergonom%C3%ADa%20y%20salud%20digital.html">Ergonomía y salud digital</a></li>
+            <li><a href="../conceptos%20basicos/conceptos%20basicos.html">Conceptos básicos</a></li>
+            <li><a href="../Gu%C3%ADa%20Limpieza%20de%20ventiladores/Gu%C3%ADa%20Limpieza%20de%20ventiladores.html">Limpieza de ventiladores</a></li>
+            <li><a href="../Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing)/Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing).html">Protección contra estafas en línea (Phishing)</a></li>
+            <li><a href="../Redes%20dom%C3%A9sticas%20y%20Wi-Fi/Redes%20dom%C3%A9sticas%20y%20Wi-Fi.html">Redes domésticas y Wi-Fi</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-widget bg-lowest">
+          <h3 class="font-label uppercase tracking-widest mb-sm">Entradas Recientes</h3>
+          <div style="display:grid; gap:12px;">
+            <div style="height:18px; background: var(--bg-image-placeholder); border-radius:4px;"></div>
+            <div style="height:18px; background: var(--bg-image-placeholder); border-radius:4px; width:80%;"></div>
+            <div style="height:18px; background: var(--bg-image-placeholder); border-radius:4px; width:66%;"></div>
+          </div>
+        </div>
+        <div class="sidebar-widget bg-lowest">
+          <h3 class="font-label uppercase tracking-widest mb-sm">Categorías Populares</h3>
+          <div style="display:flex; flex-wrap:wrap; gap:8px;">
+            <span style="border:1px solid var(--border-technical); padding:6px 10px; border-radius:999px; background: var(--bg-card);" class="font-label text-dim">Ofimática</span>
+            <span style="border:1px solid var(--border-technical); padding:6px 10px; border-radius:999px; background: var(--bg-card);" class="font-label text-dim">Educación</span>
+            <span style="border:1px solid var(--border-technical); padding:6px 10px; border-radius:999px; background: var(--bg-card);" class="font-label text-dim">Tecnología</span>
+          </div>
+        </div>
+        <div class="sidebar-widget bg-lowest text-center">
+          <h3 class="font-label uppercase tracking-widest mb-sm">Suscripción al Boletín</h3>
+          <div style="height:32px; background: var(--primary); border-radius:4px; width:100%; opacity:0.9; display:flex; align-items:center; justify-content:center; color: var(--bg-app);" class="font-label font-bold">Suscribirse</div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="article-footer"><p class="font-label text-dim">© 2026 Blog Informativo · Construyendo Conocimiento Tecnológico</p></footer>
+  <script src="../script/script_articulo.js" defer></script>
+  <!--
+  ================================================================================
+  GUÍA RÁPIDA PARA EDITAR ESTE ARTÍCULO (cuando retomes):
+  - Busca "TODO:" en este archivo para saber qué cambiar.
+  - Imágenes: crea src/ si no existe, pon 01-hero.png y reemplaza div placeholder.
+  - Tabla: si no la necesitas, borra todo el <section> de tabla comparativa.
+  - Para publicar, no toques este HTML; solo descomenta su card en ../../index.html
+  ================================================================================
+  -->
+</body>
+</html>
