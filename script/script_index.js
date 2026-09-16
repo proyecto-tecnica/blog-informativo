@@ -623,7 +623,7 @@
             {
                 title: 'Limpieza de ventiladores',
                 href: 'articulos/Gu%C3%ADa%20Limpieza%20de%20ventiladores/Gu%C3%ADa%20Limpieza%20de%20ventiladores.html',
-                image: 'articulos/Guía Limpieza de ventiladores/src/03-internal-cleaning.jpg',
+                image: 'articulos/Guía Limpieza de ventiladores/src/03-internal-cleaning.webp',
                 alt: 'Imagen artículo Limpieza de ventiladores',
                 category: 'MANTENIMIENTO',
                 description: 'Cómo limpiar los ventiladores para evitar sobrecalentamiento y ruido.'
@@ -631,7 +631,7 @@
             {
                 title: 'Conceptos básicos',
                 href: 'articulos/conceptos%20basicos/conceptos%20basicos.html',
-                image: 'articulos/conceptos basicos/src/01-hero-computer.jpg',
+                image: 'articulos/conceptos basicos/src/01-hero-computer.webp',
                 alt: 'Imagen artículo Conceptos Básicos',
                 category: 'FUNDAMENTOS',
                 description: 'Los términos esenciales para empezar a usar la computadora con confianza.'
@@ -655,7 +655,7 @@
             {
                 title: 'Seguridad básica y Antivirus',
                 href: 'articulos/Seguridad%20b%C3%A1sica%20y%20Antivirus/Seguridad%20b%C3%A1sica%20y%20Antivirus.html',
-                image: 'articulos/Seguridad básica y Antivirus/src/01-hero-antivirus.png',
+                image: 'articulos/Seguridad básica y Antivirus/src/01-hero-antivirus.webp',
                 alt: 'Imagen artículo Seguridad básica y Antivirus',
                 category: 'SEGURIDAD', // Con categoría
                 description: 'Recomendaciones para proteger el equipo y la información.'
@@ -663,7 +663,7 @@
             {
                 title: 'Ergonomía y salud digital',
                 href: 'articulos/Ergonom%C3%ADa%20y%20salud%20digital/Ergonom%C3%ADa%20y%20salud%20digital.html',
-                image: 'articulos/Ergonomía y salud digital/src/01-hero-ergonomics.png',
+                image: 'articulos/Ergonomía y salud digital/src/01-hero-ergonomics.webp',
                 alt: 'Imagen artículo Ergonomía y salud digital',
                 category: 'SALUD DIGITAL', // Con categoría
                 description: 'Hábitos para usar la tecnología de forma cómoda y segura.'
@@ -703,7 +703,7 @@
             {
                 title: 'Redes domésticas y Wi-Fi',
                 href: 'articulos/Redes%20dom%C3%A9sticas%20y%20Wi-Fi/Redes%20dom%C3%A9sticas%20y%20Wi-Fi.html',
-                image: 'articulos/Redes domésticas y Wi-Fi/src/01-hero-wifi.png',
+                image: 'articulos/Redes domésticas y Wi-Fi/src/01-hero-wifi.webp',
                 alt: 'Imagen artículo Redes domésticas y Wi-Fi',
                 category: 'REDES',
                 description: 'Configura y protege tu red Wi-Fi para una conexión estable en casa.'
@@ -711,7 +711,7 @@
             {
                 title: 'Protección contra estafas en línea (Phishing)',
                 href: 'articulos/Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing)/Protecci%C3%B3n%20contra%20estafas%20en%20l%C3%ADnea%20(Phishing).html',
-                image: 'articulos/Protección contra estafas en línea (Phishing)/src/01-hero-phishing.png',
+                image: 'articulos/Protección contra estafas en línea (Phishing)/src/01-hero-phishing.webp',
                 alt: 'Imagen artículo Phishing',
                 category: 'SEGURIDAD',
                 description: 'Aprende a detectar correos y mensajes engañosos antes de caer en la trampa.'
@@ -909,21 +909,21 @@
             {
                 title: 'Seguridad básica y Antivirus',
                 href: 'articulos/Seguridad%20b%C3%A1sica%20y%20Antivirus/Seguridad%20b%C3%A1sica%20y%20Antivirus.html',
-                image: 'articulos/Seguridad básica y Antivirus/src/01-hero-antivirus.png',
+                image: 'articulos/Seguridad básica y Antivirus/src/01-hero-antivirus.webp',
                 alt: 'Imagen destacada Seguridad básica y Antivirus',
                 description: 'Recomendaciones fundamentales para proteger tu equipo y tu información frente a amenazas digitales y virus.'
             },
             {
                 title: 'Ergonomía y salud digital',
                 href: 'articulos/Ergonom%C3%ADa%20y%20salud%20digital/Ergonom%C3%ADa%20y%20salud%20digital.html',
-                image: 'articulos/Ergonomía y salud digital/src/01-hero-ergonomics.png',
+                image: 'articulos/Ergonomía y salud digital/src/01-hero-ergonomics.webp',
                 alt: 'Imagen destacada Ergonomía y salud digital',
                 description: 'Hábitos posturales y pausas activas para usar la tecnología de forma cómoda, saludable y segura en el día a día.'
             },
             {
                 title: 'Redes domésticas y Wi-Fi',
                 href: 'articulos/Redes%20dom%C3%A9sticas%20y%20Wi-Fi/Redes%20dom%C3%A9sticas%20y%20Wi-Fi.html',
-                image: 'articulos/Redes domésticas y Wi-Fi/src/01-hero-wifi.png',
+                image: 'articulos/Redes domésticas y Wi-Fi/src/01-hero-wifi.webp',
                 alt: 'Imagen destacada Redes domésticas y Wi-Fi',
                 description: 'Ajustes clave y recomendaciones prácticas de configuración para optimizar la velocidad y seguridad de tu red Wi-Fi.'
             },
