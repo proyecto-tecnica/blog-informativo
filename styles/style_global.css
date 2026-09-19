@@ -9,6 +9,37 @@
    - Grid artículos: .article-grid-layout 8fr/4fr en desktop (linea ~270)
    - No borres esta cabecera, es tu chuleta.
    =============================================================================== */
+/* Fuentes locales — se sirven desde /fonts/ del propio sitio, sin Google Fonts */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('../fonts/inter-latin-var.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Geist';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('../fonts/geist-latin-var.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 100 800;
+    font-display: swap;
+    src: url('../fonts/jetbrains-mono-latin-var.woff2') format('woff2');
+}
+/* Iconos: block evita que se vea el nombre del icono mientras carga */
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 100 700;
+    font-display: block;
+    src: url('../fonts/material-symbols-outlined-var.woff2') format('woff2');
+}
+
 /* Variables y Root */
 :root {
     color-scheme: light dark;
@@ -45,14 +76,14 @@
     --sidebar-width: 256px;
     --radius-default: 4px;
 
-    /* Fonts & Sizes */
-    --font-body-lg: 'Inter', sans-serif;
-    --font-body-md: 'Inter', sans-serif;
-    --font-body: 'Inter', sans-serif;
-    --font-headline-lg: 'Geist', sans-serif;
-    --font-headline-md: 'Geist', sans-serif;
-    --font-display: 'Geist', sans-serif;
-    --font-label: 'JetBrains Mono', monospace;
+    /* Fonts & Sizes — cada familia respalda a la otra y luego a fuentes del sistema */
+    --font-body-lg: 'Inter', 'Geist', system-ui, 'Segoe UI', sans-serif;
+    --font-body-md: 'Inter', 'Geist', system-ui, 'Segoe UI', sans-serif;
+    --font-body: 'Inter', 'Geist', system-ui, 'Segoe UI', sans-serif;
+    --font-headline-lg: 'Geist', 'Inter', system-ui, 'Segoe UI', sans-serif;
+    --font-headline-md: 'Geist', 'Inter', system-ui, 'Segoe UI', sans-serif;
+    --font-display: 'Geist', 'Inter', system-ui, 'Segoe UI', sans-serif;
+    --font-label: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
 
     /* Application semantic tokens (Light Mode) — solicitado #e6f0ff */
     --bg-app: #e6f0ff;
