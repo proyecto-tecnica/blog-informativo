@@ -11,6 +11,7 @@ ESTRUCTURA GENERAL:
   - #inicio : hero destacado (card grande)
   - #articulos : lista de 2 artículos recientes (flex column → row en desktop)
   - #conceptos : grid 2 col de conceptos clave (cards con arrow_outward)
+  - #proyectos : TecnoProyectos — proyectos de los otros grupos (3 cards hacia "proyectos de los otros grupos/<grupo>/<grupo>.html", 2 con video)
   - #archivo : grid archivo de publicaciones (17 originales + 25 artículos nuevos, todos activos)
   - footer
 
@@ -104,6 +105,11 @@ LOS 25 ARTÍCULOS NUEVOS:
                 <a href="#conceptos" class="nav-link">
                     <span class="material-symbols-outlined">category</span>
                     Conceptos
+                </a>
+                <!-- Enlace a la sección TecnoProyectos (proyectos de los otros grupos) -->
+                <a href="#proyectos" class="nav-link">
+                    <span class="material-symbols-outlined">rocket_launch</span>
+                    TecnoProyectos
                 </a>
                 <!-- Enlace al Archivo completo de publicaciones con todos los artículos -->
                 <a href="#archivo" class="nav-link">
@@ -244,6 +250,53 @@ LOS 25 ARTÍCULOS NUEVOS:
                             <p class="concept-description">
                                 Explicación breve del concepto o artículo relacionado. Esto servirá para interconectar con tu plantilla de conceptos.
                             </p>
+                        </div>
+                        <div class="concept-footer">
+                            <span class="material-symbols-outlined link-icon">arrow_outward</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- 4. SECCIÓN: TECNOPROYECTOS (Proyectos de los otros grupos) -->
+            <!-- NOTA: .concept-grid con 3 .concept-card. Cada una abre "proyectos de los otros grupos/<grupo>/<grupo>.html". Las tarjetas usan las mismas clases del archivo para que el buscador las indexe. -->
+            <section id="proyectos" class="section-container border-top-divider pt-large">
+                <div class="section-header-flex">
+                    <h3 class="section-label mb-0">TECNOPROYECTOS</h3>
+                </div>
+                <p class="concept-description" style="max-width:640px;margin:0 0 20px;">Proyectos productivos SENA realizados por los grupos de la media técnica: cada tarjeta lleva el detalle del proyecto y, cuando está disponible, su video institucional.</p>
+
+                <div class="concept-grid">
+                    <!-- Proyecto 1: Gestión de Residuos Informáticos 360 (con video) -->
+                    <a href="proyectos%20de%20los%20otros%20grupos/sala%20didactica/sala%20didactica.html" class="concept-card technical-border card-hover">
+                        <div>
+                            <span class="category-text block-mb">RESIDUOS INFORMÁTICOS</span>
+                            <h5 class="concept-title">Gestión de Residuos Informáticos 360</h5>
+                            <p class="concept-description">Transformaron teclados y equipos en desuso en una sala lúdica tecnológica para los niños de primaria.</p>
+                        </div>
+                        <div class="concept-footer">
+                            <span class="material-symbols-outlined link-icon">arrow_outward</span>
+                        </div>
+                    </a>
+
+                    <!-- Proyecto 2: Mantenimiento de sala de informática (con video) -->
+                    <a href="proyectos%20de%20los%20otros%20grupos/mantenimiento/mantenimiento.html" class="concept-card technical-border card-hover">
+                        <div>
+                            <span class="category-text block-mb">MANTENIMIENTO</span>
+                            <h5 class="concept-title">Mantenimiento de sala de informática</h5>
+                            <p class="concept-description">Cableado organizado, equipos completos y un inventario con placas codificadas y códigos QR.</p>
+                        </div>
+                        <div class="concept-footer">
+                            <span class="material-symbols-outlined link-icon">arrow_outward</span>
+                        </div>
+                    </a>
+
+                    <!-- Proyecto 3: Implementación de un sistema de seguridad -->
+                    <a href="proyectos%20de%20los%20otros%20grupos/sensores/sensores.html" class="concept-card technical-border card-hover">
+                        <div>
+                            <span class="category-text block-mb">SENSORES</span>
+                            <h5 class="concept-title">Implementación de un sistema de seguridad</h5>
+                            <p class="concept-description">Sensores de movimiento con manuales técnicos y de usuario para proteger la sala de informática de robos nocturnos.</p>
                         </div>
                         <div class="concept-footer">
                             <span class="material-symbols-outlined link-icon">arrow_outward</span>
@@ -567,6 +620,7 @@ LOS 25 ARTÍCULOS NUEVOS:
             <div class="footer-inner">
                 <div class="footer-links">
                     <a href="#archivo" class="footer-link">Archivo</a>
+                    <a href="#proyectos" class="footer-link">TecnoProyectos</a>
                     <!-- APARTADO LEGAL -->
                     <a href="legal/privacidad.html" class="footer-link">Privacidad</a>
                     <a href="legal/aporte-legal.html" class="footer-link">Aporte legal</a>

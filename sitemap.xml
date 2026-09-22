@@ -7,6 +7,24 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/proyectos%20de%20los%20otros%20grupos/sala%20didactica/sala%20didactica.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/proyectos%20de%20los%20otros%20grupos/mantenimiento/mantenimiento.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/proyectos%20de%20los%20otros%20grupos/sensores/sensores.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/articuloMantenimiento%20de%20hardware/Mantenimiento%20de%20hardware.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
