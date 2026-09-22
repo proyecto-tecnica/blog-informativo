@@ -1,6 +1,7 @@
 .git/
 .agents/
 .gitignore
+README.md
 wrangler.jsonc
 .testsprite/
 .vscode/
