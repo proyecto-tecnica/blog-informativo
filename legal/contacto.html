@@ -15,6 +15,13 @@ APARTADO LEGAL Y DE PRIVACIDAD — contacto.html — Contacto institucional
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto | Blog Informativo</title>
   <link rel="stylesheet" href="../styles/style_global.css">
+  <!-- Ajuste local: la regla global img{display:block} apila el logo sobre el título y el título se
+       sale de la barra fija tapando el texto al hacer scroll; se pone en fila y las anclas internas
+       reservan margen para no quedar bajo la barra. No toca la paleta ni el CSS global. -->
+  <style>
+    .site-title { display: flex; align-items: center; gap: 8px; }
+    html { scroll-padding-top: 72px; }
+  </style>
   <meta name="description" content="Cómo comunicarte con el blog: solicitudes sobre datos personales, derechos de autor y reporte de contenido, canalizadas por la institución educativa del proyecto.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://blog-informativo.construyendoconocimiento.workers.dev/legal/contacto.html">

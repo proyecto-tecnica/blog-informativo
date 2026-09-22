@@ -14,6 +14,13 @@ APARTADO LEGAL Y DE PRIVACIDAD — privacidad.html — Política de privacidad
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacidad | Blog Informativo</title>
   <link rel="stylesheet" href="../styles/style_global.css">
+  <!-- Ajuste local: la regla global img{display:block} apila el logo sobre el título y el título se
+       sale de la barra fija tapando el texto al hacer scroll; se pone en fila y las anclas internas
+       reservan margen para no quedar bajo la barra. No toca la paleta ni el CSS global. -->
+  <style>
+    .site-title { display: flex; align-items: center; gap: 8px; }
+    html { scroll-padding-top: 72px; }
+  </style>
   <meta name="description" content="Política de privacidad del blog: no recolectamos datos personales, sin formularios, cookies ni analítica. Cómo ejercer tus derechos según la Ley 1581 de 2012.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://blog-informativo.construyendoconocimiento.workers.dev/legal/privacidad.html">
@@ -74,14 +81,15 @@ APARTADO LEGAL Y DE PRIVACIDAD — privacidad.html — Política de privacidad
 
       <section class="article-section">
         <h2 class="article-subheading">¿Qué datos recogemos? Ninguno</h2>
-        <p>Este blog no recoge datos personales. No hay formularios donde dejar tu nombre o correo, no usamos cookies, no instalamos herramientas de analítica ni rastreo, y no hay sección de comentarios. Lo verificamos con una búsqueda en los archivos HTML del sitio —cero coincidencias y cero recursos externos— y revisando los scripts: lo único que guardan es la preferencia de tema.</p>
+        <p>Este blog no recoge datos personales. No hay formularios donde dejar tu nombre o correo, no usamos cookies, no instalamos herramientas de analítica ni rastreo, y no hay sección de comentarios. Lo verificamos con una búsqueda en los archivos HTML del sitio —cero coincidencias— y revisando los scripts: lo único que guardan es la preferencia de tema. Hay una excepción que debes conocer, y la explicamos aquí abajo.</p>
         <p>En la práctica, esto significa que puedes leer el blog sin decirnos quién eres, porque simplemente no preguntamos.</p>
+        <p><strong>La excepción: los videos de TecnoProyectos.</strong> Algunas páginas de esa sección (los proyectos de los otros grupos) incrustan reproductores de YouTube: son recursos externos, se cargan desde los servidores de Google y pueden fijar sus propias cookies al reproducir el video, algo que el blog no controla. En las páginas propias del blog —inicio, artículos y páginas legales— no hay ningún recurso externo.</p>
       </section>
 
       <section class="article-section">
         <h2 class="article-subheading">El tema claro u oscuro (localStorage)</h2>
-        <p>Hay una única cosa que este blog guarda en tu equipo: si prefieres el tema claro u oscuro. Eso se hace con una función del navegador llamada <em>localStorage</em>, que funciona como una nota que el sitio deja en tu propio navegador para recordarla la próxima vez que visites la página.</p>
-        <p>Esa nota se queda en tu navegador, no está vinculada a ninguna persona identificable y no sale de ahí. Por eso, según nuestra propia lectura del art. 3 de la Ley 1581 de 2012, no constituye tratamiento de datos personales —es una interpretación propia del blog, no un criterio oficial—. Nota honesta: la Superintendencia de Industria y Comercio no ha publicado un documento específico sobre <em>localStorage</em>; la referencia más cercana es su documentación sobre cookies. No citamos nada más allá de eso.</p>
+        <p>La única cosa que este blog guarda en tu equipo por sí mismo es tu preferencia de tema: claro u oscuro. Eso se hace con una función del navegador llamada <em>localStorage</em>, que funciona como una nota que el sitio deja en tu propio navegador para recordarla la próxima vez que visites la página.</p>
+        <p>Esa nota se queda en tu navegador, no está vinculada a ninguna persona identificable y no sale de ahí. Por eso, según nuestra propia lectura del art. 3 de la Ley 1581 de 2012, no constituye tratamiento de datos personales —es una interpretación propia del blog, no un criterio oficial—. Nota honesta: la Superintendencia de Industria y Comercio no ha publicado un documento específico sobre <em>localStorage</em>; la referencia más cercana es su documentación sobre cookies. No citamos nada más allá de eso. Y si reproduces un video de YouTube incrustado en las páginas de TecnoProyectos, quien puede guardar cookies en tu equipo es Google, no el blog (ver la excepción explicada en la sección anterior).</p>
       </section>
 
       <section class="article-section">
