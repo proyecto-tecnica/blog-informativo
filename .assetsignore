@@ -5,3 +5,14 @@ wrangler.jsonc
 .testsprite/
 .vscode/
 google*.html
+.zcode/
+.zcodeignore
+.tmp_xv/
+answers.json
+qa.json
+nul
+script/__pycache__/
+.tmp_verificacion/
+Contenidos_Notion/
+Contenidos_Notion_COMPLETO.pdf
+articulos/plantillas sin utilizar/
