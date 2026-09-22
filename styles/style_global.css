@@ -212,7 +212,8 @@ h1, h2, h3 { margin: 0; }
 .nav-drawer { width: var(--sidebar-width); position: fixed; left: 0; top: 0; bottom: 0; background-color: var(--bg-nav-drawer); border-right: 1px solid var(--border-technical); z-index: 60; transform: translateX(-100%); transition: transform 0.25s ease; }
 .nav-drawer.is-open { transform: translateX(0); }
 .nav-drawer-inner { padding: var(--stack-md); overflow-y: auto; height: 100%; }
-.brand { display: flex; align-items: center; gap: 8px; font-family: var(--font-headline-md); font-size: 24px; font-weight: 700; color: var(--primary); margin-bottom: var(--stack-lg); }
+.brand { display: flex; align-items: center; gap: 8px; font-family: var(--font-headline-md); font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: var(--stack-lg); }
+.brand-logo { width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0; object-fit: cover; }
 .nav-list { display: flex; flex-direction: column; gap: 8px; }
 .nav-label { font-family: var(--font-label); font-size: 12px; color: var(--on-surface-variant); letter-spacing: 0.1em; padding: 0 8px; margin-bottom: 8px; }
 .nav-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; color: var(--on-surface-variant); border-radius: 4px; transition: background 0.15s; }
@@ -230,11 +231,12 @@ h1, h2, h3 { margin: 0; }
 .top-app-bar { position: sticky; top: 0; z-index: 40; background-color: var(--bg-header); border-bottom: 1px solid var(--border-technical); }
 .top-app-bar-inner { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--margin-mobile); height: 64px; display: flex; align-items: center; justify-content: space-between; }
 .mobile-brand { display: flex; align-items: center; gap: 8px; min-width: 0; }
-.mobile-brand-name { font-family: var(--font-headline-md); font-size: 20px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1.2; }
+.mobile-brand-name { font-family: var(--font-headline-md); font-size: 14px; font-weight: 700; color: var(--primary); margin: 0; line-height: 1.2; min-width: 0; overflow-wrap: break-word; }
 /* En pantallas pequeñas el título largo se parte en varias líneas: se compacta para que quepa en la barra de 64px sin desbordarla.
    El buscador se oculta por debajo de 600px: no cabe junto al título y su borde quedaba solapado con el botón de tema. */
 @media (max-width: 767px) {
-    .mobile-brand-name { font-size: 14px; line-height: 1.35; }
+    .mobile-brand { flex: 1 1 0; min-width: 0; }
+    .mobile-brand-name { flex: 1 1 0; min-width: 0; font-size: 12px; line-height: 1.35; }
     .mobile-brand-icon { width: 20px !important; height: 20px !important; flex-shrink: 0; }
     .menu-toggle { flex-shrink: 0; }
 }
@@ -426,6 +428,9 @@ h1, h2, h3 { margin: 0; }
 .footer-link { font-family: var(--font-label); font-size: 12px; color: var(--on-surface-variant); transition: color 0.15s; }
 .footer-link:hover { color: var(--primary); }
 .footer-copyright { font-family: var(--font-label); font-size: 12px; color: var(--on-surface-variant); letter-spacing: 0.1em; margin: 0; opacity: 0.8; }
+.footer-school { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: var(--stack-md); }
+.footer-school-logo { width: 56px; height: 56px; border-radius: 50%; background-color: #fff; padding: 6px; box-sizing: border-box; object-fit: contain; border: 1px solid var(--border-technical); }
+.footer-school-name { font-family: var(--font-label); font-size: 11px; color: var(--on-surface-variant); letter-spacing: 0.1em; margin: 0; }
 
 /* --- CLASES DE LOS ARTÍCULOS --- */
 .font-headline-lg { font-family: var(--font-headline-lg); font-size: clamp(24px, 4vw, 48px); font-weight: 700; }
