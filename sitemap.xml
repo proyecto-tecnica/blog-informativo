@@ -31,6 +31,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://blog-informativo.construyendoconocimiento.workers.dev/TecnoGuia/TecnoGuia.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://blog-informativo.construyendoconocimiento.workers.dev/articulos/articuloMantenimiento%20de%20hardware/Mantenimiento%20de%20hardware.html</loc>
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
