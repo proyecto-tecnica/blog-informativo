@@ -12,7 +12,7 @@ ESTRUCTURA GENERAL:
   - #articulos : lista de 2 artículos recientes (flex column → row en desktop)
   - #conceptos : grid 2 col de conceptos clave (cards con arrow_outward)
   - #proyectos : TecnoProyectos — proyectos de los otros grupos (4 cards hacia "proyectos de los otros grupos/<grupo>/<grupo>.html", 2 con video)
-  - #tecnoguia : TecnoGuia — guía del proyecto (1 card interna a "TecnoGuia/TecnoGuia.html" + 4 cards externas target _blank a los diagramas de guia-blog-informativo.vercel.app)
+  - #tecnoguia : TecnoGuia — guía del proyecto (1 card interna a "TecnoGuia/TecnoGuia.html" + 4 cards externas target _blank a los diagramas de guia-blog-informativo.vercel.app + 1 card al video "Cómo ingresar a NAOS" con ancla #video-naos dentro de la página)
   - #archivo : grid archivo de publicaciones (17 originales + 25 artículos nuevos, todos activos)
   - footer
 
@@ -389,6 +389,18 @@ LOS 25 ARTÍCULOS NUEVOS:
                         </div>
                         <div class="concept-footer">
                             <span class="material-symbols-outlined link-icon">open_in_new</span>
+                        </div>
+                    </a>
+
+                    <!-- Video: cómo ingresar a NAOS (ancla dentro de la página de TecnoGuia) -->
+                    <a href="TecnoGuia/TecnoGuia.html#video-naos" class="concept-card technical-border card-hover">
+                        <div>
+                            <span class="category-text block-mb">VIDEO</span>
+                            <h5 class="concept-title">Cómo ingresar a NAOS</h5>
+                            <p class="concept-description">Video corto con el paso a paso para ingresar a NAOS, incrustado al final de la guía.</p>
+                        </div>
+                        <div class="concept-footer">
+                            <span class="material-symbols-outlined link-icon">arrow_outward</span>
                         </div>
                     </a>
                 </div>
