@@ -12,7 +12,7 @@ ESTRUCTURA GENERAL:
   - #articulos : lista de 2 artículos recientes (flex column → row en desktop)
   - #conceptos : grid 2 col de conceptos clave (cards con arrow_outward)
   - #proyectos : TecnoProyectos — proyectos de los otros grupos (4 cards hacia "proyectos de los otros grupos/<grupo>/<grupo>.html", 2 con video)
-  - #tecnoguia : TecnoGuia — guía del proyecto (1 card interna a "TecnoGuia/TecnoGuia.html" + 4 cards externas target _blank a los diagramas de guia-blog-informativo.vercel.app + 1 card al video "Cómo ingresar a NAOS" con ancla #video-naos dentro de la página)
+  - #tecnoguia : TecnoGuia — tutoriales en video (1 card a "TecnoGuia/TecnoGuia.html#video-naos", video "Cómo ingresar a NAOS" incrustado en la página)
   - #archivo : grid archivo de publicaciones (17 originales + 25 artículos nuevos, todos activos)
   - footer
 
@@ -323,81 +323,21 @@ LOS 25 ARTÍCULOS NUEVOS:
                 </div>
             </section>
 
-            <!-- 5. SECCIÓN: TECNOGUIA (Guía del proyecto) -->
-            <!-- NOTA: .concept-grid con 5 .concept-card. La primera abre "TecnoGuia/TecnoGuia.html" (interna). Las otras 4 abren los diagramas interactivos en guia-blog-informativo.vercel.app con target _blank e icono open_in_new. Las tarjetas usan las mismas clases del archivo para que el buscador las indexe. -->
+            <!-- 5. SECCIÓN: TECNOGUIA (Tutoriales en video) -->
+            <!-- NOTA: .concept-grid con 1 .concept-card hacia "TecnoGuia/TecnoGuia.html#video-naos" (video "Cómo ingresar a NAOS" incrustado en la página). Usa las mismas clases del archivo para que el buscador la indexe. -->
             <section id="tecnoguia" class="section-container border-top-divider pt-large">
                 <div class="section-header-flex">
                     <h3 class="section-label mb-0">TECNOGUIA</h3>
                 </div>
-                <p class="concept-description" style="max-width:640px;margin:0 0 20px;">Cómo funciona este proyecto, explicado para todo el grupo sin palabras técnicas: la guía escrita y los diagramas interactivos del blog.</p>
+                <p class="concept-description" style="max-width:640px;margin:0 0 20px;">Tutoriales en video del proyecto, explicados paso a paso.</p>
 
                 <div class="concept-grid">
-                    <!-- Guía escrita (página interna) -->
-                    <a href="TecnoGuia/TecnoGuia.html" class="concept-card technical-border card-hover">
-                        <div>
-                            <span class="category-text block-mb">GUÍA ESCRITA</span>
-                            <h5 class="concept-title">TecnoGuia: el proyecto explicado</h5>
-                            <p class="concept-description">Qué es el blog, cómo está organizado, cómo funciona la portada y cómo agregar un artículo, paso a paso.</p>
-                        </div>
-                        <div class="concept-footer">
-                            <span class="material-symbols-outlined link-icon">arrow_outward</span>
-                        </div>
-                    </a>
-
-                    <!-- Diagrama 00: Visión general (enlace externo) -->
-                    <a href="https://guia-blog-informativo.vercel.app/00-vision-general" target="_blank" rel="noopener" class="concept-card technical-border card-hover">
-                        <div>
-                            <span class="category-text block-mb">DIAGRAMA 00</span>
-                            <h5 class="concept-title">Visión general</h5>
-                            <p class="concept-description">El proyecto en seis piezas: la persona que visita, Cloudflare, la portada, los artículos y los archivos.</p>
-                        </div>
-                        <div class="concept-footer">
-                            <span class="material-symbols-outlined link-icon">open_in_new</span>
-                        </div>
-                    </a>
-
-                    <!-- Diagrama 01: Arquitectura (enlace externo) -->
-                    <a href="https://guia-blog-informativo.vercel.app/01-arquitectura" target="_blank" rel="noopener" class="concept-card technical-border card-hover">
-                        <div>
-                            <span class="category-text block-mb">DIAGRAMA 01</span>
-                            <h5 class="concept-title">Arquitectura</h5>
-                            <p class="concept-description">Todas las piezas del sitio y cómo se conectan entre ellas: quién entrega los archivos y quién hace el resto.</p>
-                        </div>
-                        <div class="concept-footer">
-                            <span class="material-symbols-outlined link-icon">open_in_new</span>
-                        </div>
-                    </a>
-
-                    <!-- Diagrama 02: Flujo de una visita (enlace externo) -->
-                    <a href="https://guia-blog-informativo.vercel.app/02-flujo-de-una-visita" target="_blank" rel="noopener" class="concept-card technical-border card-hover">
-                        <div>
-                            <span class="category-text block-mb">DIAGRAMA 02</span>
-                            <h5 class="concept-title">Flujo de una visita</h5>
-                            <p class="concept-description">El recorrido completo: desde que alguien abre el sitio hasta que lee un artículo y vuelve.</p>
-                        </div>
-                        <div class="concept-footer">
-                            <span class="material-symbols-outlined link-icon">open_in_new</span>
-                        </div>
-                    </a>
-
-                    <!-- Diagrama 03: Carga dinámica de artículo (enlace externo) -->
-                    <a href="https://guia-blog-informativo.vercel.app/03-carga-dinamica-de-articulo" target="_blank" rel="noopener" class="concept-card technical-border card-hover">
-                        <div>
-                            <span class="category-text block-mb">DIAGRAMA 03</span>
-                            <h5 class="concept-title">Carga dinámica de artículo</h5>
-                            <p class="concept-description">Cómo el sitio busca un artículo y qué hace si no lo encuentra: el respaldo que evita enlaces rotos.</p>
-                        </div>
-                        <div class="concept-footer">
-                            <span class="material-symbols-outlined link-icon">open_in_new</span>
-                        </div>
-                    </a>
-
                     <!-- Video: cómo ingresar a NAOS (ancla dentro de la página de TecnoGuia) -->
                     <a href="TecnoGuia/TecnoGuia.html#video-naos" class="concept-card technical-border card-hover">
                         <div>
                             <span class="category-text block-mb">VIDEO</span>
                             <h5 class="concept-title">Cómo ingresar a NAOS</h5>
-                            <p class="concept-description">Video corto con el paso a paso para ingresar a NAOS, incrustado al final de la guía.</p>
+                            <p class="concept-description">Video corto con el paso a paso para ingresar a NAOS, incrustado en la página de TecnoGuia.</p>
                         </div>
                         <div class="concept-footer">
                             <span class="material-symbols-outlined link-icon">arrow_outward</span>
