@@ -17,7 +17,7 @@ ESTRUCTURA GENERAL:
   - footer
 
 JS:
-- script/script_index.js : maneja (1) tema claro/oscuro (clases :root.light/:root.dark + localStorage 'theme'), (2) drawer móvil (#menuToggle/#navScrim), (3) buscador funcional (#siteSearch: filtro en vivo, autocompletado, mayúsculas/minúsculas/acentos).
+- script/script_index.js : maneja (1) tema claro/oscuro (clases :root.light/:root.dark + localStorage 'theme'), (2) drawer móvil (#menuToggle/#navScrim), (3) buscador funcional (#siteSearch: filtro en vivo, autocompletado, mayúsculas/minúsculas/acentos), (4) rotación del hero (heroArticlesPool: el video de NAOS va primero y dura 15 s; los demás rotan cada 8 s).
 
 CSS:
 - styles/style_global.css : variables --bg-app, --text-app, --bg-card, etc.
@@ -162,22 +162,22 @@ LOS 25 ARTÍCULOS NUEVOS:
         <main id="inicio" class="main-content">
 
             <!-- 1. SECCIÓN: ARTÍCULO DESTACADO (Hero) -->
-            <!-- NOTA: .hero-image-wrapper 350px + .hero-content. Cambia src de img y href del LEER ARTÍCULO para destacar otro post. -->
+            <!-- NOTA: .hero-image-wrapper 350px + .hero-content. Debe reflejar heroArticlesPool[0] de script_index.js (hoy: el video "Cómo ingresar a NAOS", que se queda 15 s en pantalla; los demás rotan cada 8 s). -->
             <section class="section-container">
                 <article class="hero-article card-hover">
                     <div class="hero-image-wrapper technical-border">
-                    <img class="hero-image zoom-img" src="articulos/articuloMantenimiento de hardware/src/01-hero-disk-fragmentation.jpg" alt="Imagen destacada Mantenimiento de Hardware">
+                    <img class="hero-image zoom-img" src="TecnoGuia/naos-hero.webp" alt="Video tutorial Cómo ingresar a NAOS">
                     </div>
                     <div class="hero-content">
                         <div class="meta-info">
                             <span class="tag-primary">DESTACADO</span>
                         </div>
-                        <h2 class="hero-title">Mantenimiento de hardware</h2>
+                        <h2 class="hero-title">Cómo ingresar a NAOS</h2>
                         <p class="hero-description">
-                            Un párrafo introductorio de ejemplo para el artículo destacado. Aquí se explica brevemente de qué trata el contenido principal para enganchar al lector.
+                            Video tutorial corto con el paso a paso para ingresar a NAOS. Se reproduce en la sección TecnoGuia.
                         </p>
-                        <a href="articulos/articuloMantenimiento%20de%20hardware/Mantenimiento%20de%20hardware.html" class="read-more-link">
-                            LEER ARTÍCULO <span class="material-symbols-outlined">arrow_forward</span>
+                        <a href="TecnoGuia/TecnoGuia.html#video-naos" class="read-more-link">
+                            VER VIDEO <span class="material-symbols-outlined">arrow_forward</span>
                         </a>
                     </div>
                 </article>

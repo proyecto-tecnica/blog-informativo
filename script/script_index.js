@@ -886,7 +886,8 @@
         Este módulo gestiona la rotación automática y suave del artículo
         principal destacado (.hero-article) ubicado en la sección #inicio:
 
-        - Rota cada intervalo de tiempo (8000 ms = 8 segundos).
+        - Rota cada intervalo de tiempo (8000 ms = 8 segundos), salvo que
+          el elemento visible defina su propio "duration" en ms.
         - Desvanecimiento suave mediante CSS (clase .hero-article.is-rotating).
         - No muestra fecha: elimina cualquier elemento .date-text.
         - Mantiene la etiqueta "DESTACADO" visible.
@@ -899,6 +900,15 @@
     if (heroArticle) {
         // Colección de artículos destacados con datos reales del blog para la rotación del Hero
         const heroArticlesPool = [
+            {
+                title: 'Cómo ingresar a NAOS',
+                href: 'TecnoGuia/TecnoGuia.html#video-naos',
+                image: 'TecnoGuia/naos-hero.webp',
+                alt: 'Video tutorial Cómo ingresar a NAOS',
+                description: 'Video tutorial corto con el paso a paso para ingresar a NAOS. Se reproduce en la sección TecnoGuia.',
+                linkText: 'VER VIDEO',
+                duration: 15000 // El tutorial de NAOS se queda más tiempo en pantalla; los demás usan los 8 s generales
+            },
             {
                 title: 'Mantenimiento de hardware',
                 href: 'articulos/articuloMantenimiento%20de%20hardware/Mantenimiento%20de%20hardware.html',
@@ -980,10 +990,13 @@
                 descEl.textContent = data.description;
             }
 
-            // 5. Actualizar el enlace "LEER ARTÍCULO"
+            // 5. Actualizar el enlace (VER VIDEO para el tutorial, LEER ARTÍCULO para el resto)
             const linkEl = heroArticle.querySelector('.read-more-link');
             if (linkEl) {
                 linkEl.href = data.href;
+                const icon = linkEl.querySelector('.material-symbols-outlined');
+                linkEl.textContent = (data.linkText || 'LEER ARTÍCULO') + ' ';
+                if (icon) linkEl.appendChild(icon);
             }
 
             // 6. Sincronizar en memoria con el buscador
@@ -1022,11 +1035,16 @@
 
             currentHeroIndex = (currentHeroIndex + 1) % heroArticlesPool.length;
             showHeroArticle(currentHeroIndex, true);
+            // Re-armar el temporizador con el tiempo del elemento que acaba de entrar
+            startHeroTimer();
         }
 
         function startHeroTimer() {
             stopHeroTimer();
-            heroTimerId = setInterval(advanceHero, HERO_ROTATION_INTERVAL);
+            // Tiempo en pantalla del elemento visible: cada entrada puede definir
+            // "duration" (ms); si no la trae, se usan los 8 segundos generales.
+            const ms = heroArticlesPool[currentHeroIndex].duration || HERO_ROTATION_INTERVAL;
+            heroTimerId = setInterval(advanceHero, ms);
         }
 
         function stopHeroTimer() {
